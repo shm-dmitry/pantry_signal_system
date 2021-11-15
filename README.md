@@ -13,9 +13,10 @@ It will collect and send next information (incl alarms):
 1. Inside flooding alarm
 2. Outside flooding alarm
 3. Inside humidity level
-4. Inside light level
-5. Open door alarm
-6. Current voltage of primary and reserve battery
+4. Inside temperature
+5. Inside light level
+6. Open door alarm
+7. Current voltage of primary and reserve battery
 
 It will automatically switch on air-drier basing on humidity level
 
