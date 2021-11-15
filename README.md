@@ -15,6 +15,7 @@ It will collect and send next information (incl alarms):
 3. Inside humidity level
 4. Inside light level
 5. Open door alarm
+6. Current voltage of primary and reserve battery
 
 It will automatically switch on air-drier basing on humidity level
 
