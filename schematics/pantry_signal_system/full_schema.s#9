@@ -381,6 +381,19 @@
 <pad name="M0" x="0" y="7.62" drill="0.6" shape="square"/>
 <pad name="GND" x="0" y="-7.62" drill="0.6" shape="square"/>
 </package>
+<package name="SF">
+<pad name="P$1" x="-1.27" y="0" drill="0.6" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="0.6" shape="square"/>
+</package>
+<package name="SWITCH">
+<pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="1.2" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="BATTERY">
@@ -770,6 +783,28 @@
 <text x="-10.16" y="-7.62" size="1.27" layer="94">GND</text>
 <text x="2.54" y="5.08" size="1.778" layer="94">&gt;NAME</text>
 <text x="2.54" y="-2.54" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="SF">
+<pin name="P$1" x="-15.24" y="0" visible="off" length="middle"/>
+<pin name="P$2" x="15.24" y="0" visible="off" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="-2.54" x2="-5.08" y2="2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="-10.16" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<text x="-4.445" y="3.81" size="1.778" layer="94">&gt;NAME</text>
+<text x="-4.445" y="-5.08" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="SWITCH">
+<pin name="P$1" x="-10.16" y="0" visible="off" length="middle"/>
+<pin name="P$2" x="10.16" y="0" visible="off" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="-5.08" y="5.08" size="1.778" layer="94">&gt;NAME</text>
+<text x="-5.08" y="-5.08" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1185,6 +1220,38 @@
 </device>
 </devices>
 </deviceset>
+<deviceset name="SF" prefix="SF">
+<gates>
+<gate name="G$1" symbol="SF" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SF">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH" prefix="SW">
+<gates>
+<gate name="G$1" symbol="SWITCH" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SWITCH">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
@@ -1243,6 +1310,7 @@
 <schematic_group name="OUTDOOR_FLOODING_SENSOR"/>
 <schematic_group name="LOGIC_AVR"/>
 <schematic_group name="LORA"/>
+<schematic_group name="OPEN_DOOR_ALARM_MODULE"/>
 </groups>
 <parts>
 <part name="BAT1" library="my_devices" deviceset="BATTERY" device="" value="12V"/>
@@ -1305,7 +1373,7 @@
 <part name="U6" library="my_devices" deviceset="I2C_DISPLAY" device=""/>
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q8" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
-<part name="R9" library="my_devices" deviceset="R" device=""/>
+<part name="R9" library="my_devices" deviceset="R" device="" value="620"/>
 <part name="C6" library="my_devices" deviceset="C" device=""/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U7" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
@@ -1318,12 +1386,12 @@
 <part name="GND25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J3" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="J5" library="my_devices" deviceset="JST-XH254-2P" device=""/>
-<part name="R10" library="my_devices" deviceset="R" device=""/>
-<part name="R11" library="my_devices" deviceset="R" device=""/>
-<part name="R12" library="my_devices" deviceset="R" device=""/>
-<part name="R13" library="my_devices" deviceset="RF" device=""/>
+<part name="R10" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R11" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R12" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R13" library="my_devices" deviceset="RF" device="" value="1M"/>
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R14" library="my_devices" deviceset="R" device=""/>
+<part name="R14" library="my_devices" deviceset="R" device="" value="1M"/>
 <part name="FS1" library="my_devices" deviceset="FLOODING_SENSOR" device=""/>
 <part name="FS2" library="my_devices" deviceset="FLOODING_SENSOR" device=""/>
 <part name="GND27" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -1335,12 +1403,29 @@
 <part name="R17" library="my_devices" deviceset="R" device=""/>
 <part name="U8" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="SF1" library="my_devices" deviceset="SF" device=""/>
+<part name="GND31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R18" library="my_devices" deviceset="R" device="" value="2M"/>
+<part name="J6" library="my_devices" deviceset="JST-XH254-2P" device=""/>
+<part name="GND32" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J8" library="my_devices" deviceset="JST-XH254-2P" device=""/>
+<part name="GND33" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="SW1" library="my_devices" deviceset="SWITCH" device=""/>
+<part name="SW2" library="my_devices" deviceset="SWITCH" device=""/>
+<part name="FAN2" library="my_devices" deviceset="FAN_5V" device="" value="Fan on 12V"/>
+<part name="C7" library="my_devices" deviceset="C" device=""/>
+<part name="R19" library="my_devices" deviceset="R" device=""/>
+<part name="Q12" library="my_devices" deviceset="MOSFET_N" device=""/>
+<part name="Q13" library="my_devices" deviceset="MOSFET_N" device=""/>
+<part name="GND34" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND35" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="175.26" y="106.68" size="6.4516" layer="91">Supply module</text>
 <text x="541.02" y="104.14" size="6.4516" layer="91">Logick module</text>
+<text x="848.36" y="101.6" size="6.4516" layer="91">Air fan system</text>
 </plain>
 <instances>
 <instance part="BAT1" gate="G$1" x="10.16" y="63.5" smashed="yes" rot="R90" grouprefs="SUPPLY_POWERS">
@@ -1672,6 +1757,65 @@
 <instance part="GND30" gate="1" x="533.4" y="-238.76" smashed="yes" grouprefs="LORA">
 <attribute name="VALUE" x="530.86" y="-241.3" size="1.778" layer="96"/>
 </instance>
+<instance part="SF1" gate="G$1" x="673.1" y="-228.6" smashed="yes" grouprefs="OPEN_DOOR_ALARM_MODULE">
+<attribute name="NAME" x="668.655" y="-224.79" size="1.778" layer="94"/>
+<attribute name="VALUE" x="668.655" y="-233.68" size="1.778" layer="94"/>
+</instance>
+<instance part="GND31" gate="1" x="690.88" y="-231.14" smashed="yes" grouprefs="OPEN_DOOR_ALARM_MODULE">
+<attribute name="VALUE" x="688.34" y="-233.68" size="1.778" layer="96"/>
+</instance>
+<instance part="R18" gate="G$1" x="655.32" y="-220.98" smashed="yes" rot="R90" grouprefs="OPEN_DOOR_ALARM_MODULE">
+<attribute name="NAME" x="652.78" y="-227.33" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="659.13" y="-227.33" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="J6" gate="G$1" x="383.54" y="-91.44" smashed="yes" grouprefs="SUPPLY_SYSTEM_CONNECTOR">
+<attribute name="NAME" x="396.24" y="-88.9" size="1.778" layer="94"/>
+<attribute name="VALUE" x="396.24" y="-93.98" size="1.778" layer="94"/>
+</instance>
+<instance part="GND32" gate="1" x="375.92" y="-96.52" smashed="yes" grouprefs="SUPPLY_SYSTEM_CONNECTOR">
+<attribute name="VALUE" x="373.38" y="-99.06" size="1.778" layer="96"/>
+</instance>
+<instance part="J8" gate="G$1" x="822.96" y="33.02" smashed="yes" rot="R180">
+<attribute name="NAME" x="810.26" y="30.48" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="810.26" y="35.56" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="GND33" gate="1" x="830.58" y="27.94" smashed="yes">
+<attribute name="VALUE" x="828.04" y="25.4" size="1.778" layer="96"/>
+</instance>
+<instance part="SW1" gate="G$1" x="845.82" y="2.54" smashed="yes">
+<attribute name="NAME" x="840.74" y="7.62" size="1.778" layer="94"/>
+<attribute name="VALUE" x="840.74" y="-2.54" size="1.778" layer="94"/>
+</instance>
+<instance part="SW2" gate="G$1" x="845.82" y="-27.94" smashed="yes">
+<attribute name="NAME" x="840.74" y="-22.86" size="1.778" layer="94"/>
+<attribute name="VALUE" x="840.74" y="-33.02" size="1.778" layer="94"/>
+</instance>
+<instance part="FAN2" gate="G$1" x="904.24" y="22.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="909.32" y="17.78" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="909.32" y="27.94" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="C7" gate="G$1" x="866.14" y="-5.08" smashed="yes" rot="R270">
+<attribute name="NAME" x="871.22" y="0" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="858.52" y="0" size="1.778" layer="94" rot="R270"/>
+</instance>
+<instance part="R19" gate="G$1" x="878.84" y="-7.62" smashed="yes" rot="R90">
+<attribute name="NAME" x="876.3" y="-13.97" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="882.65" y="-13.97" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="Q12" gate="G$1" x="894.08" y="5.08" smashed="yes" rot="MR0">
+<attribute name="NAME" x="910.59" y="7.62" size="1.778" layer="94" rot="MR0"/>
+<attribute name="VALUE" x="910.59" y="0" size="1.778" layer="94" rot="MR0"/>
+</instance>
+<instance part="Q13" gate="G$1" x="881.38" y="25.4" smashed="yes">
+<attribute name="NAME" x="864.87" y="27.94" size="1.778" layer="94"/>
+<attribute name="VALUE" x="864.87" y="20.32" size="1.778" layer="94"/>
+</instance>
+<instance part="GND34" gate="1" x="871.22" y="-20.32" smashed="yes">
+<attribute name="VALUE" x="868.68" y="-22.86" size="1.778" layer="96"/>
+</instance>
+<instance part="GND35" gate="1" x="896.62" y="-7.62" smashed="yes">
+<attribute name="VALUE" x="894.08" y="-10.16" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1908,6 +2052,36 @@
 <pinref part="U8" gate="G$1" pin="GND"/>
 <wire x1="533.4" y1="-236.22" x2="535.94" y2="-236.22" width="0.1524" layer="91" grouprefs="LORA"/>
 </segment>
+<segment>
+<pinref part="SF1" gate="G$1" pin="P$2"/>
+<pinref part="GND31" gate="1" pin="GND"/>
+<wire x1="688.34" y1="-228.6" x2="690.88" y2="-228.6" width="0.1524" layer="91" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+</segment>
+<segment>
+<pinref part="GND32" gate="1" pin="GND"/>
+<pinref part="J6" gate="G$1" pin="PIN2"/>
+<wire x1="375.92" y1="-93.98" x2="378.46" y2="-93.98" width="0.1524" layer="91" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
+</segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="PIN1"/>
+<pinref part="GND33" gate="1" pin="GND"/>
+<wire x1="828.04" y1="30.48" x2="830.58" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C7" gate="G$1" pin="PIN_GND"/>
+<wire x1="866.14" y1="-10.16" x2="866.14" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="GND34" gate="1" pin="GND"/>
+<wire x1="866.14" y1="-17.78" x2="871.22" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="R19" gate="G$1" pin="P$1"/>
+<wire x1="871.22" y1="-17.78" x2="878.84" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="878.84" y1="-17.78" x2="878.84" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="871.22" y="-17.78"/>
+</segment>
+<segment>
+<pinref part="Q12" gate="G$1" pin="S"/>
+<pinref part="GND35" gate="1" pin="GND"/>
+<wire x1="896.62" y1="-1.905" x2="896.62" y2="-5.08" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -2071,6 +2245,11 @@
 <wire x1="535.94" y1="-233.68" x2="525.78" y2="-233.68" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="525.78" y="-233.68" size="1.778" layer="95" grouprefs="LORA"/>
 </segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="P$2"/>
+<wire x1="655.32" y1="-212.09" x2="645.16" y2="-212.09" width="0.1524" layer="91" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+<label x="645.16" y="-210.82" size="1.778" layer="95" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+</segment>
 </net>
 <net name="N$3" class="0">
 <segment>
@@ -2227,8 +2406,8 @@
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="PB0"/>
-<wire x1="520.7" y1="12.7" x2="492.76" y2="12.7" width="0.1524" layer="91"/>
-<label x="490.22" y="12.7" size="1.778" layer="95"/>
+<wire x1="520.7" y1="12.7" x2="492.76" y2="12.7" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="490.22" y="12.7" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="SUPPLY_AVR_+5V" class="0">
@@ -2297,6 +2476,26 @@
 <pinref part="Q10" gate="G$1" pin="C"/>
 <wire x1="505.46" y1="-144.78" x2="497.84" y2="-144.78" width="0.1524" layer="91" grouprefs="AIR_DRYER"/>
 <label x="497.84" y="-144.78" size="1.778" layer="95" grouprefs="AIR_DRYER"/>
+</segment>
+<segment>
+<pinref part="J6" gate="G$1" pin="PIN1"/>
+<wire x1="378.46" y1="-88.9" x2="365.76" y2="-88.9" width="0.1524" layer="91" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
+<label x="365.76" y="-88.9" size="1.778" layer="95" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
+</segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="PIN2"/>
+<wire x1="828.04" y1="35.56" x2="843.28" y2="35.56" width="0.1524" layer="91"/>
+<label x="838.2" y="35.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="FAN2" gate="G$1" pin="VCC"/>
+<wire x1="911.86" y1="22.86" x2="919.48" y2="22.86" width="0.1524" layer="91"/>
+<label x="914.4" y="25.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="SW1" gate="G$1" pin="P$1"/>
+<wire x1="835.66" y1="2.54" x2="825.5" y2="2.54" width="0.1524" layer="91"/>
+<label x="825.5" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -2515,12 +2714,22 @@
 <wire x1="535.94" y1="-220.98" x2="515.62" y2="-220.98" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="513.08" y="-220.98" size="1.778" layer="95" grouprefs="LORA"/>
 </segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="PD6"/>
+<wire x1="520.7" y1="17.78" x2="505.46" y2="17.78" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="505.46" y="17.78" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
 </net>
 <net name="LORA_M1" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="M1"/>
 <wire x1="535.94" y1="-223.52" x2="515.62" y2="-223.52" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="513.08" y="-223.52" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="PD7"/>
+<wire x1="520.7" y1="15.24" x2="505.46" y2="15.24" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="505.46" y="15.24" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="LORA_RX" class="0">
@@ -2531,8 +2740,8 @@
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="PD1"/>
-<wire x1="520.7" y1="40.64" x2="500.38" y2="40.64" width="0.1524" layer="91"/>
-<label x="500.38" y="40.64" size="1.778" layer="95"/>
+<wire x1="520.7" y1="40.64" x2="500.38" y2="40.64" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="500.38" y="40.64" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="LORA_TX" class="0">
@@ -2543,8 +2752,53 @@
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="PD0"/>
-<wire x1="520.7" y1="43.18" x2="500.38" y2="43.18" width="0.1524" layer="91"/>
-<label x="500.38" y="43.18" size="1.778" layer="95"/>
+<wire x1="520.7" y1="43.18" x2="500.38" y2="43.18" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="500.38" y="43.18" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="OPEN_DOOR_ALARM" class="0">
+<segment>
+<pinref part="SF1" gate="G$1" pin="P$1"/>
+<pinref part="R18" gate="G$1" pin="P$1"/>
+<wire x1="657.86" y1="-228.6" x2="655.32" y2="-228.6" width="0.1524" layer="91" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+<wire x1="655.32" y1="-228.6" x2="632.46" y2="-228.6" width="0.1524" layer="91" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+<junction x="655.32" y="-228.6" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+<label x="632.46" y="-231.14" size="1.778" layer="95" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
+</segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="PB3"/>
+<wire x1="561.34" y1="17.78" x2="601.98" y2="17.78" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="576.58" y="17.78" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<wire x1="779.78" y1="137.16" x2="782.32" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="782.32" y1="137.16" x2="782.32" y2="-266.7" width="0.1524" layer="91" style="shortdash"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="P$2"/>
+<pinref part="C7" gate="G$1" pin="PIN_PLUS"/>
+<wire x1="855.98" y1="2.54" x2="866.14" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="R19" gate="G$1" pin="P$2"/>
+<wire x1="866.14" y1="2.54" x2="878.84" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="878.84" y1="2.54" x2="878.84" y2="1.27" width="0.1524" layer="91"/>
+<junction x="866.14" y="2.54"/>
+<pinref part="Q12" gate="G$1" pin="G"/>
+<wire x1="878.84" y1="2.54" x2="887.73" y2="2.54" width="0.1524" layer="91"/>
+<junction x="878.84" y="2.54"/>
+</segment>
+</net>
+<net name="N$22" class="0">
+<segment>
+<pinref part="Q12" gate="G$1" pin="D"/>
+<pinref part="FAN2" gate="G$1" pin="GND"/>
+<wire x1="896.62" y1="12.065" x2="896.62" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="Q13" gate="G$1" pin="G"/>
+<wire x1="887.73" y1="22.86" x2="896.62" y2="22.86" width="0.1524" layer="91"/>
+<junction x="896.62" y="22.86"/>
 </segment>
 </net>
 </nets>
