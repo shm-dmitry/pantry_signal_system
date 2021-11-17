@@ -29,13 +29,15 @@ It will send all collected information to smart house system using LoRa channel
 
 Project status
 
-|Hardware|Status|
-|Supply module|not tested|
-|Logic module incl LoRa transmitter|not tested|
-|Air fan module|not tested|
-|LoRa receiver and smart house integration|no|
+| Hardware | Status |
+| --- | --- |
+| Supply module | not tested |
+| Logic module incl LoRa transmitter | not tested |
+| Air fan module | not tested |
+| LoRa receiver and smart house integration | no |
 
-|Firmware|Status|
-|Supply controller|no|
-|Main controller|no|
-|LoRa receiver and smart house integration|no|
+| Firmware | Status |
+| --- | --- |
+| Supply controller | no |
+| Main controller | no |
+| LoRa receiver and smart house integration | no |
