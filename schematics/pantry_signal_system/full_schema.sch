@@ -1547,7 +1547,8 @@
 <text x="541.02" y="104.14" size="6.4516" layer="91">Logick module</text>
 <text x="848.36" y="101.6" size="6.4516" layer="91">Air fan system</text>
 <text x="868.68" y="5.08" size="1.016" layer="91">1000 uF + 200 Kohm -&gt; working time 235 sec
-1000 uF + 2 Mohm -&gt; working time ~ 20 minutes</text>
+1000 uF + 1 Mohm -&gt; working time ~ 20 minutes
+1000 uF + 2 Mohm -&gt; working time ~ 40 minutes</text>
 </plain>
 <instances>
 <instance part="BAT1" gate="G$1" x="-63.5" y="58.42" smashed="yes" rot="R90" grouprefs="SUPPLY_POWERS">

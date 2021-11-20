@@ -1533,6 +1533,7 @@
 <part name="FU3" library="my_devices" deviceset="FU" device=""/>
 <part name="D7" library="my_devices" deviceset="D" device=""/>
 <part name="D8" library="my_devices" deviceset="D" device=""/>
+<part name="D9" library="my_devices" deviceset="D" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1960,6 +1961,10 @@
 <instance part="D8" gate="G$1" x="142.24" y="-167.64" smashed="yes" rot="R270">
 <attribute name="NAME" x="144.145" y="-161.925" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="138.43" y="-161.925" size="1.778" layer="94" rot="R270"/>
+</instance>
+<instance part="D9" gate="G$1" x="142.24" y="-182.88" smashed="yes" rot="R90">
+<attribute name="NAME" x="140.335" y="-188.595" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="146.05" y="-188.595" size="1.778" layer="94" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -3006,6 +3011,9 @@
 <wire x1="144.78" y1="-175.26" x2="142.24" y2="-175.26" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="D8" gate="G$1" pin="P$2"/>
 <wire x1="142.24" y1="-172.72" x2="142.24" y2="-175.26" width="0.1524" layer="91"/>
+<pinref part="D9" gate="G$1" pin="P$2"/>
+<wire x1="142.24" y1="-175.26" x2="142.24" y2="-177.8" width="0.1524" layer="91"/>
+<junction x="142.24" y="-175.26"/>
 </segment>
 </net>
 </nets>
