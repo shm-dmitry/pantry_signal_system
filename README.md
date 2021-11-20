@@ -36,7 +36,7 @@ Project status
 | --- | --- |
 | Supply module | not tested |
 | Logic module incl LoRa transmitter | not tested |
-| Air fan module | not tested |
+| Air fan module | OK |
 | LoRa receiver and smart house integration | no |
 
 | Firmware | Status |
