@@ -1532,6 +1532,7 @@
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FU3" library="my_devices" deviceset="FU" device=""/>
 <part name="D7" library="my_devices" deviceset="D" device=""/>
+<part name="D8" library="my_devices" deviceset="D" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1955,6 +1956,10 @@
 <instance part="D7" gate="G$1" x="124.46" y="50.8" smashed="yes">
 <attribute name="NAME" x="118.745" y="52.705" size="1.778" layer="94"/>
 <attribute name="VALUE" x="118.745" y="46.99" size="1.778" layer="94"/>
+</instance>
+<instance part="D8" gate="G$1" x="142.24" y="-167.64" smashed="yes" rot="R270">
+<attribute name="NAME" x="144.145" y="-161.925" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="138.43" y="-161.925" size="1.778" layer="94" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -2563,14 +2568,10 @@
 <pinref part="C2" gate="G$1" pin="PIN_PLUS"/>
 <wire x1="101.6" y1="-160.02" x2="116.84" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <junction x="101.6" y="-160.02" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<pinref part="U5" gate="G$1" pin="IN"/>
 <wire x1="116.84" y1="-160.02" x2="142.24" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<wire x1="142.24" y1="-160.02" x2="149.86" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<wire x1="144.78" y1="-175.26" x2="142.24" y2="-175.26" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<wire x1="142.24" y1="-175.26" x2="142.24" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<junction x="142.24" y="-160.02" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="D3" gate="G$1" pin="P$2"/>
 <pinref part="D4" gate="G$1" pin="P$2"/>
+<wire x1="142.24" y1="-160.02" x2="149.86" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <wire x1="91.44" y1="-139.7" x2="91.44" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <wire x1="91.44" y1="-160.02" x2="91.44" y2="-180.34" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <wire x1="101.6" y1="-160.02" x2="91.44" y2="-160.02" width="0.1524" layer="91"/>
@@ -2578,6 +2579,8 @@
 <pinref part="R7" gate="G$1" pin="P2"/>
 <wire x1="116.84" y1="-157.48" x2="116.84" y2="-160.02" width="0.1524" layer="91"/>
 <junction x="116.84" y="-160.02"/>
+<pinref part="D8" gate="G$1" pin="P$1"/>
+<junction x="142.24" y="-160.02"/>
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="PIN3"/>
@@ -2995,6 +2998,14 @@
 <pinref part="D7" gate="G$1" pin="P$1"/>
 <wire x1="116.84" y1="50.8" x2="99.06" y2="50.8" width="0.1524" layer="91"/>
 <label x="88.9" y="50.8" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$26" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="IN"/>
+<wire x1="144.78" y1="-175.26" x2="142.24" y2="-175.26" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+<pinref part="D8" gate="G$1" pin="P$2"/>
+<wire x1="142.24" y1="-172.72" x2="142.24" y2="-175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

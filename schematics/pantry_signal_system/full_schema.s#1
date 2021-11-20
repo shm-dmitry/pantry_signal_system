@@ -1534,7 +1534,7 @@
 <part name="D7" library="my_devices" deviceset="D" device=""/>
 <part name="D8" library="my_devices" deviceset="D" device=""/>
 <part name="D9" library="my_devices" deviceset="D" device=""/>
-<part name="Q14" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
+<part name="Q14" library="my_devices" deviceset="TRANSISTOR_NPN" device="" value="2N3904"/>
 <part name="R22" library="my_devices" deviceset="R" device="" value="620"/>
 <part name="R23" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R24" library="my_devices" deviceset="R" device="" value="1M"/>

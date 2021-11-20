@@ -2330,6 +2330,11 @@
 <wire x1="124.46" y1="-78.74" x2="99.06" y2="-78.74" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <label x="88.9" y="-78.74" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="PB0"/>
+<wire x1="323.215" y1="27.94" x2="345.44" y2="27.94" width="0.1524" layer="91"/>
+<label x="325.12" y="27.94" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$6" class="0">
 <segment>

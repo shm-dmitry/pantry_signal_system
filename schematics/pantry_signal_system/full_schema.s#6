@@ -1536,6 +1536,9 @@
 <part name="D9" library="my_devices" deviceset="D" device=""/>
 <part name="Q14" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
 <part name="R22" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R23" library="my_devices" deviceset="R" device="" value="2M"/>
+<part name="R24" library="my_devices" deviceset="R" device="" value="1M"/>
+<part name="D10" library="my_devices" deviceset="D" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1658,13 +1661,13 @@
 <instance part="GND12" gate="1" x="152.4" y="-101.6" smashed="yes" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="VALUE" x="149.86" y="-104.14" size="1.778" layer="96"/>
 </instance>
-<instance part="R3" gate="G$1" x="325.12" y="73.66" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="331.47" y="71.12" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="331.47" y="77.47" size="1.778" layer="94" rot="R180"/>
+<instance part="R3" gate="G$1" x="325.12" y="76.2" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="331.47" y="73.66" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="331.47" y="80.01" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="R4" gate="G$1" x="347.98" y="73.66" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="354.33" y="71.12" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="354.33" y="77.47" size="1.778" layer="94" rot="R180"/>
+<instance part="R4" gate="G$1" x="347.98" y="76.2" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="354.33" y="73.66" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="354.33" y="80.01" size="1.778" layer="94" rot="R180"/>
 </instance>
 <instance part="R5" gate="G$1" x="325.12" y="63.5" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
 <attribute name="NAME" x="331.47" y="60.96" size="1.778" layer="94" rot="R180"/>
@@ -1674,12 +1677,12 @@
 <attribute name="NAME" x="354.33" y="60.96" size="1.778" layer="94" rot="R180"/>
 <attribute name="VALUE" x="354.33" y="67.31" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="GND16" gate="1" x="363.22" y="66.04" smashed="yes" grouprefs="SUPPLY_AVR">
-<attribute name="VALUE" x="360.68" y="63.5" size="1.778" layer="96"/>
+<instance part="GND16" gate="1" x="363.22" y="73.66" smashed="yes" grouprefs="SUPPLY_AVR">
+<attribute name="VALUE" x="360.68" y="71.12" size="1.778" layer="96"/>
 </instance>
-<instance part="D5" gate="G$1" x="307.34" y="73.66" smashed="yes" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="301.625" y="75.565" size="1.778" layer="94"/>
-<attribute name="VALUE" x="301.625" y="69.85" size="1.778" layer="94"/>
+<instance part="D5" gate="G$1" x="307.34" y="76.2" smashed="yes" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="301.625" y="78.105" size="1.778" layer="94"/>
+<attribute name="VALUE" x="301.625" y="72.39" size="1.778" layer="94"/>
 </instance>
 <instance part="D6" gate="G$1" x="307.34" y="63.5" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="NAME" x="301.625" y="65.405" size="1.778" layer="94"/>
@@ -1976,6 +1979,18 @@
 <attribute name="NAME" x="113.03" y="-195.58" size="1.778" layer="94"/>
 <attribute name="VALUE" x="113.03" y="-201.93" size="1.778" layer="94"/>
 </instance>
+<instance part="R23" gate="G$1" x="325.12" y="91.44" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="331.47" y="88.9" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="331.47" y="95.25" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="R24" gate="G$1" x="347.98" y="91.44" smashed="yes" rot="R180" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="354.33" y="88.9" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="354.33" y="95.25" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="D10" gate="G$1" x="307.34" y="91.44" smashed="yes" grouprefs="SUPPLY_AVR">
+<attribute name="NAME" x="301.625" y="93.345" size="1.778" layer="94"/>
+<attribute name="VALUE" x="301.625" y="87.63" size="1.778" layer="94"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2054,8 +2069,8 @@
 </segment>
 <segment>
 <pinref part="D5" gate="G$1" pin="P$1"/>
-<wire x1="299.72" y1="73.66" x2="271.78" y2="73.66" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="269.24" y="73.66" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="299.72" y1="76.2" x2="271.78" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="269.24" y="76.2" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
 </segment>
 <segment>
 <pinref part="FU1" gate="G$1" pin="P$2"/>
@@ -2096,15 +2111,6 @@
 <pinref part="GND11" gate="1" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="PIN_GND"/>
 <wire x1="172.72" y1="-190.5" x2="172.72" y2="-187.96" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-</segment>
-<segment>
-<pinref part="R4" gate="G$1" pin="P$1"/>
-<pinref part="R6" gate="G$1" pin="P$1"/>
-<wire x1="355.6" y1="73.66" x2="355.6" y2="68.58" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<wire x1="355.6" y1="68.58" x2="355.6" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<wire x1="355.6" y1="68.58" x2="363.22" y2="68.58" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<junction x="355.6" y="68.58" grouprefs="SUPPLY_AVR"/>
-<pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -2244,6 +2250,16 @@
 <pinref part="U2" gate="G$1" pin="GND"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="104.14" y1="-5.08" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="P$1"/>
+<pinref part="R6" gate="G$1" pin="P$1"/>
+<wire x1="355.6" y1="76.2" x2="355.6" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<pinref part="R24" gate="G$1" pin="P$1"/>
+<wire x1="355.6" y1="91.44" x2="355.6" y2="76.2" width="0.1524" layer="91"/>
+<junction x="355.6" y="76.2"/>
+<wire x1="355.6" y1="76.2" x2="363.22" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -2484,12 +2500,12 @@
 <segment>
 <pinref part="R3" gate="G$1" pin="P$1"/>
 <pinref part="R4" gate="G$1" pin="P$2"/>
-<wire x1="332.74" y1="73.66" x2="335.28" y2="73.66" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<wire x1="335.28" y1="73.66" x2="339.09" y2="73.66" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<wire x1="335.28" y1="73.66" x2="335.28" y2="78.74" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<junction x="335.28" y="73.66" grouprefs="SUPPLY_AVR"/>
-<wire x1="335.28" y1="78.74" x2="365.76" y2="78.74" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="337.82" y="78.74" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="332.74" y1="76.2" x2="335.28" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="76.2" x2="339.09" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="76.2" x2="335.28" y2="81.28" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<junction x="335.28" y="76.2" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="81.28" x2="353.06" y2="81.28" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="320.04" y="81.28" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="PB5"/>
@@ -2505,8 +2521,8 @@
 <wire x1="335.28" y1="63.5" x2="339.09" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <wire x1="335.28" y1="63.5" x2="335.28" y2="58.42" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <junction x="335.28" y="63.5" grouprefs="SUPPLY_AVR"/>
-<wire x1="335.28" y1="58.42" x2="365.76" y2="58.42" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="337.82" y="55.88" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="58.42" x2="350.52" y2="58.42" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="320.04" y="55.88" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="PB3"/>
@@ -2518,7 +2534,7 @@
 <segment>
 <pinref part="D5" gate="G$1" pin="P$2"/>
 <pinref part="R3" gate="G$1" pin="P$2"/>
-<wire x1="312.42" y1="73.66" x2="316.23" y2="73.66" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<wire x1="312.42" y1="76.2" x2="316.23" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -3024,6 +3040,11 @@
 <wire x1="121.92" y1="-190.5" x2="96.52" y2="-190.5" width="0.1524" layer="91"/>
 <label x="93.98" y="-190.5" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="D10" gate="G$1" pin="P$1"/>
+<wire x1="299.72" y1="91.44" x2="271.78" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="269.24" y="91.44" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$26" class="0">
 <segment>
@@ -3048,6 +3069,25 @@
 <pinref part="R22" gate="G$1" pin="P$2"/>
 <pinref part="Q14" gate="G$1" pin="B"/>
 <wire x1="128.27" y1="-198.12" x2="129.54" y2="-198.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="RESERVE_+5V_LEVEL" class="0">
+<segment>
+<pinref part="R23" gate="G$1" pin="P$1"/>
+<pinref part="R24" gate="G$1" pin="P$2"/>
+<wire x1="332.74" y1="91.44" x2="335.28" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="91.44" x2="339.09" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="91.44" x2="335.28" y2="96.52" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<junction x="335.28" y="91.44" grouprefs="SUPPLY_AVR"/>
+<wire x1="335.28" y1="96.52" x2="353.06" y2="96.52" width="0.1524" layer="91"/>
+<label x="332.74" y="96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$29" class="0">
+<segment>
+<pinref part="D10" gate="G$1" pin="P$2"/>
+<pinref part="R23" gate="G$1" pin="P$2"/>
+<wire x1="312.42" y1="91.44" x2="316.23" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 </segment>
 </net>
 </nets>

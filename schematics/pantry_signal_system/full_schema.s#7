@@ -1534,6 +1534,8 @@
 <part name="D7" library="my_devices" deviceset="D" device=""/>
 <part name="D8" library="my_devices" deviceset="D" device=""/>
 <part name="D9" library="my_devices" deviceset="D" device=""/>
+<part name="Q14" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
+<part name="R22" library="my_devices" deviceset="R" device="" value="620"/>
 </parts>
 <sheets>
 <sheet>
@@ -1965,6 +1967,14 @@
 <instance part="D9" gate="G$1" x="142.24" y="-182.88" smashed="yes" rot="R90">
 <attribute name="NAME" x="140.335" y="-188.595" size="1.778" layer="94" rot="R90"/>
 <attribute name="VALUE" x="146.05" y="-188.595" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="Q14" gate="G$1" x="129.54" y="-190.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="128.27" y="-186.69" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="132.08" y="-186.69" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="R22" gate="G$1" x="119.38" y="-198.12" smashed="yes">
+<attribute name="NAME" x="113.03" y="-195.58" size="1.778" layer="94"/>
+<attribute name="VALUE" x="113.03" y="-201.93" size="1.778" layer="94"/>
 </instance>
 </instances>
 <busses>
@@ -2992,6 +3002,11 @@
 <wire x1="104.14" y1="-12.7" x2="129.54" y2="-12.7" width="0.1524" layer="91"/>
 <label x="104.14" y="-12.7" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R22" gate="G$1" pin="P$1"/>
+<wire x1="111.76" y1="-198.12" x2="83.82" y2="-198.12" width="0.1524" layer="91"/>
+<label x="78.74" y="-198.12" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="RESERVE_+5V_SUPPLY" class="0">
 <segment>
@@ -3004,6 +3019,11 @@
 <wire x1="116.84" y1="50.8" x2="99.06" y2="50.8" width="0.1524" layer="91"/>
 <label x="88.9" y="50.8" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="Q14" gate="G$1" pin="C"/>
+<wire x1="121.92" y1="-190.5" x2="96.52" y2="-190.5" width="0.1524" layer="91"/>
+<label x="93.98" y="-190.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$26" class="0">
 <segment>
@@ -3014,6 +3034,20 @@
 <pinref part="D9" gate="G$1" pin="P$2"/>
 <wire x1="142.24" y1="-175.26" x2="142.24" y2="-177.8" width="0.1524" layer="91"/>
 <junction x="142.24" y="-175.26"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="Q14" gate="G$1" pin="E"/>
+<pinref part="D9" gate="G$1" pin="P$1"/>
+<wire x1="137.16" y1="-190.5" x2="142.24" y2="-190.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="R22" gate="G$1" pin="P$2"/>
+<pinref part="Q14" gate="G$1" pin="B"/>
+<wire x1="128.27" y1="-198.12" x2="129.54" y2="-198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
