@@ -41,7 +41,7 @@ Project status
 | Logic module :: humidity and temperature | OK |
 | Logic module :: air dryer | not tested |
 | Logic module :: LoRa transmitter | not tested |
-| Logic module :: Open door alarm | not tested |
+| Logic module :: Open door alarm | OK |
 | Air fan module | OK |
 | LoRa receiver and smart house integration | no |
 
@@ -54,5 +54,5 @@ Project status
 | Logic controller :: humidity and temperature | Tested on BMP280. Test on BME280 required. I awaiting modules from china |
 | Logic controller :: air dryer | no |
 | Logic controller :: LoRa transmitter | no |
-| Logic controller :: Open door alarm | no |
+| Logic controller :: Open door alarm | OK |
 | LoRa receiver and smart house integration | no |
