@@ -1,14 +1,12 @@
 void setup() {
   Serial.begin(9600);
 //  bme280_initialize();
-  flooding_init();
+//  flooding_init();
+  open_door_init();
 }
 
 void loop() {
   Serial.println("Checking...");
-  Serial.println("Indoor: ");
-  Serial.println(flooding_indoor_check());
-  Serial.println("Outdoor: ");
-  Serial.println(flooding_outdoor_check());
+  Serial.println(open_door_check_ok());
   delay(1000);
 }
