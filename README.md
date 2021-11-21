@@ -42,6 +42,7 @@ Project status
 | Logic module :: air dryer | not tested |
 | Logic module :: LoRa transmitter | not tested |
 | Logic module :: Open door alarm | OK |
+| Logic module :: Wakeup button | not tested |
 | Air fan module | OK |
 | LoRa receiver and smart house integration | no |
 
@@ -55,4 +56,5 @@ Project status
 | Logic controller :: air dryer | no |
 | Logic controller :: LoRa transmitter | no |
 | Logic controller :: Open door alarm | OK |
+| Logic controller :: Wakeup button and deep sleep mode | no |
 | LoRa receiver and smart house integration | no |
