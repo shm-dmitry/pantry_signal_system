@@ -35,12 +35,24 @@ Project status
 | Hardware | Status |
 | --- | --- |
 | Supply module | not tested |
-| Logic module incl LoRa transmitter | not tested |
+| Logic module :: Flooding sensors | OK |
+| Logic module :: Light sensor | not tested |
+| Logic module :: display | not tested |
+| Logic module :: humidity and temperature | OK |
+| Logic module :: air dryer | not tested |
+| Logic module :: LoRa transmitter | not tested |
+| Logic module :: Open door alarm | not tested |
 | Air fan module | OK |
 | LoRa receiver and smart house integration | no |
 
 | Firmware | Status |
 | --- | --- |
 | Supply controller | no |
-| Main controller | no |
+| Logic controller :: flooding sensors | OK |
+| Logic controller :: light sensor | no |
+| Logic controller :: display | no |
+| Logic controller :: humidity and temperature | Tested on BMP280. Test on BME280 required. I awaiting modules from china |
+| Logic controller :: air dryer | no |
+| Logic controller :: LoRa transmitter | no |
+| Logic controller :: Open door alarm | no |
 | LoRa receiver and smart house integration | no |
