@@ -9,16 +9,78 @@ const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
     bitSet(to, bit_index); \
   } \
 }
+#define LORA_CONFIRM_SETTINGS(await) { \
+  while(true) { \
+    if (lora.available()) { \
+      if (lora.read() == await) { \
+        while(lora.available()) { \
+          lora.read(); \
+          delay(1); \
+        } \
+ \
+        break; \
+      } \
+    } \
+  } \
+}
+
 #define LORA_TEMPERATURE_OFFSET   100
 #define LORA_AWAIT_REPLY_TIMEOUT  2000
 #define LORA_CHANGE_SALT          0b10010101
 #define LORA_RESET_SALT           0x11011011
+#define LORA_M0                   11
+#define LORA_M1                   12
+
+// CHANGEME!
+#define LORA_ADDRESS              0x1234
+#define LORA_SECRET               0x5678
 
 void lora_init() {
+  pinMode(LORA_M0,  OUTPUT);
+  pinMode(LORA_M1,  OUTPUT);
+
   lora.begin(9600);
+
+  lora_autoconfigure();
+}
+
+void lora_go_sleep() {
+  digitalWrite(LORA_M0, HIGH);
+  digitalWrite(LORA_M1, HIGH);
+  delay(2);
+}
+
+void lora_wakeup() {
+  digitalWrite(LORA_M0, LOW);
+  digitalWrite(LORA_M1, LOW);
+  delay(2);
+}
+
+void lora_autoconfigure() {
+  lora_go_sleep();
+
+  // address
+  lora.write((uint8_t) 0xC2);
+  lora.write((uint8_t) 0x00);
+  lora.write((uint8_t) 0x02);
+  lora.write((uint8_t) (LORA_ADDRESS / 256));
+  lora.write((uint8_t) (LORA_ADDRESS % 256));
+  
+  // check config applied?
+  LORA_CONFIRM_SETTINGS(0xC1);
+
+  lora.write((uint8_t) 0xC2);
+  lora.write((uint8_t) 0x06);
+  lora.write((uint8_t) 0x02);
+  lora.write((uint8_t) (LORA_SECRET / 256));
+  lora.write((uint8_t) (LORA_SECRET % 256));
+
+  // check config applied?
+  LORA_CONFIRM_SETTINGS(0xC1);
 }
 
 void lora_send(const LoraData * data, bool allow_resend = true) {
+  lora_wakeup();
   encrypter_reset();
 
   lora.write(LORA_MAGIC_BEGIN[1]);
@@ -70,14 +132,16 @@ void lora_send(const LoraData * data, bool allow_resend = true) {
           if (allow_resend) {
             lora_send(data, false);
           }
-          return;
+          break;
         }
       } else if (reply_index == 1) {
         encrypter_change_salt(readed);
-        return;
+        break;
       }
     }
-  } 
+  }
+
+  lora_go_sleep();
 }
 
 void lora_receive() {
