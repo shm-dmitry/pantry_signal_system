@@ -39,7 +39,7 @@ Project status
 | Logic module :: Light sensor | not tested |
 | Logic module :: display | not tested |
 | Logic module :: humidity and temperature | OK |
-| Logic module :: air dryer | not tested |
+| Logic module :: air dryer | OK |
 | Logic module :: LoRa transmitter | not tested |
 | Logic module :: Open door alarm | OK |
 | Logic module :: Wakeup button | not tested |
@@ -53,7 +53,7 @@ Project status
 | Logic controller :: light sensor | no |
 | Logic controller :: display | no |
 | Logic controller :: humidity and temperature | Tested on BMP280. Test on BME280 required. I awaiting modules from china |
-| Logic controller :: air dryer | no |
+| Logic controller :: air dryer | OK |
 | Logic controller :: LoRa transmitter | no |
 | Logic controller :: Open door alarm | OK |
 | Logic controller :: Wakeup button and deep sleep mode | no |
