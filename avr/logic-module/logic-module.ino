@@ -19,15 +19,15 @@ void setup() {
 //  bme280_initialize();
 //  flooding_init();
 //  open_door_init();
-//  air_dryer_init();
-  encrypter_init();
-  lora_init();
+  air_dryer_init();
+//  encrypter_init();
+//  lora_init();
       Serial.begin(9600);
 }
 
 void loop() {
-  lora_receive();
-  delay(5000);
+//  lora_receive();
+  test_air_dryer();
 }
 
 void test_air_dryer() {
@@ -35,10 +35,10 @@ void test_air_dryer() {
   air_dryer_set(true);
   delay(100);
   Serial.println(air_dryer_is_enabled());
-  delay(1000);
+  delay(3000);
 
   air_dryer_set(false);
   delay(100);
   Serial.println(air_dryer_is_enabled());
-  delay(1000);
+  delay(3000);
 }
