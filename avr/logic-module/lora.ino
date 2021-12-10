@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial lora(4, 3);
+SoftwareSerial lora(11, 12);
 
 const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
 const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
@@ -24,20 +24,19 @@ const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
   } \
 }
 
-#define LORA_TEMPERATURE_OFFSET   100
-#define LORA_AWAIT_REPLY_TIMEOUT  2000
-#define LORA_CHANGE_SALT          0b10010101
-#define LORA_RESET_SALT           0x11011011
-#define LORA_M0                   11
-#define LORA_M1                   12
+#define LORA_AWAIT_WAKEUP_TIMEOUT 3000
+
+#define LORA_TEMPERATURE_OFFSET   (100 * 10)
+#define LORA_M0M1                 15
+#define LORA_AUX                  14
 
 // CHANGEME!
 #define LORA_ADDRESS              0x1234
 #define LORA_SECRET               0x5678
 
 void lora_init() {
-  pinMode(LORA_M0,  OUTPUT);
-  pinMode(LORA_M1,  OUTPUT);
+  pinMode(LORA_M0M1, OUTPUT);
+  pinMode(LORA_AUX,  INPUT);
 
   lora.begin(9600);
 
@@ -45,20 +44,30 @@ void lora_init() {
 }
 
 void lora_go_sleep() {
-  digitalWrite(LORA_M0, HIGH);
-  digitalWrite(LORA_M1, HIGH);
+  while (digitalRead(LORA_AUX) == LOW) {
+      // await data transmittion
+  }
+  digitalWrite(LORA_M0M1, HIGH);
   delay(2);
 }
 
 void lora_wakeup() {
-  digitalWrite(LORA_M0, LOW);
-  digitalWrite(LORA_M1, LOW);
-  delay(2);
+  long awaitUntill = millis() + LORA_AWAIT_WAKEUP_TIMEOUT;
+  
+  digitalWrite(LORA_M0M1, LOW);
+
+  while(digitalRead(LORA_AUX) == HIGH && awaitUntill > millis()) {
+    // Await module start waking up
+  }
+
+  while(digitalRead(LORA_AUX) == LOW && awaitUntill > millis()) {
+    // Await module wake up
+  }
 }
 
 void lora_autoconfigure() {
   lora_go_sleep();
-
+/*
   // address
   lora.write((uint8_t) 0xC2);
   lora.write((uint8_t) 0x00);
@@ -77,15 +86,16 @@ void lora_autoconfigure() {
 
   // check config applied?
   LORA_CONFIRM_SETTINGS(0xC1);
+  */
 }
 
-void lora_send(const LoraData * data, bool allow_resend = true) {
+void lora_send(const LoraData * data, bool allow_resend) {
   lora_wakeup();
   encrypter_reset();
-
+ 
+  lora.write(LORA_MAGIC_BEGIN[0]);
   lora.write(LORA_MAGIC_BEGIN[1]);
   lora.write(LORA_MAGIC_BEGIN[2]);
-  lora.write(LORA_MAGIC_BEGIN[3]);
 
   // salt
   lora.write(encrypt_next(encrypter_next_random()));
@@ -111,42 +121,14 @@ void lora_send(const LoraData * data, bool allow_resend = true) {
   lora.write(encrypt_next(data->battery2_percent));
   lora.write(encrypt_next(data->battery3_voltage_x10));
   lora.write(encrypt_next(data->battery3_percent));
-  lora.write(encrypt_next(data->temperature_x10 + LORA_TEMPERATURE_OFFSET));
-  lora.write(encrypt_next(data->humidity_x10));
+  lora.write(encrypt_next((data->temperature_x10 + LORA_TEMPERATURE_OFFSET) / 256));
+  lora.write(encrypt_next((data->temperature_x10 + LORA_TEMPERATURE_OFFSET) % 256));
+  lora.write(encrypt_next(data->humidity_x10 / 256));
+  lora.write(encrypt_next(data->humidity_x10 % 256));
 
+  lora.write(LORA_MAGIC_END[0]);
   lora.write(LORA_MAGIC_END[1]);
   lora.write(LORA_MAGIC_END[2]);
-  lora.write(LORA_MAGIC_END[3]);
-
-  // await reply 
-  unsigned long timeout = millis() + LORA_AWAIT_REPLY_TIMEOUT;
-  uint8_t reply_index = 0;
-  while(millis() < timeout) {
-    if (lora.available()) {
-      uint8_t readed = encrypter_decrypt(lora.read());
-      if (reply_index == 0) {
-        if (readed == LORA_CHANGE_SALT) {
-          reply_index++;
-        } else if (readed == LORA_RESET_SALT) {
-          encrypter_reset_salt();
-          if (allow_resend) {
-            lora_send(data, false);
-          }
-          break;
-        }
-      } else if (reply_index == 1) {
-        encrypter_change_salt(readed);
-        break;
-      }
-    }
-  }
 
   lora_go_sleep();
-}
-
-void lora_receive() {
-  while(lora.available()) {
-    uint8_t ch = lora.read();
-    Serial.print(ch, HEX);
-  }
 }
