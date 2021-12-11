@@ -48,7 +48,7 @@ Project status
 
 | Firmware | Status |
 | --- | --- |
-| Supply controller | no |
+| Supply controller | not tested |
 | Logic controller :: flooding sensors | OK |
 | Logic controller :: light sensor | no |
 | Logic controller :: display | no |
@@ -57,4 +57,5 @@ Project status
 | Logic controller :: LoRa transmitter | OK |
 | Logic controller :: Open door alarm | OK |
 | Logic controller :: Wakeup button and deep sleep mode | no |
+| Logic controller :: Integration with supply controller | no |
 | LoRa receiver and smart house integration | no |
