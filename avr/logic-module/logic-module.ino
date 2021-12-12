@@ -23,10 +23,16 @@ void setup() {
 //  encrypter_init();
 //  lora_init();
     Serial.begin(9600);
-    display_init();
+//    display_init();
+    light_init();
 }
 
 void loop() {
+  Serial.println(is_light_on() ? "ON" : "OFF");
+  delay(1000);
+}
+
+void test_display() {
   ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
   data2send->active_battery = 1;
   data2send->battery1_voltage_x10 = 113;

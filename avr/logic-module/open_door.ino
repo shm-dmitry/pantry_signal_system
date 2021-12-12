@@ -1,4 +1,4 @@
-#define OPEN_DOOR_PIN A2
+#define OPEN_DOOR_PIN 4
 
 void open_door_init() {
   pinMode(OPEN_DOOR_PIN,  INPUT);
