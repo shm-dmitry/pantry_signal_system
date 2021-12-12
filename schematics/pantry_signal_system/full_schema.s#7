@@ -1491,6 +1491,7 @@
 <part name="GND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R8" library="my_devices" deviceset="R" device=""/>
 <part name="U6" library="my_devices" deviceset="I2C_DISPLAY" device=""/>
+<part name="Q8" library="my_devices" deviceset="TRANSISTOR_NPN" device="" value="2N3904"/>
 <part name="C6" library="my_devices" deviceset="C" device="" value="1000 uF"/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U7" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
@@ -1563,6 +1564,7 @@
 <part name="GND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C4" library="my_devices" deviceset="C-1" device="" value="0.1 uF"/>
 <part name="GND40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1743,6 +1745,10 @@
 <instance part="U6" gate="G$1" x="640.08" y="-53.34" smashed="yes" grouprefs="DISPLAY">
 <attribute name="NAME" x="655.32" y="-53.34" size="1.778" layer="94"/>
 <attribute name="VALUE" x="655.32" y="-58.42" size="1.778" layer="94"/>
+</instance>
+<instance part="Q8" gate="G$1" x="614.68" y="-66.04" smashed="yes" grouprefs="DISPLAY">
+<attribute name="NAME" x="618.49" y="-64.77" size="1.778" layer="94"/>
+<attribute name="VALUE" x="618.49" y="-68.58" size="1.778" layer="94"/>
 </instance>
 <instance part="C6" gate="G$1" x="510.54" y="-53.34" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS">
 <attribute name="NAME" x="515.62" y="-48.26" size="1.778" layer="94" rot="R270"/>
@@ -1998,6 +2004,9 @@
 </instance>
 <instance part="GND40" gate="1" x="358.14" y="33.02" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="VALUE" x="355.6" y="30.48" size="1.778" layer="96"/>
+</instance>
+<instance part="GND21" gate="1" x="614.68" y="-78.74" smashed="yes">
+<attribute name="VALUE" x="612.14" y="-81.28" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>

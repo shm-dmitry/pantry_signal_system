@@ -1475,8 +1475,6 @@
 <part name="R5" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R6" library="my_devices" deviceset="R" device="" value="1M"/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="D5" library="my_devices" deviceset="D" device=""/>
-<part name="D6" library="my_devices" deviceset="D" device=""/>
 <part name="Q7" library="my_devices" deviceset="TRANSISTOR_NPN" device="" value="2N3904"/>
 <part name="J4" library="my_devices" deviceset="JST-XH254-3P" device=""/>
 <part name="J7" library="my_devices" deviceset="JST-XH254-2P" device=""/>
@@ -1552,7 +1550,6 @@
 <part name="R22" library="my_devices" deviceset="R" device="" value="620"/>
 <part name="R23" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R24" library="my_devices" deviceset="R" device="" value="1M"/>
-<part name="D10" library="my_devices" deviceset="D" device=""/>
 <part name="U9" library="my_devices" deviceset="FAN73611" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U10" library="my_devices" deviceset="FAN73611" device=""/>
@@ -1687,14 +1684,6 @@
 </instance>
 <instance part="GND16" gate="1" x="363.22" y="73.66" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="VALUE" x="360.68" y="71.12" size="1.778" layer="96"/>
-</instance>
-<instance part="D5" gate="G$1" x="307.34" y="76.2" smashed="yes" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="301.625" y="78.105" size="1.778" layer="94"/>
-<attribute name="VALUE" x="301.625" y="72.39" size="1.778" layer="94"/>
-</instance>
-<instance part="D6" gate="G$1" x="307.34" y="63.5" smashed="yes" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="301.625" y="65.405" size="1.778" layer="94"/>
-<attribute name="VALUE" x="301.625" y="59.69" size="1.778" layer="94"/>
 </instance>
 <instance part="Q7" gate="G$1" x="327.66" y="43.18" smashed="yes" rot="MR0" grouprefs="SUPPLY_AVR">
 <attribute name="NAME" x="323.85" y="44.45" size="1.778" layer="94" rot="MR0"/>
@@ -1965,10 +1954,6 @@
 <attribute name="NAME" x="354.33" y="88.9" size="1.778" layer="94" rot="R180"/>
 <attribute name="VALUE" x="354.33" y="95.25" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="D10" gate="G$1" x="307.34" y="91.44" smashed="yes" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="301.625" y="93.345" size="1.778" layer="94"/>
-<attribute name="VALUE" x="301.625" y="87.63" size="1.778" layer="94"/>
-</instance>
 <instance part="U9" gate="G$1" x="-12.7" y="-91.44" smashed="yes" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="NAME" x="-17.145" y="-99.06" size="1.778" layer="94"/>
 <attribute name="VALUE" x="-17.145" y="-101.6" size="1.778" layer="94"/>
@@ -2052,9 +2037,9 @@
 <label x="-58.42" y="-20.32" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 <segment>
-<pinref part="D6" gate="G$1" pin="P$1"/>
-<wire x1="299.72" y1="63.5" x2="271.78" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="269.24" y="63.5" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="316.23" y1="63.5" x2="289.56" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="287.02" y="63.5" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<pinref part="R5" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="FU2" gate="G$1" pin="P$2"/>
@@ -2080,9 +2065,9 @@
 <label x="-58.42" y="20.32" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 <segment>
-<pinref part="D5" gate="G$1" pin="P$1"/>
-<wire x1="299.72" y1="76.2" x2="271.78" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="269.24" y="76.2" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="316.23" y1="76.2" x2="289.56" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="287.02" y="76.2" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<pinref part="R3" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="FU1" gate="G$1" pin="P$2"/>
@@ -2563,20 +2548,6 @@
 <label x="256.54" y="33.02" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
 </segment>
 </net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="D5" gate="G$1" pin="P$2"/>
-<pinref part="R3" gate="G$1" pin="P$2"/>
-<wire x1="312.42" y1="76.2" x2="316.23" y2="76.2" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="D6" gate="G$1" pin="P$2"/>
-<pinref part="R5" gate="G$1" pin="P$2"/>
-<wire x1="312.42" y1="63.5" x2="316.23" y2="63.5" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-</segment>
-</net>
 <net name="REQUEST_SUPPLY_MEASURE" class="0">
 <segment>
 <pinref part="J7" gate="G$1" pin="PIN2"/>
@@ -2997,9 +2968,9 @@
 <label x="22.86" y="-198.12" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 <segment>
-<pinref part="D10" gate="G$1" pin="P$1"/>
-<wire x1="299.72" y1="91.44" x2="271.78" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
-<label x="269.24" y="91.44" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<wire x1="316.23" y1="91.44" x2="289.56" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
+<label x="287.02" y="91.44" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+<pinref part="R23" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -3044,13 +3015,6 @@
 <wire x1="327.66" y1="33.02" x2="327.66" y2="27.94" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <wire x1="327.66" y1="27.94" x2="350.52" y2="27.94" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <label x="330.2" y="27.94" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="D10" gate="G$1" pin="P$2"/>
-<pinref part="R23" gate="G$1" pin="P$2"/>
-<wire x1="312.42" y1="91.44" x2="316.23" y2="91.44" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -3148,7 +3112,8 @@
 <approved hash="104,1,520.7,30.48,U4,VCC,+5V,,,"/>
 <approved hash="104,1,561.34,30.48,U4,GND1,GND,,,"/>
 <approved hash="104,1,561.34,25.4,U4,AVCC,+5V,,,"/>
-<approved hash="104,1,624.84,-63.5,U6,VCC,N$10,,,"/>
+<approved hash="104,1,632.46,-58.42,U6,VCC,+5V,,,"/>
+<approved hash="104,1,632.46,-60.96,U6,GND,N$10,,,"/>
 <approved hash="104,1,645.16,-154.94,FAN1,VCC,N$14,,,"/>
 <approved hash="104,1,645.16,-170.18,FAN1,GND,N$15,,,"/>
 <approved hash="104,1,937.26,22.86,FAN2,VCC,+12V,,,"/>

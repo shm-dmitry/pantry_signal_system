@@ -893,23 +893,6 @@
 <text x="-4.445" y="-7.62" size="1.778" layer="94">&gt;NAME</text>
 <text x="-4.445" y="-10.16" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
-<symbol name="TRANSISTOR_PNP">
-<pin name="B" x="-7.62" y="0" visible="off" length="middle"/>
-<pin name="C" x="0" y="7.62" visible="off" length="middle" rot="R270"/>
-<pin name="E" x="0" y="-7.62" visible="off" length="middle" rot="R90"/>
-<circle x="0" y="0" radius="3.81" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<text x="3.81" y="1.27" size="1.778" layer="94">&gt;NAME</text>
-<text x="3.81" y="-2.54" size="1.778" layer="94">&gt;VALUE</text>
-<polygon width="0.254" layer="94">
-<vertex x="-2.032" y="-0.508"/>
-<vertex x="-1.016" y="-0.508"/>
-<vertex x="-2.032" y="-1.524"/>
-</polygon>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="BATTERY" prefix="BAT">
@@ -1399,23 +1382,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="TRANSISTOR_PNP" prefix="Q" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="TRANSISTOR_PNP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TRANSISTOR">
-<connects>
-<connect gate="G$1" pin="B" pad="B"/>
-<connect gate="G$1" pin="C" pad="C"/>
-<connect gate="G$1" pin="E" pad="E"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 </devicesets>
 </library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
@@ -1525,8 +1491,6 @@
 <part name="GND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R8" library="my_devices" deviceset="R" device=""/>
 <part name="U6" library="my_devices" deviceset="I2C_DISPLAY" device=""/>
-<part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R9" library="my_devices" deviceset="R" device="" value="620"/>
 <part name="C6" library="my_devices" deviceset="C" device="" value="1000 uF"/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U7" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
@@ -1599,7 +1563,7 @@
 <part name="GND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C4" library="my_devices" deviceset="C-1" device="" value="0.1 uF"/>
 <part name="GND40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="Q3" library="my_devices" deviceset="TRANSISTOR_PNP" device=""/>
+<part name="Q3" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1777,16 +1741,9 @@
 <attribute name="NAME" x="513.08" y="46.99" size="1.778" layer="94" rot="R90"/>
 <attribute name="VALUE" x="519.43" y="46.99" size="1.778" layer="94" rot="R90"/>
 </instance>
-<instance part="U6" gate="G$1" x="629.92" y="-66.04" smashed="yes" grouprefs="DISPLAY">
-<attribute name="NAME" x="645.16" y="-66.04" size="1.778" layer="94"/>
-<attribute name="VALUE" x="645.16" y="-71.12" size="1.778" layer="94"/>
-</instance>
-<instance part="GND21" gate="1" x="596.9" y="-68.58" smashed="yes" grouprefs="DISPLAY">
-<attribute name="VALUE" x="594.36" y="-71.12" size="1.778" layer="96"/>
-</instance>
-<instance part="R9" gate="G$1" x="594.36" y="-55.88" smashed="yes" grouprefs="DISPLAY">
-<attribute name="NAME" x="588.01" y="-53.34" size="1.778" layer="94"/>
-<attribute name="VALUE" x="588.01" y="-59.69" size="1.778" layer="94"/>
+<instance part="U6" gate="G$1" x="640.08" y="-53.34" smashed="yes" grouprefs="DISPLAY">
+<attribute name="NAME" x="655.32" y="-53.34" size="1.778" layer="94"/>
+<attribute name="VALUE" x="655.32" y="-58.42" size="1.778" layer="94"/>
 </instance>
 <instance part="C6" gate="G$1" x="510.54" y="-53.34" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS">
 <attribute name="NAME" x="515.62" y="-48.26" size="1.778" layer="94" rot="R270"/>
@@ -2043,9 +2000,9 @@
 <instance part="GND40" gate="1" x="358.14" y="33.02" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="VALUE" x="355.6" y="30.48" size="1.778" layer="96"/>
 </instance>
-<instance part="Q3" gate="G$1" x="614.68" y="-55.88" smashed="yes" rot="MR180">
-<attribute name="NAME" x="618.49" y="-57.15" size="1.778" layer="94" rot="MR180"/>
-<attribute name="VALUE" x="618.49" y="-53.34" size="1.778" layer="94" rot="MR180"/>
+<instance part="Q3" gate="G$1" x="607.06" y="-53.34" smashed="yes" rot="R270">
+<attribute name="NAME" x="608.33" y="-57.15" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="604.52" y="-57.15" size="1.778" layer="94" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -2202,11 +2159,6 @@
 <pinref part="GND20" gate="1" pin="GND"/>
 <pinref part="C5" gate="G$1" pin="P$2"/>
 <wire x1="492.76" y1="60.96" x2="502.92" y2="60.96" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
-</segment>
-<segment>
-<pinref part="U6" gate="G$1" pin="GND"/>
-<wire x1="624.84" y1="-66.04" x2="596.9" y2="-66.04" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<pinref part="GND21" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C6" gate="G$1" pin="PIN_GND"/>
@@ -2464,11 +2416,6 @@
 <label x="500.38" y="63.5" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 <segment>
-<wire x1="614.68" y1="-48.26" x2="604.52" y2="-48.26" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="604.52" y="-48.26" size="1.778" layer="95" grouprefs="DISPLAY"/>
-<pinref part="Q3" gate="G$1" pin="E"/>
-</segment>
-<segment>
 <pinref part="U7" gate="G$1" pin="VCC"/>
 <wire x1="589.28" y1="-99.06" x2="576.58" y2="-99.06" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <label x="576.58" y="-99.06" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
@@ -2509,6 +2456,11 @@
 <pinref part="Q7" gate="G$1" pin="C"/>
 <wire x1="327.66" y1="50.8" x2="358.14" y2="50.8" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <label x="353.06" y="48.26" size="1.778" layer="95" grouprefs="SUPPLY_AVR"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="VCC"/>
+<wire x1="635" y1="-50.8" x2="614.68" y2="-50.8" width="0.1524" layer="91"/>
+<label x="614.68" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -2738,14 +2690,14 @@
 <label x="579.12" y="45.72" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 <segment>
-<pinref part="U6" gate="G$1" pin="SDA"/>
-<wire x1="624.84" y1="-71.12" x2="607.06" y2="-71.12" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="607.06" y="-71.12" size="1.778" layer="95" grouprefs="DISPLAY"/>
-</segment>
-<segment>
 <pinref part="U7" gate="G$1" pin="SDA"/>
 <wire x1="589.28" y1="-106.68" x2="571.5" y2="-106.68" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <label x="571.5" y="-106.68" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="SDA"/>
+<wire x1="635" y1="-58.42" x2="619.76" y2="-58.42" width="0.1524" layer="91"/>
+<label x="619.76" y="-58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -2755,21 +2707,14 @@
 <label x="579.12" y="43.18" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 <segment>
-<pinref part="U6" gate="G$1" pin="SCL"/>
-<wire x1="624.84" y1="-68.58" x2="607.06" y2="-68.58" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="607.06" y="-68.58" size="1.778" layer="95" grouprefs="DISPLAY"/>
-</segment>
-<segment>
 <pinref part="U7" gate="G$1" pin="SCL"/>
 <wire x1="589.28" y1="-104.14" x2="571.5" y2="-104.14" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <label x="571.5" y="-104.14" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 </segment>
-</net>
-<net name="N$10" class="0">
 <segment>
-<pinref part="U6" gate="G$1" pin="VCC"/>
-<wire x1="624.84" y1="-63.5" x2="614.68" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<pinref part="Q3" gate="G$1" pin="C"/>
+<pinref part="U6" gate="G$1" pin="SCL"/>
+<wire x1="635" y1="-55.88" x2="619.76" y2="-55.88" width="0.1524" layer="91"/>
+<label x="619.76" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ENABLE_DISPLAY" class="0">
@@ -2777,18 +2722,6 @@
 <pinref part="U4" gate="G$1" pin="PC3"/>
 <wire x1="561.34" y1="40.64" x2="589.28" y2="40.64" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="568.96" y="40.64" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
-</segment>
-<segment>
-<pinref part="R9" gate="G$1" pin="P$1"/>
-<wire x1="586.74" y1="-55.88" x2="568.96" y2="-55.88" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="563.88" y="-55.88" size="1.778" layer="95" grouprefs="DISPLAY"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="R9" gate="G$1" pin="P$2"/>
-<wire x1="607.06" y1="-55.88" x2="603.25" y2="-55.88" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<pinref part="Q3" gate="G$1" pin="B"/>
 </segment>
 </net>
 <net name="ENABLE_DR\YER" class="0">
@@ -3158,6 +3091,13 @@
 <pinref part="U4" gate="G$1" pin="PD7"/>
 <wire x1="520.7" y1="15.24" x2="490.22" y2="15.24" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="490.22" y="15.24" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U6" gate="G$1" pin="GND"/>
+<wire x1="614.68" y1="-53.34" x2="635" y2="-53.34" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="C"/>
 </segment>
 </net>
 </nets>
