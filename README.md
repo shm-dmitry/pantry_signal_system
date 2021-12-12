@@ -36,7 +36,7 @@ Project status
 | --- | --- |
 | Supply module | not tested |
 | Logic module :: Flooding sensors | OK |
-| Logic module :: Light sensor | not tested |
+| Logic module :: Light sensor | OK |
 | Logic module :: display | OK |
 | Logic module :: humidity and temperature | OK |
 | Logic module :: air dryer | OK |
@@ -50,7 +50,7 @@ Project status
 | --- | --- |
 | Supply controller | not tested |
 | Logic controller :: flooding sensors | OK |
-| Logic controller :: light sensor | no |
+| Logic controller :: light sensor | OK |
 | Logic controller :: display | OK |
 | Logic controller :: humidity and temperature | Tested on BMP280. Test on BME280 required. I awaiting modules from china |
 | Logic controller :: air dryer | OK |
