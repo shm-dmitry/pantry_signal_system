@@ -89,7 +89,7 @@ void lora_autoconfigure() {
   */
 }
 
-void lora_send(const LoraData * data, bool allow_resend) {
+void lora_send(const ModuleData * data, bool allow_resend) {
   lora_wakeup();
   encrypter_reset();
  
