@@ -93,3 +93,15 @@ void display_write(const ModuleData * data) {
 
   DISPLAY_PRINT_ALARM(data->indoor_flooding_sensor_alarm, data->outdoor_flooding_sensor_alarm);
 }
+
+void display_write_message(const char * message) {
+  digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
+  delay(50); // await display startup
+
+  LCD_I2C lcd(0x27, 20, 4); 
+  lcd.begin(false);
+  lcd.backlight();
+  lcd.clear();
+
+  lcd.print(message);
+}

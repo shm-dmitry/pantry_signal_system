@@ -23,11 +23,24 @@ void setup() {
 //  encrypter_init();
 //  lora_init();
     Serial.begin(9600);
-//    display_init();
-    light_init();
+  display_init();
+//    light_init();
+  supply_api_init();
 }
 
 void loop() {
+  ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
+  if (!supply_api_read(data2send)) {
+    free(data2send);
+    display_write_message("READ error");
+    return;
+  }
+
+  display_write(data2send);
+  free(data2send);
+}
+
+void test_light() {
   Serial.println(is_light_on() ? "ON" : "OFF");
   delay(1000);
 }
