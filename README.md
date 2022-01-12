@@ -57,5 +57,5 @@ Project status
 | Logic controller :: LoRa transmitter | OK |
 | Logic controller :: Open door alarm | OK |
 | Logic controller :: Wakeup button and deep sleep mode | no |
-| Logic controller :: Integration with supply controller | no |
+| Logic controller :: Integration with supply controller | not tested |
 | LoRa receiver and smart house integration | no |
