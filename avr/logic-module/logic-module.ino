@@ -30,6 +30,15 @@ void setup() {
 
 void loop() {
   ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
+
+  data2send->outdoor_flooding_sensor_alarm = true;
+  data2send->indoor_flooding_sensor_alarm = true;
+  data2send->light_alarm = true;
+  data2send->temperature_x10 = 265;
+  data2send->humidity_x10 = 600;
+  data2send->is_air_dryer_on = false;
+  data2send->open_door_alarm = true;
+  
   if (!supply_api_read(data2send)) {
     free(data2send);
     display_write_message("READ error");
