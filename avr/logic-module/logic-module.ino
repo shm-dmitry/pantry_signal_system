@@ -39,14 +39,21 @@ void loop() {
   data2send->is_air_dryer_on = false;
   data2send->open_door_alarm = true;
   
-  if (!supply_api_read(data2send)) {
+  uint8_t res = supply_api_read(data2send);
+  if (res) {
     free(data2send);
-    display_write_message("READ error");
+    char msg[24] = {0};
+    strcpy(msg, "READ error #");
+    msg[12] = res + '0';
+    msg[13] = 0;
+    display_write_message(msg);
     return;
   }
 
   display_write(data2send);
   free(data2send);
+
+  delay(2000);
 }
 
 void test_light() {

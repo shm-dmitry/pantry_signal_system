@@ -27,7 +27,7 @@
   if (((uint16_t)pc * 5 / 100) == 0) { \
     lcd.print("X"); \
   } else { \
-    for (uint8_t i = 0; i<((uint16_t)pc * 5 / 100); i++) { \
+    for (uint8_t i = 0; i<((uint16_t)pc * 5 / 100) && i < 5; i++) { \
       lcd.print("\xFF"); \
     } \
   }\
@@ -61,7 +61,7 @@
     lcd.print("W-IN"); \
   } else if (is_outdoor_flooding) { \
     lcd.print("W-EX"); \
-  } { \
+  } else { \
     lcd.print(" OK "); \
   } \
 }

@@ -10,18 +10,19 @@ SoftwareSerial supply(6, 7);
 
 void supply_api_init() {
   pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);
-  supply.begin(9600);
+  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
+  supply.begin(57600);
 }
 
-bool supply_api_read(ModuleData * data) {
+uint8_t supply_api_read(ModuleData * data) {
   // wake up supply controller
-  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
+  digitalWrite(SUPPLY_AVR_ENABLE_PIN, LOW);
   
   // await for a supply module start up
   delay(30);
 
   if (!supply_api_check_header()) {
-    return false;
+    return 1;
   }
 
   uint8_t battery1_voltage_x10;
@@ -33,36 +34,48 @@ bool supply_api_read(ModuleData * data) {
   uint8_t active_battery;
 
   if (!supply_api_read_byte(&battery1_voltage_x10)) {
-    return false;
+    return 2;
   }
 
   if (!supply_api_read_byte(&battery1_percent)) {
-    return false;
+    return 3;
   }
 
   if (!supply_api_read_byte(&battery2_voltage_x10)) {
-    return false;
+    return 4;
   }
 
   if (!supply_api_read_byte(&battery2_percent)) {
-    return false;
+    return 5;
   }
 
   if (!supply_api_read_byte(&battery3_voltage_x10)) {
-    return false;
+    return 6;
   }
 
   if (!supply_api_read_byte(&battery3_percent)) {
-    return false;
+    return 7;
   }
 
+  uint8_t active_battery_high;
+  uint8_t active_battery_low;
+  if (!supply_api_read_byte(&active_battery_high)) {
+    return 11;
+  }
+  if (!supply_api_read_byte(&active_battery_low)) {
+    return 12;
+  }
+
+  Serial.print("active battery level ");
+  Serial.println(active_battery_high * 256 + active_battery_low);
+
   if (!supply_api_read_byte(&active_battery)) {
-    return false;
+    return 8;
   }
 
   uint8_t crc;
   if (!supply_api_read_byte(&crc)) {
-    return false;
+    return 9;
   }
 
   uint8_t calculated_crc = battery1_voltage_x10;
@@ -71,10 +84,12 @@ bool supply_api_read(ModuleData * data) {
   calculated_crc += battery2_percent;
   calculated_crc += battery3_voltage_x10;
   calculated_crc += battery3_percent;
+  calculated_crc += active_battery_high;
+  calculated_crc += active_battery_low;
   calculated_crc += active_battery;
 
   if (calculated_crc != crc) {
-    return false;
+    return 10;
   }
 
   data->battery1_voltage_x10 = battery1_voltage_x10;
@@ -86,9 +101,9 @@ bool supply_api_read(ModuleData * data) {
   data->active_battery       = active_battery;
 
   // shut down supply controller
-  digitalWrite(SUPPLY_AVR_ENABLE_PIN, LOW);
+  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
 
-  return true;
+  return 0;
 }
 
 bool supply_api_check_header() {
@@ -98,6 +113,10 @@ bool supply_api_check_header() {
   }
 
   if (temp != HEADER_1) {
+    Serial.print("H1 ERR ");
+    Serial.print(temp, HEX);
+    Serial.print(" / ");
+    Serial.println(HEADER_1, HEX);
     return false;
   }
 

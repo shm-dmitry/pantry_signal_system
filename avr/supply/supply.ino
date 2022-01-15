@@ -1,20 +1,22 @@
-#define PRIMARY_BATTERY_LEVEL     A0
-#define RESERVE_BATTERY_LEVEL     A3
+#define PRIMARY_BATTERY_LEVEL     A3
+#define RESERVE_BATTERY_LEVEL     A2
 #define RESERVE_5V_LEVEL          A1
-#define IS_USED_RESERVE_5V        1
-#define IS_USED_RESERVE_BATTERY   A2
+#define BATTERY_IN_USE            A0
 
-#define PRIMARY_R1                3
-#define PRIMARY_R2                3
+#define PRIMARY_ACTUAL            127
+#define PRIMARY_ONDISPLAY         41
 #define PRIMARY_MAX_LEVEL_X10     144
 
-#define RESERVE_R1                2
-#define RESERVE_R2                2
+#define RESERVE_ACTUAL            127
+#define RESERVE_ONDISPLAY         40
 #define RESERVE_MAX_LEVEL_X10     120
 
-#define RESERVE_5V_R1             2
-#define RESERVE_5V_R2             2
+#define RESERVE_5V_ACTUAL         1
+#define RESERVE_5V_ONDISPLAY      1
 #define RESERVE_5V_MAX_LEVEL_X10  120
+
+#define THRESHOLD_INUSE_PRIMARY   1000
+#define THRESHOLD_INUSE_RESERVE   600
 
 #define HEADER_1  0x12
 #define HEADER_2  0x13
@@ -26,8 +28,7 @@ void setup() {
   pinMode(PRIMARY_BATTERY_LEVEL,   INPUT);
   pinMode(RESERVE_BATTERY_LEVEL,   INPUT);
   pinMode(RESERVE_5V_LEVEL,        INPUT);
-  pinMode(IS_USED_RESERVE_5V,      INPUT);
-  pinMode(IS_USED_RESERVE_BATTERY, INPUT);
+  pinMode(BATTERY_IN_USE,          INPUT);
 
   Serial.begin();
 }
@@ -43,9 +44,9 @@ void loop() {
   Serial.write(HEADER_3);
 
   // write data
-  readAndSendBatteryLevel(PRIMARY_BATTERY_LEVEL, PRIMARY_R1,    PRIMARY_R2,    PRIMARY_MAX_LEVEL_X10);
-  readAndSendBatteryLevel(RESERVE_BATTERY_LEVEL, RESERVE_R1,    RESERVE_R2,    RESERVE_MAX_LEVEL_X10);
-  readAndSendBatteryLevel(RESERVE_5V_LEVEL,      RESERVE_5V_R1, RESERVE_5V_R2, RESERVE_5V_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(PRIMARY_BATTERY_LEVEL, PRIMARY_ACTUAL,    PRIMARY_ONDISPLAY,    PRIMARY_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(RESERVE_BATTERY_LEVEL, RESERVE_ACTUAL,    RESERVE_ONDISPLAY,    RESERVE_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(RESERVE_5V_LEVEL,      RESERVE_5V_ACTUAL, RESERVE_5V_ONDISPLAY, RESERVE_5V_MAX_LEVEL_X10);
   readAndSendCurrentBatteryNumber();
 
   // write CRC
@@ -56,25 +57,39 @@ void loop() {
 }
 
 void readAndSendCurrentBatteryNumber() {
-  uint8_t value;
-  if (digitalRead(IS_USED_RESERVE_5V) == HIGH) {
-    value = 3;
-  } else if (digitalRead(IS_USED_RESERVE_BATTERY) == HIGH) {
+  uint16_t value = analogRead(BATTERY_IN_USE);
+  crc += value / 256;
+  Serial.write(value / 256);
+  crc += value % 256;
+  Serial.write(value % 256);
+
+  if (value >= THRESHOLD_INUSE_PRIMARY) {
+    value = 1;
+  } else if (value >= THRESHOLD_INUSE_RESERVE) {
     value = 2;
   } else {
-    value = 1;
+    value = 3;
   }
 
   crc += value;
-
   Serial.write(value);
 }
 
-void readAndSendBatteryLevel(analog_pin_t pin, uint16_t r1, uint16_t r2, uint8_t maxLevel_x10) {
-  uint8_t level = (((uint32_t) analogRead(pin)) * ((uint32_t) r1) * 50) / 1023 / (r1 + r2);
+void readAndSendBatteryLevel(analog_pin_t pin, uint16_t actual, uint16_t ondisplay, uint8_t maxLevel_x10) {
+  uint16_t level_value = analogRead(pin);
+  if (level_value < 200) {
+    level_value = 0;
+  }
+  //Serial.write(level_value / 100);
+  //crc += level_value/100;
+  //Serial.write(level_value % 100);
+  //crc += level_value%100;
+  //return;
+  uint8_t level = (((uint32_t) level_value) * ((uint32_t) actual) * 50) / 1023 / ondisplay;
   crc += level;
   Serial.write(level);
   level = ((uint16_t)level * 100) / maxLevel_x10;
+//  level = OSCCAL;
   crc += level;
   Serial.write(level);
 }
