@@ -1,7 +1,8 @@
 #define PRIMARY_BATTERY_LEVEL     A3
 #define RESERVE_BATTERY_LEVEL     A2
 #define RESERVE_5V_LEVEL          A1
-#define BATTERY_IN_USE            A0
+#define BATTERY_RESERVE_INUSE     A0
+#define BATTERY_RESERVE_5V_INUSE  1
 
 #define PRIMARY_ACTUAL            127
 #define PRIMARY_ONDISPLAY         41
@@ -15,8 +16,7 @@
 #define RESERVE_5V_ONDISPLAY      1
 #define RESERVE_5V_MAX_LEVEL_X10  120
 
-#define THRESHOLD_INUSE_PRIMARY   1000
-#define THRESHOLD_INUSE_RESERVE   600
+#define THRESHOLD_INUSE_RESERVE   800
 
 #define HEADER_1  0x12
 #define HEADER_2  0x13
@@ -25,10 +25,27 @@
 uint8_t crc = 0;
 
 void setup() {
+  pinMode(PRIMARY_BATTERY_LEVEL,   OUTPUT);
+  pinMode(RESERVE_BATTERY_LEVEL,   OUTPUT);
+  pinMode(RESERVE_5V_LEVEL,        OUTPUT);
+  pinMode(BATTERY_RESERVE_5V_INUSE,OUTPUT);
+//  pinMode(BATTERY_RESERVE_INUSE,   OUTPUT);
+
+  digitalWrite(PRIMARY_BATTERY_LEVEL,    LOW);
+  digitalWrite(RESERVE_BATTERY_LEVEL,    LOW);
+  digitalWrite(RESERVE_5V_LEVEL,         LOW);
+  digitalWrite(BATTERY_RESERVE_5V_INUSE, LOW);
+//  digitalWrite(BATTERY_RESERVE_INUSE,    LOW);
+
+  delay(10);
+
   pinMode(PRIMARY_BATTERY_LEVEL,   INPUT);
   pinMode(RESERVE_BATTERY_LEVEL,   INPUT);
   pinMode(RESERVE_5V_LEVEL,        INPUT);
-  pinMode(BATTERY_IN_USE,          INPUT);
+  pinMode(BATTERY_RESERVE_INUSE,   INPUT);
+  pinMode(BATTERY_RESERVE_5V_INUSE,INPUT);
+
+  delay(100);
 
   Serial.begin();
 }
@@ -57,18 +74,18 @@ void loop() {
 }
 
 void readAndSendCurrentBatteryNumber() {
-  uint16_t value = analogRead(BATTERY_IN_USE);
+  uint16_t value = analogRead(BATTERY_RESERVE_INUSE);
   crc += value / 256;
   Serial.write(value / 256);
   crc += value % 256;
   Serial.write(value % 256);
 
-  if (value >= THRESHOLD_INUSE_PRIMARY) {
-    value = 1;
-  } else if (value >= THRESHOLD_INUSE_RESERVE) {
+  if (value >= THRESHOLD_INUSE_RESERVE) {
     value = 2;
-  } else {
+  } else if (digitalRead(BATTERY_RESERVE_5V_INUSE) == HIGH) {
     value = 3;
+  } else {
+    value = 1;
   }
 
   crc += value;
