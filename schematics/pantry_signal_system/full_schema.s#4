@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1904,8 +1904,8 @@
 <part name="Q2" library="my_devices" deviceset="TRANSISTOR_PNP" device="" value="2N3906BU"/>
 <part name="Q8" library="my_devices" deviceset="MOSFET_P_X2" device="" value="FDS4935A"/>
 <part name="GND43" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R10" library="my_devices" deviceset="R" device="" value="3K"/>
-<part name="R11" library="my_devices" deviceset="R" device="" value="10K"/>
+<part name="R10" library="my_devices" deviceset="R" device="" value="10K"/>
+<part name="R11" library="my_devices" deviceset="R" device="" value="3K"/>
 <part name="C8" library="my_devices" deviceset="C" device="" value="10 uF"/>
 <part name="R27" library="my_devices" deviceset="R" device="" value="620"/>
 <part name="GND44" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -1920,6 +1920,15 @@
 <text x="868.68" y="5.08" size="1.016" layer="91">1000 uF + 200 Kohm -&gt; working time 235 sec
 1000 uF + 1 Mohm -&gt; working time ~ 20 minutes
 1000 uF + 2 Mohm -&gt; working time ~ 40 minutes</text>
+<text x="256.54" y="36.83" size="1.016" layer="91" grouprefs="SUPPLY_AVR">PRIMARY       R = 10K &amp; 10K          = 5K
+RESERVE      R = 10 K                     = 10K
+RESERE_5V R = 10K &amp; 10K &amp; 3K = 1.9K
+
+Time 5V to &lt;3V: 
+PRIMARY          = 5K &amp; 10 uF    ~ 27 msec
+RESERVE         = 10K &amp; 10 uF  ~ 60 msec
+RESERVE_5V = 1.9K &amp; 10 uF ~ 10 msec
+</text>
 </plain>
 <instances>
 <instance part="BAT1" gate="G$1" x="-69.85" y="81.28" smashed="yes" rot="R90" grouprefs="SUPPLY_POWERS">
@@ -2379,8 +2388,8 @@
 <attribute name="VALUE" x="249.555" y="48.895" size="1.778" layer="94" rot="R90"/>
 </instance>
 <instance part="C8" gate="G$1" x="259.715" y="64.77" smashed="yes" rot="R270" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="263.525" y="69.215" size="1.778" layer="94" rot="R270"/>
-<attribute name="VALUE" x="263.525" y="62.23" size="1.778" layer="94" rot="R270"/>
+<attribute name="NAME" x="254" y="67.31" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="263.525" y="68.58" size="1.778" layer="94" rot="R270"/>
 </instance>
 <instance part="R27" gate="G$1" x="288.29" y="72.39" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="NAME" x="283.21" y="68.58" size="1.778" layer="94"/>
@@ -2390,8 +2399,8 @@
 <attribute name="VALUE" x="264.795" y="50.8" size="1.778" layer="96"/>
 </instance>
 <instance part="R15" gate="G$1" x="274.32" y="63.5" smashed="yes" rot="R90" grouprefs="SUPPLY_AVR">
-<attribute name="NAME" x="271.78" y="57.15" size="1.778" layer="94" rot="R90"/>
-<attribute name="VALUE" x="278.13" y="57.15" size="1.778" layer="94" rot="R90"/>
+<attribute name="NAME" x="271.78" y="60.96" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="278.13" y="61.595" size="1.778" layer="94" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -3663,15 +3672,15 @@
 <approved hash="104,1,632.46,-157.48,FAN1,GND,N$15,,,"/>
 <approved hash="104,1,937.26,22.86,FAN2,VCC,+12V,,,"/>
 <approved hash="104,1,922.02,22.86,FAN2,GND,N$22,,,"/>
-<approved hash="104,1,359.41,52.07,U7,VCC,SUPPLY_AVR_+5V,,,"/>
+<approved hash="104,1,359.41,51.435,U7,VCC,SUPPLY_AVR_+5V,,,"/>
 <approved hash="104,1,76.2,-50.8,U3,VDD,PRIMARY_SUPPLY_12V,,,"/>
 <approved hash="104,1,96.52,-50.8,U3,VB,PRIMARY_SUPPLY_12V,,,"/>
 <approved hash="104,1,78.74,-91.44,U4,VDD,RESERVE_SUPPLY_12V,,,"/>
 <approved hash="104,1,99.06,-91.44,U4,VB,RESERVE_SUPPLY_12V,,,"/>
 <approved hash="104,1,500.38,-165.1,U8,VDD,+12V,,,"/>
 <approved hash="104,1,520.7,-165.1,U8,VB,+12V,,,"/>
-<approved hash="104,1,389.89,28.575,J1,VCC,SUPPLY_AVR_+5V,,,"/>
-<approved hash="104,1,389.89,18.415,J1,GND1,GND,,,"/>
+<approved hash="104,1,389.89,27.94,J1,VCC,SUPPLY_AVR_+5V,,,"/>
+<approved hash="104,1,389.89,17.78,J1,GND1,GND,,,"/>
 <approved hash="104,1,58.42,-73.66,U1,VCC,SUPPLY_CONTROL_+5V,,,"/>
 <approved hash="105,1,426.72,-62.23,N$20,,,,,"/>
 <approved hash="105,1,782.32,-64.77,N$21,,,,,"/>
