@@ -34,7 +34,7 @@ Project status
 
 | Hardware | Status |
 | --- | --- |
-| Supply module | not tested |
+| Supply module | OK |
 | Supply module :: Supply controller | OK |
 | Logic module :: Flooding sensors | OK |
 | Logic module :: Light sensor | OK |
