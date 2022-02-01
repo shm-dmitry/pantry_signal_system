@@ -30,6 +30,7 @@ void setup() {
   light_init();
   supply_api_init();
   wakeup_button_init();
+  deepsleep_init();
 }
 
 ModuleData * read_data() {
@@ -66,14 +67,12 @@ void loop() {
       delay(2000);
     }
 
-    // TODO: sleep here
-
-    return;
+    display_off();
+  } else {
+    ModuleData * data2send = read_data();
+    lora_send(data2send, true);
+    free(data2send);
   }
 
-  ModuleData * data2send = read_data();
-  lora_send(data2send, true);
-  free(data2send);
-
-  // TODO: sleep here
+  deepsleep_sleep();
 }

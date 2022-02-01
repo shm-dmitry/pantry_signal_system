@@ -77,8 +77,10 @@ void display_off() {
 }
 
 void display_write(const ModuleData * data) {
-  digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
-  delay(50); // await display startup
+  if (digitalRead(ENABLE_DISPLAY_PIN) == LOW) {
+    digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
+    delay(50); // await display startup
+  }
 
   LCD_I2C lcd(0x27, 20, 4); 
   lcd.begin(false);
