@@ -15,112 +15,65 @@ typedef struct ModuleData {
   bool open_door_alarm;
 };
 
+#define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000)
+
 void setup() {
-//  bme280_initialize();
-//  flooding_init();
-//  open_door_init();
-  //air_dryer_init();
-//  encrypter_init();
-//  lora_init();
-    Serial.begin(9600);
+  Serial.begin(9600);
+  
+  bme280_initialize();
+  flooding_init();
+  open_door_init();
+  air_dryer_init();
+  encrypter_init();
+  lora_init();
   display_init();
-//    light_init();
+  light_init();
   supply_api_init();
+  wakeup_button_init();
+}
+
+ModuleData * read_data() {
+  ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
+  memset(data2send, 0, sizeof(ModuleData));
+
+  data2send->outdoor_flooding_sensor_alarm = !flooding_outdoor_check_ok();
+  data2send->indoor_flooding_sensor_alarm = !flooding_indoor_check_ok();
+  data2send->light_alarm = is_light_on();
+  data2send->temperature_x10 = (bme280_read_temperature() * 10);
+  data2send->humidity_x10 = (bme280_read_humidity() * 10);
+  data2send->open_door_alarm = !open_door_check_ok();
+  data2send->is_air_dryer_on = air_dryer_enable_if_need(data2send->humidity_x10);
+  
+  supply_api_read(data2send);
+
+  return data2send;
 }
 
 void loop() {
-  ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
+  if (wakeup_button_is_pressed()) {
+    while(wakeup_button_is_pressed()) {
+      ModuleData * data2send = read_data();
+      display_write(data2send);
+      free(data2send);
+      delay(2000);
+    }
 
-  data2send->outdoor_flooding_sensor_alarm = true;
-  data2send->indoor_flooding_sensor_alarm = true;
-  data2send->light_alarm = true;
-  data2send->temperature_x10 = 265;
-  data2send->humidity_x10 = 600;
-  data2send->is_air_dryer_on = false;
-  data2send->open_door_alarm = true;
-  
-  uint8_t res = supply_api_read(data2send);
-  if (res) {
-    free(data2send);
-    char msg[24] = {0};
-    strcpy(msg, "READ error #");
-    msg[12] = res + '0';
-    msg[13] = 0;
-    display_write_message(msg);
+    unsigned long time = millis() + CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF;
+    while(time < millis()) {
+      ModuleData * data2send = read_data();
+      display_write(data2send);
+      free(data2send);
+      delay(2000);
+    }
+
+    // TODO: sleep here
+
     return;
   }
 
-  display_write(data2send);
-  free(data2send);
-
-  delay(2000);
-}
-
-void test_light() {
-  Serial.println(is_light_on() ? "ON" : "OFF");
-  delay(1000);
-}
-
-void test_display() {
-  ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
-  data2send->active_battery = 1;
-  data2send->battery1_voltage_x10 = 113;
-  data2send->battery1_percent = 90;
-  data2send->battery2_voltage_x10 = 124;
-  data2send->battery2_percent = 100;
-  data2send->battery3_voltage_x10 = 75;
-  data2send->battery3_percent = 85;
-  data2send->outdoor_flooding_sensor_alarm = true;
-  data2send->indoor_flooding_sensor_alarm = true;
-  data2send->light_alarm = true;
-  data2send->temperature_x10 = 265;
-  data2send->humidity_x10 = 600;
-  data2send->is_air_dryer_on = false;
-  data2send->open_door_alarm = true;
-
-  display_write(data2send);
-
-  free(data2send);
-
-  delay(5000);
-
-  display_off();
-
-  delay(5000);
-}
-
-void test_lora() {
-  ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
-  data2send->active_battery = 1;
-  data2send->battery1_voltage_x10 = 113;
-  data2send->battery1_percent = 90;
-  data2send->battery2_voltage_x10 = 124;
-  data2send->battery2_percent = 100;
-  data2send->battery3_voltage_x10 = 75;
-  data2send->battery3_percent = 85;
-  data2send->outdoor_flooding_sensor_alarm = false;
-  data2send->indoor_flooding_sensor_alarm = true;
-  data2send->light_alarm = true;
-  data2send->temperature_x10 = 265;
-  data2send->humidity_x10 = 600;
-  data2send->is_air_dryer_on = false;
-  data2send->open_door_alarm = true;
-  
+  ModuleData * data2send = read_data();
   lora_send(data2send, true);
-
   free(data2send);
-  delay(3000);
-}
 
-void test_air_dryer() {
-  Serial.println("Starting...");
-  air_dryer_set(true);
-  delay(100);
-  Serial.println(air_dryer_is_enabled());
-  delay(3000);
-
-  air_dryer_set(false);
-  delay(100);
-  Serial.println(air_dryer_is_enabled());
-  delay(3000);
+  // TODO: sleep here
 }

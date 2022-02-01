@@ -33,11 +33,11 @@ void bme280_initialize() {/*
   }
 }
 
-int8_t bme280_read_temperature() {
+float bme280_read_temperature() {
   return bmp280.readTemperature();
 }
 
-uint8_t bme280_read_humidity() {
+float bme280_read_humidity() {
 //  return bme280.readHumidity();
   return 0;
 }
