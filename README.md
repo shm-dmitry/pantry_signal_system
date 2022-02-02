@@ -38,7 +38,7 @@ Project status
 | Supply module :: Supply controller | OK |
 | Logic module :: Flooding sensors | OK |
 | Logic module :: Light sensor | OK |
-| Logic module :: display | OK |
+| Logic module :: display | in progress. Unpowered display goes down I2C bus when SCL and SDA pins connected. I will investigate this problem. |
 | Logic module :: humidity and temperature | OK |
 | Logic module :: air dryer | OK |
 | Logic module :: LoRa transmitter | OK |
@@ -52,8 +52,8 @@ Project status
 | Supply controller | OK |
 | Logic controller :: flooding sensors | OK |
 | Logic controller :: light sensor | OK |
-| Logic controller :: display | OK |
-| Logic controller :: humidity and temperature | Tested on BMP280. Test on BME280 required. I awaiting modules from china |
+| Logic controller :: display | in progress. Unpowered display goes down I2C bus when SCL and SDA pins connected. I will investigate this problem. |
+| Logic controller :: humidity and temperature | OK |
 | Logic controller :: air dryer | OK |
 | Logic controller :: LoRa transmitter | OK |
 | Logic controller :: Open door alarm | OK |
