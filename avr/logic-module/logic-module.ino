@@ -25,12 +25,15 @@ void setup() {
   open_door_init();
   air_dryer_init();
   encrypter_init();
-  lora_init();
+  //lora_init();
   display_init();
   light_init();
   supply_api_init();
   wakeup_button_init();
   deepsleep_init();
+
+  Serial.println("Init section done");
+  delay(1000);
 }
 
 ModuleData * read_data() {
@@ -46,6 +49,35 @@ ModuleData * read_data() {
   data2send->is_air_dryer_on = air_dryer_enable_if_need(data2send->humidity_x10);
   
   supply_api_read(data2send);
+
+  Serial.print("active_battery == ");
+  Serial.println(data2send->active_battery);
+  Serial.print("battery1_voltage_x10 == ");
+  Serial.println(data2send->battery1_voltage_x10);
+  Serial.print("battery1_percent == ");
+  Serial.println(data2send->battery1_percent);
+  Serial.print("battery2_voltage_x10 == ");
+  Serial.println(data2send->battery2_voltage_x10);
+  Serial.print("battery2_percent == ");
+  Serial.println(data2send->battery2_percent);
+  Serial.print("battery3_voltage_x10 == ");
+  Serial.println(data2send->battery3_voltage_x10);
+  Serial.print("battery3_percent == ");
+  Serial.println(data2send->battery3_percent);
+  Serial.print("outdoor_flooding_sensor_alarm == ");
+  Serial.println(data2send->outdoor_flooding_sensor_alarm);
+  Serial.print("indoor_flooding_sensor_alarm == ");
+  Serial.println(data2send->indoor_flooding_sensor_alarm);
+  Serial.print("light_alarm == ");
+  Serial.println(data2send->light_alarm);
+  Serial.print("temperature_x10 == ");
+  Serial.println(data2send->temperature_x10);
+  Serial.print("humidity_x10 == ");
+  Serial.println(data2send->humidity_x10);
+  Serial.print("is_air_dryer_on == ");
+  Serial.println(data2send->is_air_dryer_on);
+  Serial.print("open_door_alarm == ");
+  Serial.println(data2send->open_door_alarm);
 
   return data2send;
 }
