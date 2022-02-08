@@ -1,4 +1,6 @@
-#define SUPPLY_AVR_ENABLE_PIN 5
+#define SUPPLY_AVR_ENABLE_PIN 10
+#define SUPPLY_UART_RX        8
+#define SUPPLY_UART_TX        5
 
 #define SUPPLY_AVR_MAX_AWAIT_TIME 3000
 
@@ -26,7 +28,7 @@
     store_to = high * 0xFF + low; \
   }
 
-SoftwareSerial supply(6, 7);
+SoftwareSerial supply(SUPPLY_UART_RX, SUPPLY_UART_TX);
 
 void supply_api_init() {
   pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);

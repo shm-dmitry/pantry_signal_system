@@ -1,4 +1,4 @@
-#define AIR_DRYER_PIN A3
+#define AIR_DRYER_PIN 9
 
 #define AIR_DRYER_ENABLE_HUM  (45*10)
 #define AIR_DRYER_DISABLE_HUM (40*10)

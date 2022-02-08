@@ -1,4 +1,4 @@
-#define WAKEUP_BUTTON_PIN 13
+#define WAKEUP_BUTTON_PIN 2
 
 void wakeup_button_init() {
   pinMode(WAKEUP_BUTTON_PIN, INPUT);

@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial lora(11, 12);
+SoftwareSerial lora(4, 3);
 
 const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
 const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
@@ -28,8 +28,8 @@ const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
 #define LORA_AWAIT_GOSPEEP_TIMEOUT 3000
 
 #define LORA_TEMPERATURE_OFFSET   (100 * 10)
-#define LORA_M0M1                 15
-#define LORA_AUX                  14
+#define LORA_M0M1                 7
+#define LORA_AUX                  6
 
 // CHANGEME!
 #define LORA_ADDRESS              0x1234

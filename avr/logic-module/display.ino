@@ -1,9 +1,9 @@
 #include <Wire.h> 
 #include "LCD_I2C2.h"
 
-#define ENABLE_DISPLAY_PIN 2
-#define DISPLAY_PIN_SDA 1
-#define DISPLAY_PIN_SCL 2
+#define ENABLE_DISPLAY_PIN A3
+#define DISPLAY_PIN_SDA 12
+#define DISPLAY_PIN_SCL 13
 
 #define DISPLAY_PRINT_BATTERY_LEVEL(index, v, pc, is_active) { \
   lcd.setCursor(0, index - 1); \
