@@ -24,7 +24,8 @@ const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
   } \
 }
 
-#define LORA_AWAIT_WAKEUP_TIMEOUT 3000
+#define LORA_AWAIT_WAKEUP_TIMEOUT  3000
+#define LORA_AWAIT_GOSPEEP_TIMEOUT 3000
 
 #define LORA_TEMPERATURE_OFFSET   (100 * 10)
 #define LORA_M0M1                 15
@@ -44,7 +45,8 @@ void lora_init() {
 }
 
 void lora_go_sleep() {
-  while (digitalRead(LORA_AUX) == LOW) {
+  long awaitUntill = millis() + LORA_AWAIT_GOSPEEP_TIMEOUT;
+  while (digitalRead(LORA_AUX) == LOW && awaitUntill > millis()) {
       // await data transmittion
   }
   digitalWrite(LORA_M0M1, HIGH);

@@ -16,6 +16,7 @@ typedef struct ModuleData {
 };
 
 #define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000)
+#define PRINT_DATA_OBJECT true
 
 void setup() {
   Serial.begin(9600);
@@ -25,7 +26,7 @@ void setup() {
   open_door_init();
   air_dryer_init();
   encrypter_init();
-  //lora_init();
+  lora_init();
   display_init();
   light_init();
   supply_api_init();
@@ -50,6 +51,7 @@ ModuleData * read_data() {
   
   supply_api_read(data2send);
 
+#if PRINT_DATA_OBJECT
   Serial.print("active_battery == ");
   Serial.println(data2send->active_battery);
   Serial.print("battery1_voltage_x10 == ");
@@ -78,6 +80,7 @@ ModuleData * read_data() {
   Serial.println(data2send->is_air_dryer_on);
   Serial.print("open_door_alarm == ");
   Serial.println(data2send->open_door_alarm);
+#endif
 
   return data2send;
 }

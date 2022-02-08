@@ -1,7 +1,9 @@
 #include <Wire.h> 
-#include <LCD_I2C.h>
+#include "LCD_I2C2.h"
 
 #define ENABLE_DISPLAY_PIN 2
+#define DISPLAY_PIN_SDA 1
+#define DISPLAY_PIN_SCL 2
 
 #define DISPLAY_PRINT_BATTERY_LEVEL(index, v, pc, is_active) { \
   lcd.setCursor(0, index - 1); \
@@ -67,7 +69,6 @@
 }
 
 void display_init() {
-  Wire.begin();
   pinMode(ENABLE_DISPLAY_PIN, OUTPUT);
   digitalWrite(ENABLE_DISPLAY_PIN, LOW);
 }
@@ -82,8 +83,8 @@ void display_write(const ModuleData * data) {
     delay(50); // await display startup
   }
 
-  LCD_I2C lcd(0x27, 20, 4); 
-  lcd.begin(false);
+  LCD_I2C2 lcd(0x27, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, 20, 4); 
+  lcd.begin();
   lcd.backlight();
 
   DISPLAY_PRINT_BATTERY_LEVEL(1, data->battery1_voltage_x10, data->battery1_percent, data->active_battery == 1);
@@ -100,8 +101,8 @@ void display_write_message(const char * message) {
   digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
   delay(50); // await display startup
 
-  LCD_I2C lcd(0x27, 20, 4); 
-  lcd.begin(false);
+  LCD_I2C2 lcd(0x27, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, 20, 4); 
+  lcd.begin();
   lcd.backlight();
   lcd.clear();
 

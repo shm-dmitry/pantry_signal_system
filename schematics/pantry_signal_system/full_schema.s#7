@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2418,27 +2418,27 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <attribute name="NAME" x="172.72" y="83.82" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="160.02" y="83.82" size="1.778" layer="94" rot="R270"/>
 </instance>
-<instance part="C10" gate="G$1" x="83.82" y="91.44" smashed="yes" rot="R270">
+<instance part="C10" gate="G$1" x="83.82" y="91.44" smashed="yes" rot="R270" grouprefs="SUPPLY_POWERS">
 <attribute name="NAME" x="78.74" y="93.98" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="88.9" y="96.52" size="1.778" layer="94" rot="R270"/>
 </instance>
-<instance part="C11" gate="G$1" x="132.08" y="-167.64" smashed="yes" rot="R270">
+<instance part="C11" gate="G$1" x="132.08" y="-167.64" smashed="yes" rot="R270" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="NAME" x="127" y="-165.1" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="137.16" y="-162.56" size="1.778" layer="94" rot="R270"/>
 </instance>
-<instance part="D9" gate="G$1" x="167.64" y="12.7" smashed="yes" rot="R180">
+<instance part="D9" gate="G$1" x="167.64" y="12.7" smashed="yes" rot="R180" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="NAME" x="173.355" y="10.795" size="1.778" layer="94" rot="R180"/>
 <attribute name="VALUE" x="173.355" y="16.51" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="R28" gate="G$1" x="152.4" y="12.7" smashed="yes">
+<instance part="R28" gate="G$1" x="152.4" y="12.7" smashed="yes" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="NAME" x="151.13" y="15.24" size="1.778" layer="94"/>
 <attribute name="VALUE" x="151.13" y="8.89" size="1.778" layer="94"/>
 </instance>
-<instance part="R29" gate="G$1" x="142.24" y="5.08" smashed="yes" rot="R270">
-<attribute name="NAME" x="144.78" y="8.89" size="1.778" layer="94" rot="R270"/>
-<attribute name="VALUE" x="143.51" y="1.27" size="1.778" layer="94" rot="R270"/>
+<instance part="R29" gate="G$1" x="142.24" y="5.08" smashed="yes" rot="R270" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
+<attribute name="NAME" x="144.78" y="3.81" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="144.78" y="8.89" size="1.778" layer="94" rot="R270"/>
 </instance>
-<instance part="GND11" gate="1" x="142.24" y="-7.62" smashed="yes">
+<instance part="GND11" gate="1" x="142.24" y="-7.62" smashed="yes" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="VALUE" x="139.7" y="-10.16" size="1.778" layer="96"/>
 </instance>
 </instances>
@@ -2547,7 +2547,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="128.27" y1="86.36" x2="105.41" y2="86.36" width="0.1524" layer="91" grouprefs="SUPPLY_POWERS"/>
 <junction x="105.41" y="86.36" grouprefs="SUPPLY_POWERS"/>
 <pinref part="C10" gate="G$1" pin="PIN_GND"/>
-<wire x1="83.82" y1="86.36" x2="105.41" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="86.36" x2="105.41" y2="86.36" width="0.1524" layer="91" grouprefs="SUPPLY_POWERS"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="P2"/>
@@ -2569,10 +2569,10 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="147.32" y1="-170.18" x2="147.32" y2="-172.72" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="C11" gate="G$1" pin="PIN_GND"/>
-<wire x1="132.08" y1="-172.72" x2="147.32" y2="-172.72" width="0.1524" layer="91"/>
-<junction x="147.32" y="-172.72"/>
+<wire x1="132.08" y1="-172.72" x2="147.32" y2="-172.72" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+<junction x="147.32" y="-172.72" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="C3" gate="G$1" pin="PIN_GND"/>
-<wire x1="147.32" y1="-172.72" x2="165.1" y2="-172.72" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-172.72" x2="165.1" y2="-172.72" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -2805,7 +2805,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
 <pinref part="R29" gate="G$1" pin="P$2"/>
-<wire x1="142.24" y1="-5.08" x2="142.24" y2="-3.81" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="-5.08" x2="142.24" y2="-3.81" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -2820,7 +2820,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="95.25" y1="99.06" x2="83.82" y2="99.06" width="0.1524" layer="91" grouprefs="SUPPLY_POWERS"/>
 <pinref part="C10" gate="G$1" pin="PIN_PLUS"/>
 <wire x1="83.82" y1="99.06" x2="72.39" y2="99.06" width="0.1524" layer="91" grouprefs="SUPPLY_POWERS"/>
-<junction x="83.82" y="99.06"/>
+<junction x="83.82" y="99.06" grouprefs="SUPPLY_POWERS"/>
 </segment>
 </net>
 <net name="SUPPLY_CONTROL_+5V" class="0">
@@ -3011,6 +3011,11 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="76.2" y1="-8.89" x2="38.1" y2="-8.89" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <wire x1="38.1" y1="-8.89" x2="34.29" y2="-8.89" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <junction x="38.1" y="-8.89" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+</segment>
+<segment>
+<pinref part="D9" gate="G$1" pin="P$1"/>
+<wire x1="175.26" y1="12.7" x2="191.77" y2="12.7" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+<label x="175.26" y="8.89" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
 <net name="USE_PRIMARY_BATTERY" class="0">
@@ -3541,8 +3546,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="96.52" y1="12.7" x2="142.24" y2="12.7" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="R29" gate="G$1" pin="P$1"/>
 <pinref part="R28" gate="G$1" pin="P$1"/>
-<wire x1="142.24" y1="12.7" x2="144.78" y2="12.7" width="0.1524" layer="91"/>
-<junction x="142.24" y="12.7"/>
+<wire x1="142.24" y1="12.7" x2="144.78" y2="12.7" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+<junction x="142.24" y="12.7" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -3729,9 +3734,9 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="119.38" y1="-157.48" x2="119.38" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="D8" gate="G$1" pin="P$2"/>
 <wire x1="119.38" y1="-165.1" x2="119.38" y2="-160.02" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-<junction x="119.38" y="-160.02"/>
+<junction x="119.38" y="-160.02" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="C11" gate="G$1" pin="PIN_PLUS"/>
-<junction x="132.08" y="-160.02"/>
+<junction x="132.08" y="-160.02" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -3777,7 +3782,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <segment>
 <pinref part="R28" gate="G$1" pin="P$2"/>
 <pinref part="D9" gate="G$1" pin="P$2"/>
-<wire x1="161.29" y1="12.7" x2="162.56" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="161.29" y1="12.7" x2="162.56" y2="12.7" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
 </nets>
