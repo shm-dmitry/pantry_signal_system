@@ -52,7 +52,7 @@ Project status
 | Supply controller | OK |
 | Logic controller :: flooding sensors | OK |
 | Logic controller :: light sensor | OK |
-| Logic controller :: display | in progress. Unpowered display goes down I2C bus when SCL and SDA pins connected. I will investigate this problem. |
+| Logic controller :: display | OK |
 | Logic controller :: humidity and temperature | OK |
 | Logic controller :: air dryer | OK |
 | Logic controller :: LoRa transmitter | OK |
