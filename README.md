@@ -38,12 +38,12 @@ Project status
 | Supply module :: Supply controller | OK |
 | Logic module :: Flooding sensors | OK |
 | Logic module :: Light sensor | OK |
-| Logic module :: display | in progress. Unpowered display goes down I2C bus when SCL and SDA pins connected. I will investigate this problem. |
+| Logic module :: display | OK |
 | Logic module :: humidity and temperature | OK |
 | Logic module :: air dryer | OK |
 | Logic module :: LoRa transmitter | OK |
 | Logic module :: Open door alarm | OK |
-| Logic module :: Wakeup button | not tested |
+| Logic module :: Wakeup button | OK |
 | Air fan module | OK |
 | LoRa receiver and smart house integration | no |
 
@@ -57,6 +57,20 @@ Project status
 | Logic controller :: air dryer | OK |
 | Logic controller :: LoRa transmitter | OK |
 | Logic controller :: Open door alarm | OK |
-| Logic controller :: Wakeup button and deep sleep mode | no |
+| Logic controller :: Wakeup button and deep sleep mode | OK |
 | Logic controller :: Integration with supply controller | OK |
 | LoRa receiver and smart house integration | no |
+
+| Board | Status |
+| --- | --- |
+| Supply board | no |
+| logic module board | no |
+| fan board | no |
+
+| 3D models | Status |
+| --- | --- |
+| Supply board box | no |
+| Logic model box | no |
+| Air dryer | not tested |
+| Fan box | no |
+| Fan air intake | no |
