@@ -71,6 +71,13 @@ class LCD_I2C2 : public Print
 public:
     LCD_I2C2(uint8_t address, uint8_t scl, uint8_t sda, uint8_t columns, uint8_t rows)
     : _address(address), _columnMax(--columns), _rowMax(--rows), _scl(scl), _sda(sda) {}
+    ~LCD_I2C2() {
+      if (wire) {
+        wire->end();
+        delete wire;
+        wire = NULL;
+      }
+    }
 
     void begin();
     void backlight();
@@ -108,9 +115,10 @@ private:
     OutputState _output;
     uint8_t _displayState = 0x00;
     uint8_t _entryState = 0x00;
-    uint8_t _scl;
-    uint8_t _sda;
+    uint8_t _scl = 0xFF;
+    uint8_t _sda = 0xFF;
     SoftWire * wire = NULL;
+    char txbuffer[4];
 };
 
 #endif

@@ -15,12 +15,17 @@ typedef struct ModuleData {
   bool open_door_alarm;
 };
 
-#define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000)
-#define PRINT_DATA_OBJECT true
+#define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000L)
+#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
+#define PRINT_DATA_OBJECT false
+
+unsigned long nextFullDataRequest = 0;
 
 void setup() {
   Serial.begin(9600);
-  
+  while (!Serial);
+    Serial.println("starting");
+
   bme280_initialize();
   flooding_init();
   open_door_init();
@@ -37,7 +42,7 @@ void setup() {
   delay(1000);
 }
 
-ModuleData * read_data() {
+ModuleData * read_data(bool askSupply) {
   ModuleData * data2send = (ModuleData * ) malloc(sizeof(ModuleData));
   memset(data2send, 0, sizeof(ModuleData));
 
@@ -48,8 +53,10 @@ ModuleData * read_data() {
   data2send->humidity_x10 = (bme280_read_humidity() * 10);
   data2send->open_door_alarm = !open_door_check_ok();
   data2send->is_air_dryer_on = air_dryer_enable_if_need(data2send->humidity_x10);
-  
-  supply_api_read(data2send);
+
+  if (askSupply) {
+    supply_api_read(data2send);
+  }
 
 #if PRINT_DATA_OBJECT
   Serial.print("active_battery == ");
@@ -87,16 +94,18 @@ ModuleData * read_data() {
 
 void loop() {
   if (wakeup_button_is_pressed()) {
+    display_write_message("Starting...");
+    
     while(wakeup_button_is_pressed()) {
-      ModuleData * data2send = read_data();
+      ModuleData * data2send = read_data(true);
       display_write(data2send);
       free(data2send);
       delay(2000);
     }
 
-    unsigned long time = millis() + CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF;
-    while(time < millis()) {
-      ModuleData * data2send = read_data();
+    unsigned long await = millis() + CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF;
+    while(await > millis()) {
+      ModuleData * data2send = read_data(true);
       display_write(data2send);
       free(data2send);
       delay(2000);
@@ -104,10 +113,32 @@ void loop() {
 
     display_off();
   } else {
-    ModuleData * data2send = read_data();
-    lora_send(data2send, true);
+    bool askFullData = nextFullDataRequest < millis();
+    if (askFullData) {
+      nextFullDataRequest = millis() + REQUEST_FULL_DATA_EVERY_MS;
+    }
+    
+    ModuleData * data2send = read_data(askFullData);
+    if (!askFullData && check_is_alarm(data2send)) {
+      free(data2send);
+      Serial.println("ALARM.. Requesting full data frame");
+      askFullData = true;
+      data2send = read_data(true);
+    }
+
+    if (askFullData) {
+      lora_send(data2send, true);
+    }
+    
     free(data2send);
   }
 
   deepsleep_sleep();
+}
+
+bool check_is_alarm(const ModuleData * data2send) {
+  return data2send->outdoor_flooding_sensor_alarm || 
+         data2send->indoor_flooding_sensor_alarm || 
+         data2send->light_alarm || 
+         data2send->open_door_alarm;
 }

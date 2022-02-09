@@ -24,9 +24,10 @@ void LCD_I2C2::begin()
 {
     if (wire == NULL) {
       wire = new SoftWire(_sda, _scl);
+      wire->setTxBuffer(txbuffer, sizeof(txbuffer));
       wire->begin();
     }
-
+  
     I2C_Write(0b00000000); // Clear i2c adapter
     delay(50); //Wait more than 40ms after powerOn.
 

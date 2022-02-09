@@ -4,7 +4,7 @@
 
 #define SUPPLY_AVR_MAX_AWAIT_TIME 3000
 
-#define SUPPLY_AVR_PRINT_CALIBRATION false
+#define SUPPLY_AVR_PRINT_CALIBRATION true
 
 #define HEADER_1  0x12
 #define HEADER_2  0x13
@@ -12,6 +12,7 @@
 
 #define SUPPLY_AVR_READ_UINT8(store_to, error) { \
     if (!supply_api_read_byte(&store_to)) { \
+      supply_api_off(); \
       return error; \
     } \
  \
@@ -32,18 +33,16 @@ SoftwareSerial supply(SUPPLY_UART_RX, SUPPLY_UART_TX);
 
 void supply_api_init() {
   pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);
-  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
+  supply_api_off();
   supply.begin(57600);
 }
 
 uint8_t supply_api_read(ModuleData * data) {
   // wake up supply controller
-  digitalWrite(SUPPLY_AVR_ENABLE_PIN, LOW);
-  
-  // await for a supply module start up
-//  delay(30);
+  supply_api_on();
 
   if (!supply_api_check_header()) {
+    supply_api_off();
     return 1;
   }
 
@@ -86,10 +85,12 @@ uint8_t supply_api_read(ModuleData * data) {
 
   uint8_t crc;
   if (!supply_api_read_byte(&crc)) {
+    supply_api_off();
     return 9;
   }
 
   if (calculated_crc != crc) {
+    supply_api_off();
     return 10;
   }
 
@@ -102,7 +103,7 @@ uint8_t supply_api_read(ModuleData * data) {
   data->active_battery       = active_battery;
 
   // shut down supply controller
-  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
+  supply_api_off();
 
   return 0;
 }
@@ -150,4 +151,13 @@ bool supply_api_read_byte(uint8_t * storeTo) {
   *storeTo = supply.read();
 
   return true;
+}
+
+void supply_api_off() {
+  digitalWrite(SUPPLY_AVR_ENABLE_PIN, HIGH);
+}
+
+
+void supply_api_on() {
+  digitalWrite(SUPPLY_AVR_ENABLE_PIN, LOW);
 }

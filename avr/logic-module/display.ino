@@ -1,9 +1,12 @@
 #include <Wire.h> 
 #include "LCD_I2C2.h"
 
-#define ENABLE_DISPLAY_PIN A3
-#define DISPLAY_PIN_SDA 12
-#define DISPLAY_PIN_SCL 13
+#define ENABLE_DISPLAY_PIN  A3
+#define DISPLAY_PIN_SDA     12
+#define DISPLAY_PIN_SCL     13
+#define DISPLAY_ROW_COUNT   4
+#define DISPLAY_COL_COUNT   20
+#define DISPLAY_I2C_ADDRESS 0x27
 
 #define DISPLAY_PRINT_BATTERY_LEVEL(index, v, pc, is_active) { \
   lcd.setCursor(0, index - 1); \
@@ -78,12 +81,10 @@ void display_off() {
 }
 
 void display_write(const ModuleData * data) {
-  if (digitalRead(ENABLE_DISPLAY_PIN) == LOW) {
-    digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
-    delay(50); // await display startup
-  }
+  digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
+  delay(50); // await display startup
 
-  LCD_I2C2 lcd(0x27, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, 20, 4); 
+  LCD_I2C2 lcd(DISPLAY_I2C_ADDRESS, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, DISPLAY_COL_COUNT, DISPLAY_ROW_COUNT); 
   lcd.begin();
   lcd.backlight();
 
@@ -101,7 +102,7 @@ void display_write_message(const char * message) {
   digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
   delay(50); // await display startup
 
-  LCD_I2C2 lcd(0x27, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, 20, 4); 
+  LCD_I2C2 lcd(DISPLAY_I2C_ADDRESS, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, DISPLAY_COL_COUNT, DISPLAY_ROW_COUNT); 
   lcd.begin();
   lcd.backlight();
   lcd.clear();
