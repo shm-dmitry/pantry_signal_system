@@ -1,0 +1,52 @@
+menu "LoRa Receiver configuration"
+   menu "WIFI Configuration"
+   	  config WIFI_SSID
+   	  	string "Wifi AP SSID"
+   	  	default ""
+
+   	  config WIFI_PASSWORD
+   	  	string "Wifi AP Password"
+   	  	default ""
+   	  	
+   	  config WIFI_TOPIC
+   	  	string "WiFi MQTT Topic to listen Change-SSID command"
+   	  	default "/hws/system/0/wifi/command"
+   endmenu
+
+   menu "MQTT Configuration"
+      config MQTT_BROKER_URI
+         string "Broker URL"
+         default ""
+
+      config MQTT_BROKER_USERNAME
+	     string "Broker user name"
+	     default ""
+
+      config MQTT_BROKER_PASSWORD
+	     string "Broker user password"
+	     default ""
+	endmenu
+
+   menu "LoRa Configuration"
+      config LORA_STATUS_MQTT_TOPIC
+         string "MQTT topic to send status messages"
+         default ""
+
+      config LORA_M0M1_PIN
+         int "Pin connected to M0 and M1"
+         default 0
+
+      config LORA_AUX_PIN
+	     int "Pin connected to AUX"
+	     default 0
+
+      config LORA_RX
+	     int "ESP32 RX UART pin, connected to TX LoRa pin"
+	     default 0
+
+      config LORA_TX
+	     int "ESP32 TX UART pin, connected to RX LoRa pin"
+	     default 0
+	endmenu
+endmenu
+   
