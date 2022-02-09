@@ -1840,7 +1840,7 @@
 <part name="FU2" library="my_devices" deviceset="FU" device="" value="H520PT / 1A"/>
 <part name="R5" library="my_devices" deviceset="RD" device="3296-Z" value="2M"/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="BAT3" library="my_devices" deviceset="BATTERY" device="" value="6V ... 12V"/>
+<part name="BAT3" library="my_devices" deviceset="BATTERY" device="" value="10V ... 12V"/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FU3" library="my_devices" deviceset="FU" device="" value="H520PT / 0.5A"/>
 <part name="D5" library="my_devices" deviceset="D" device="" value="MBR130LSFT1G"/>

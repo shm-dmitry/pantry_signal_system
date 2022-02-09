@@ -3190,11 +3190,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="589.28" y1="-106.68" x2="571.5" y2="-106.68" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <label x="571.5" y="-106.68" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 </segment>
-<segment>
-<pinref part="U14" gate="G$1" pin="SDA"/>
-<wire x1="632.46" y1="-66.04" x2="617.22" y2="-66.04" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="617.22" y="-66.04" size="1.778" layer="95" grouprefs="DISPLAY"/>
-</segment>
 </net>
 <net name="I2C_SCL" class="0">
 <segment>
@@ -3206,11 +3201,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="U13" gate="G$1" pin="SCL"/>
 <wire x1="589.28" y1="-104.14" x2="571.5" y2="-104.14" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <label x="571.5" y="-104.14" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
-</segment>
-<segment>
-<pinref part="U14" gate="G$1" pin="SCL"/>
-<wire x1="632.46" y1="-63.5" x2="617.22" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="617.22" y="-63.5" size="1.778" layer="95" grouprefs="DISPLAY"/>
 </segment>
 </net>
 <net name="ENABLE_DISPLAY" class="0">
@@ -3791,12 +3781,22 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="561.34" y1="22.86" x2="601.98" y2="22.86" width="0.1524" layer="91"/>
 <label x="590.55" y="23.495" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U14" gate="G$1" pin="SCL"/>
+<wire x1="632.46" y1="-63.5" x2="617.22" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="617.22" y="-63.5" size="1.778" layer="95" grouprefs="DISPLAY"/>
+</segment>
 </net>
 <net name="I2C2_SDA" class="0">
 <segment>
 <pinref part="U11" gate="G$1" pin="PB4"/>
 <wire x1="561.34" y1="20.32" x2="601.98" y2="20.32" width="0.1524" layer="91"/>
 <label x="590.55" y="20.32" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U14" gate="G$1" pin="SDA"/>
+<wire x1="632.46" y1="-66.04" x2="617.22" y2="-66.04" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="617.22" y="-66.04" size="1.778" layer="95" grouprefs="DISPLAY"/>
 </segment>
 </net>
 </nets>

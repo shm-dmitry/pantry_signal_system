@@ -3344,7 +3344,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </net>
 <net name="N$21" class="0">
 <segment>
-<wire x1="782.32" y1="137.16" x2="782.32" y2="-266.7" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="759.46" y1="130.175" x2="759.46" y2="-273.685" width="0.1524" layer="91" style="shortdash"/>
 </segment>
 </net>
 <net name="N$23" class="0">

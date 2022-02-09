@@ -1920,9 +1920,9 @@ RESERVE5V ~ 38 msec</text>
 If you want to change nominals - you must check voltage at legs D+ and D- in 4 cases.
 My measuremets showed in [brackeds] for example
 
-Case #1 (PRIM OK, RESERVE OK): D+ &lt; D- [2.5V &lt; 4.8V]
+Case #1 (PRIM OK, RESERVE OK): D+ &lt; D- [2.4V &lt; 4.8V]
 Case #2 (PRIM OK RESERVE BAD): D+ &lt; D- [0V &lt; 4.8V]
-Case #3 (PRIM BAD, RESERVE OK): D+ &gt; D- [2.5V &gt; 1.6V]
+Case #3 (PRIM BAD, RESERVE OK): D+ &gt; D- [2.4V &gt; 1.6V]
 Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt; 1.6V]</text>
 </plain>
 <instances>

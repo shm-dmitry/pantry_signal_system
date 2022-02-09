@@ -3785,6 +3785,20 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="161.29" y1="12.7" x2="162.56" y2="12.7" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 </segment>
 </net>
+<net name="I2C2_SCL" class="0">
+<segment>
+<pinref part="U11" gate="G$1" pin="PB5"/>
+<wire x1="561.34" y1="22.86" x2="601.98" y2="22.86" width="0.1524" layer="91"/>
+<label x="590.55" y="24.13" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="I2C2_SDA" class="0">
+<segment>
+<pinref part="U11" gate="G$1" pin="PB4"/>
+<wire x1="561.34" y1="20.32" x2="601.98" y2="20.32" width="0.1524" layer="91"/>
+<label x="590.55" y="20.32" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
