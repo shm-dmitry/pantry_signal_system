@@ -1,102 +1,38 @@
 #include "lora_api.h"
 
-#include "time.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "driver/gpio.h"
-#include "driver/uart.h"
+#include "string.h"
 #include "stdbool.h"
 #include "../log.h"
+#include "lora_api_control.h"
+#include "lora_api_uart.h"
+#include "lora_decrypter.h"
 
-#define LORA_BAUD_RATE 9600
-#define LORA_AWAIT_WAKEUP_TIMEOUT  3
-#define LORA_AWAIT_GOSPEEP_TIMEOUT 3
-#define LORA_UART_PORT	1
-#define LORA_BUF_SIZE 9
-#define LORA_DRIVER_BUF_SIZE 1024
-#define LORA_QUEUE_SIZE 10
+#define LORA_ADDRESS 0x1234
+#define LORA_SECRET  0x5678
 
-int g_pin_m0m1;
-int g_pin_aux;
-
-void lora_api_go_sleep() {
-	time_t awaitUntill;
-	time(&awaitUntill);
-	awaitUntill += LORA_AWAIT_GOSPEEP_TIMEOUT;
-	while (gpio_get_level(g_pin_aux) == 0) {
-		// await data transmittion
-		time_t now;
-		time(&now);
-		if (now < awaitUntill) {
-			break;
-		}
-	}
-
-	gpio_set_level(g_pin_m0m1, 1);
-	vTaskDelay(2 / portTICK_PERIOD_MS);
-}
-
-void lora_wakeup() {
-	time_t awaitUntill;
-	time(&awaitUntill);
-	awaitUntill += LORA_AWAIT_WAKEUP_TIMEOUT;
-
-	gpio_set_level(g_pin_m0m1, 0);
-
-	while(gpio_get_level(g_pin_aux) == 1) {
-		// Await module start waking up
-		time_t now;
-		time(&now);
-		if (now < awaitUntill) {
-			break;
-		}
-	}
-
-	while(gpio_get_level(g_pin_aux) == 0) {
-		// Await module wake up
-		time_t now;
-		time(&now);
-		if (now < awaitUntill) {
-			break;
-		}
-	}
-}
+const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
+const uint8_t LORA_MAGIC_END[3]   = { 'E', 'O', 'S' };
+#define LORA_TEMPERATURE_OFFSET   100.0
 
 esp_err_t lora_api_configure() {
-	lora_api_go_sleep();
+	lora_api_control_go_sleep();
 
-	// TODO: configure
+	lora_api_uart_configure(0x00, LORA_ADDRESS);
+	lora_api_uart_configure(0x06, LORA_SECRET);
 
-	lora_wakeup();
+	lora_api_control_wakeup();
 
 	return ESP_OK;
 }
 
 esp_err_t lora_api_init(int pin_m0m1, int pin_aux, int uart_pin_rx, int uart_pin_tx) {
-	g_pin_m0m1 = pin_m0m1;
-	g_pin_aux  = pin_aux;
-
-	gpio_config_t config = {
-		.intr_type = GPIO_INTR_DISABLE,
-		.pin_bit_mask = (1ULL << g_pin_aux),
-		.mode = GPIO_MODE_INPUT,
-		.pull_down_en = GPIO_PULLDOWN_DISABLE,
-		.pull_up_en = GPIO_PULLDOWN_DISABLE
-	};
-
-	esp_err_t res = gpio_config(&config);
+	esp_err_t res = lora_api_control_init(pin_m0m1, pin_aux);
 	if (res) {
-		ESP_LOGE(LORA_LOG, "gpio_config error: %d. on pin %d", res, g_pin_aux);
 		return res;
 	}
 
-	config.pin_bit_mask = (1ULL << g_pin_m0m1);
-	config.mode = GPIO_MODE_OUTPUT;
-	config.pull_up_en = GPIO_PULLUP_ENABLE;
-
-	res = gpio_config(&config);
+	res = lora_api_uart_init(uart_pin_tx, uart_pin_rx);
 	if (res) {
-		ESP_LOGE(LORA_LOG, "gpio_config error: %d. on pin %d", res, g_pin_m0m1);
 		return res;
 	}
 
@@ -106,48 +42,145 @@ esp_err_t lora_api_init(int pin_m0m1, int pin_aux, int uart_pin_rx, int uart_pin
 		return res;
 	}
 
-    uart_config_t uart_config = {
-        .baud_rate = LORA_BAUD_RATE,
-        .data_bits = UART_DATA_8_BITS,
-        .parity    = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-        .source_clk = UART_SCLK_APB,
-    };
-
-    int intr_alloc_flags = 0;
-
-#if CONFIG_UART_ISR_IN_IRAM
-    intr_alloc_flags = ESP_INTR_FLAG_IRAM;
-#endif
-
-    res = uart_driver_install(LORA_UART_PORT, LORA_DRIVER_BUF_SIZE, LORA_DRIVER_BUF_SIZE, LORA_QUEUE_SIZE, NULL, intr_alloc_flags);
-    if (res) {
-    	ESP_LOGE(LORA_LOG, "uart_driver_install error: %d", res);
-    	return res;
-    }
-
-    res = uart_param_config(LORA_UART_PORT, &uart_config);
-    if (res) {
-    	ESP_LOGE(LORA_LOG, "uart_param_config error: %d", res);
-    	return res;
-    }
-
-    res = uart_set_pin(LORA_UART_PORT, uart_pin_tx, uart_pin_rx, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
-    if (res) {
-    	ESP_LOGE(LORA_LOG, "uart_set_pin error: %d", res);
-    	return res;
-    }
-
 	return ESP_OK;
 }
 
-LoraData * lora_api_read() {
+bool lora_api_check_magic(bool begin) {
+	uint8_t buffer[3];
+	if (lora_api_uart_read(buffer, 3) != 3) {
+		return NULL;
+	}
 
+	for (int i = 0; i<3; i++) {
+		if (begin) {
+			if (buffer[i] != LORA_MAGIC_BEGIN[i]) {
+				ESP_LOGE(LORA_LOG, "lora_api_read error: bad begin magic[%d] : %d expected %d", i, buffer[i], LORA_MAGIC_BEGIN[i]);
+				return false;
+			}
+		} else {
+			if (buffer[i] != LORA_MAGIC_END[i]) {
+				ESP_LOGE(LORA_LOG, "lora_api_read error: bad end magic[%d] : %d expected %d", i, buffer[i], LORA_MAGIC_BEGIN[i]);
+				return false;
+			}
+		}
+	}
 
-	return NULL;
+	return true;
 }
 
-bool lora_api_read_buffer(uint8_t * buffer, size_t buffer_size) {
+bool lora_api_read_decrypt(const char * msg, uint8_t * byte) {
+	if (lora_api_uart_read(byte, 1) != 1) {
+		ESP_LOGE(LORA_LOG, "lora_api_read error: cant read %s - timeout", msg);
+		return false;
+	}
 
+	*byte = decrypter_decrypt_byte(*byte);
+
+	return true;
+}
+
+bool lora_api_read_uint16t_as_float(const char * msg, float * result) {
+	uint8_t buffer[2];
+
+	if (!lora_api_read_decrypt(msg, buffer + 0)) {
+		return false;
+	}
+	if (!lora_api_read_decrypt(msg, buffer + 1)) {
+		return false;
+	}
+
+	*result = ((uint16_t) buffer[0]) * 256 + (uint16_t) buffer[1];
+
+	return true;
+}
+
+LoraData * lora_api_read() {
+	if (!lora_api_check_magic(true)) {
+		return NULL;
+	}
+
+	decrypter_reset();
+
+	uint8_t buffer = 0;
+	if (!lora_api_read_decrypt("flags", &buffer)) {
+		return NULL;
+	}
+
+	LoraData * data = (LoraData *) malloc(sizeof(LoraData));
+	memset(data, 0, sizeof(LoraData));
+
+	data->outdoor_flooding_sensor_alarm = buffer & 0b00000001 ? true : false;
+	data->indoor_flooding_sensor_alarm  = buffer & 0b00000010 ? true : false;
+	data->light_alarm                   = buffer & 0b00000100 ? true : false;
+	data->is_air_dryer_on               = buffer & 0b00001000 ? true : false;
+	data->open_door_alarm               = buffer & 0b00010000 ? true : false;
+
+	if (buffer & 0x0010000) {
+		data->active_battery = 1;
+	} else if (buffer & 0x01000000) {
+		data->active_battery = 2;
+	} else if (buffer & 0x10000000) {
+		data->active_battery = 3;
+	}
+
+	if (!lora_api_read_decrypt("battery1 voltage", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery1_voltage = buffer / 10.0;
+
+	if (!lora_api_read_decrypt("battery1 percent", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery1_percent = buffer;
+
+	if (!lora_api_read_decrypt("battery2 voltage", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery2_voltage = buffer / 10.0;
+
+	if (!lora_api_read_decrypt("battery2 percent", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery2_percent = buffer;
+
+	if (!lora_api_read_decrypt("battery3 voltage", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery3_voltage = buffer / 10.0;
+
+	if (!lora_api_read_decrypt("battery3 percent", &buffer)) {
+		free(data);
+		return NULL;
+	}
+
+	data->battery3_percent = buffer;
+
+	if (!lora_api_read_uint16t_as_float("temperature", &(data->temperature))) {
+		free(data);
+		return NULL;
+	}
+
+	data->temperature -= LORA_TEMPERATURE_OFFSET;
+
+	if (!lora_api_read_uint16t_as_float("humidity", &(data->humidity))) {
+		free(data);
+		return NULL;
+	}
+
+	if (!lora_api_check_magic(false)) {
+		free(data);
+		return NULL;
+	}
+
+	return data;
 }
