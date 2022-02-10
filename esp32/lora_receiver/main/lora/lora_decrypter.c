@@ -1,6 +1,6 @@
 #include "lora_decrypter.h"
 
-#include "lora_decrypter_secret.h"
+#include "../../../../avr/logic-module/encrypter_secret.h"
 
 uint8_t decrypter_send_key_offset = 0;
 uint8_t decrypter_byte_1 = 0;

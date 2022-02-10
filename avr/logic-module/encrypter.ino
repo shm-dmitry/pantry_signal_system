@@ -1,6 +1,5 @@
 // REPLACE BEFORE BUILD FINISH FIRMWARE!
-#define ENCRYPTER_SEND_SECRET_KEY_SIZE 3
-const uint8_t ENCRYPTER_SEND_SECRET_KEY[3] = { 0x01, 0x02, 0x03 };
+#include "encrypter_secret.h"
 
 uint8_t encrypter_send_key_offset = 0;
 uint8_t encrypter_byte_1 = 0;
