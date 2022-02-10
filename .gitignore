@@ -2,3 +2,4 @@ esp32/lora_receiver/build
 
 esp32/lora_receiver/sdkconfig.old
 esp32/lora_receiver/sdkconfig
+esp32/lora_receiver/lora/lora_decrypter_secret.h
