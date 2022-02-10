@@ -2,7 +2,7 @@
 
 #define DEEPSLEEP_ISR_WAKEUP_BUTTON    0
 
-#define DEEPSLEEP_TIMEOUT              (30 * 1000)
+#define DEEPSLEEP_TIMEOUT              (3 * 1000)
 
 void deepsleep_init() {
   power.setSleepMode(POWERDOWN_SLEEP);

@@ -14,11 +14,15 @@ const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
 const uint8_t LORA_MAGIC_END[3]   = { 'E', 'O', 'S' };
 #define LORA_TEMPERATURE_OFFSET   100.0
 
+#define LORA_CONFIGURE			  false
+
 esp_err_t lora_api_configure() {
 	lora_api_control_go_sleep();
 
+#if LORA_CONFIGURE
 	lora_api_uart_configure(0x00, LORA_ADDRESS);
 	lora_api_uart_configure(0x06, LORA_SECRET);
+#endif
 
 	lora_api_control_wakeup();
 

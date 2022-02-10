@@ -32,7 +32,6 @@ esp_err_t lora_api_control_init(int pin_m0m1, int pin_aux) {
 
 	config.pin_bit_mask = (1ULL << g_pin_m0m1);
 	config.mode = GPIO_MODE_OUTPUT;
-	config.pull_up_en = GPIO_PULLUP_ENABLE;
 
 	res = gpio_config(&config);
 	if (res) {

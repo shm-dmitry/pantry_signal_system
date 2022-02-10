@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial lora(4, 3);
+SoftwareSerial lora(3, 4);
 
 const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
 const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
@@ -133,4 +133,6 @@ void lora_send(const ModuleData * data, bool allow_resend) {
   lora.write(LORA_MAGIC_END[2]);
 
   lora_go_sleep();
+
+  Serial.println("Data object sended to LoRa");
 }
