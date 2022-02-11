@@ -736,8 +736,8 @@
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J1" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R1" library="my_devices" deviceset="RD" device=""/>
-<part name="R2" library="my_devices" deviceset="RD" device=""/>
+<part name="R1" library="my_devices" deviceset="RD" device="" value="10K"/>
+<part name="R2" library="my_devices" deviceset="RD" device="" value="10K"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q1" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
@@ -749,8 +749,8 @@
 <part name="R5" library="my_devices" deviceset="R" device="" value="5K"/>
 <part name="R6" library="my_devices" deviceset="R" device="" value="5K"/>
 <part name="Q3" library="my_devices" deviceset="MOSFET_P_X2" device="" value="FDS4935A"/>
-<part name="R7" library="my_devices" deviceset="R" device=""/>
-<part name="R8" library="my_devices" deviceset="R" device=""/>
+<part name="R7" library="my_devices" deviceset="R" device="" value="5K"/>
+<part name="R8" library="my_devices" deviceset="R" device="" value="5K"/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>

@@ -743,10 +743,10 @@
 <part name="Q2" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R3" library="my_devices" deviceset="R" device=""/>
-<part name="R4" library="my_devices" deviceset="R" device=""/>
-<part name="R5" library="my_devices" deviceset="R" device=""/>
-<part name="R6" library="my_devices" deviceset="R" device=""/>
+<part name="R3" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R4" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R5" library="my_devices" deviceset="R" device="" value="5K"/>
+<part name="R6" library="my_devices" deviceset="R" device="" value="5K"/>
 <part name="Q3" library="my_devices" deviceset="MOSFET_P_X2" device=""/>
 <part name="R7" library="my_devices" deviceset="R" device=""/>
 <part name="R8" library="my_devices" deviceset="R" device=""/>
@@ -1057,11 +1057,11 @@
 <pinref part="R8" gate="G$1" pin="P$1"/>
 <wire x1="73.66" y1="60.96" x2="76.2" y2="60.96" width="0.1524" layer="91"/>
 <junction x="73.66" y="60.96"/>
-<wire x1="73.66" y1="66.04" x2="134.62" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="66.04" x2="165.1" y2="66.04" width="0.1524" layer="91"/>
 <junction x="73.66" y="66.04"/>
 <pinref part="U12" gate="G$1" pin="RX"/>
-<wire x1="134.62" y1="66.04" x2="134.62" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="60.96" x2="170.18" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="66.04" x2="165.1" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="60.96" x2="170.18" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">

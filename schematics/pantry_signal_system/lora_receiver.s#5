@@ -743,11 +743,11 @@
 <part name="Q2" library="my_devices" deviceset="TRANSISTOR_NPN" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R3" library="my_devices" deviceset="R" device=""/>
-<part name="R4" library="my_devices" deviceset="R" device=""/>
-<part name="R5" library="my_devices" deviceset="R" device=""/>
-<part name="R6" library="my_devices" deviceset="R" device=""/>
-<part name="Q3" library="my_devices" deviceset="MOSFET_P_X2" device=""/>
+<part name="R3" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R4" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="R5" library="my_devices" deviceset="R" device="" value="5K"/>
+<part name="R6" library="my_devices" deviceset="R" device="" value="5K"/>
+<part name="Q3" library="my_devices" deviceset="MOSFET_P_X2" device="" value="FDS4935A"/>
 <part name="R7" library="my_devices" deviceset="R" device=""/>
 <part name="R8" library="my_devices" deviceset="R" device=""/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
