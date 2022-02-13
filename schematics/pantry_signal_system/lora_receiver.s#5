@@ -495,6 +495,7 @@
 <groups>
 <schematic_group name="ESP32"/>
 <schematic_group name="SUPPLY"/>
+<schematic_group name="LORA"/>
 </groups>
 <parts>
 <part name="U12" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
@@ -506,6 +507,10 @@
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U2" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
 <part name="U3" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
+<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -513,9 +518,9 @@
 <text x="-27.94" y="165.1" size="1.778" layer="91" grouprefs="ESP32">https://mikrokontroler.pl/wp-content/uploads/2020/07/esp32-devkit-pinout.png</text>
 </plain>
 <instances>
-<instance part="U12" gate="G$1" x="73.66" y="38.1" smashed="yes">
-<attribute name="NAME" x="76.2" y="43.18" size="1.778" layer="94"/>
-<attribute name="VALUE" x="76.2" y="35.56" size="1.778" layer="94"/>
+<instance part="U12" gate="G$1" x="203.2" y="127" smashed="yes" grouprefs="LORA">
+<attribute name="NAME" x="205.74" y="132.08" size="1.778" layer="94"/>
+<attribute name="VALUE" x="205.74" y="124.46" size="1.778" layer="94"/>
 </instance>
 <instance part="U1" gate="G$1" x="22.86" y="127" smashed="yes" grouprefs="ESP32">
 <attribute name="NAME" x="17.78" y="154.94" size="1.778" layer="94"/>
@@ -537,13 +542,25 @@
 <instance part="GND4" gate="1" x="-86.36" y="129.54" smashed="yes" grouprefs="SUPPLY">
 <attribute name="VALUE" x="-88.9" y="127" size="1.778" layer="96"/>
 </instance>
-<instance part="U2" gate="G$1" x="15.24" y="53.34" smashed="yes">
-<attribute name="NAME" x="10.16" y="62.23" size="1.778" layer="94"/>
-<attribute name="VALUE" x="9.906" y="45.72" size="1.778" layer="94"/>
+<instance part="U2" gate="G$1" x="144.78" y="147.32" smashed="yes" grouprefs="LORA">
+<attribute name="NAME" x="139.7" y="156.21" size="1.778" layer="94"/>
+<attribute name="VALUE" x="139.446" y="139.7" size="1.778" layer="94"/>
 </instance>
-<instance part="U3" gate="G$1" x="15.24" y="30.48" smashed="yes">
-<attribute name="NAME" x="10.16" y="39.37" size="1.778" layer="94"/>
-<attribute name="VALUE" x="9.906" y="22.86" size="1.778" layer="94"/>
+<instance part="U3" gate="G$1" x="144.78" y="124.46" smashed="yes" grouprefs="LORA">
+<attribute name="NAME" x="139.7" y="133.35" size="1.778" layer="94"/>
+<attribute name="VALUE" x="139.446" y="116.84" size="1.778" layer="94"/>
+</instance>
+<instance part="GND5" gate="1" x="129.54" y="142.24" smashed="yes" grouprefs="LORA">
+<attribute name="VALUE" x="127" y="139.7" size="1.778" layer="96"/>
+</instance>
+<instance part="GND6" gate="1" x="129.54" y="119.38" smashed="yes" grouprefs="LORA">
+<attribute name="VALUE" x="127" y="116.84" size="1.778" layer="96"/>
+</instance>
+<instance part="GND7" gate="1" x="167.64" y="119.38" smashed="yes" grouprefs="LORA">
+<attribute name="VALUE" x="165.1" y="116.84" size="1.778" layer="96"/>
+</instance>
+<instance part="GND8" gate="1" x="182.88" y="116.84" smashed="yes" grouprefs="LORA">
+<attribute name="VALUE" x="180.34" y="114.3" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -570,6 +587,26 @@
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="-93.98" y1="132.08" x2="-86.36" y2="132.08" width="0.1524" layer="91" grouprefs="SUPPLY"/>
 </segment>
+<segment>
+<pinref part="GND5" gate="1" pin="GND"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
+<wire x1="129.54" y1="144.78" x2="132.08" y2="144.78" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="GND6" gate="1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="GND"/>
+<wire x1="129.54" y1="121.92" x2="132.08" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="DIR"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="157.48" y1="121.92" x2="167.64" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="GND8" gate="1" pin="GND"/>
+<pinref part="U12" gate="G$1" pin="GND"/>
+<wire x1="182.88" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -582,6 +619,21 @@
 <wire x1="-93.98" y1="137.16" x2="-66.04" y2="137.16" width="0.1524" layer="91" grouprefs="SUPPLY"/>
 <label x="-71.12" y="137.16" size="1.778" layer="95" grouprefs="SUPPLY"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VCCB"/>
+<wire x1="157.48" y1="152.4" x2="167.64" y2="152.4" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="162.56" y="152.4" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="VCCB"/>
+<wire x1="157.48" y1="129.54" x2="167.64" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="162.56" y="129.54" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U12" gate="G$1" pin="VCC"/>
+<wire x1="185.42" y1="121.92" x2="175.26" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="175.26" y="121.92" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
 </net>
 <net name="LORA_RX" class="0">
 <segment>
@@ -589,19 +641,34 @@
 <wire x1="2.54" y1="121.92" x2="-30.48" y2="121.92" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="121.92" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="A2"/>
+<wire x1="132.08" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="96.52" y="147.32" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
 </net>
 <net name="LORA_TX" class="0">
 <segment>
-<pinref part="U1" gate="G$1" pin="IO27"/>
-<wire x1="2.54" y1="124.46" x2="-30.48" y2="124.46" width="0.1524" layer="91" grouprefs="ESP32"/>
-<label x="-30.48" y="124.46" size="1.778" layer="95" grouprefs="ESP32"/>
+<pinref part="U3" gate="G$1" pin="A1"/>
+<wire x1="132.08" y1="127" x2="96.52" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="96.52" y="127" size="1.778" layer="95" grouprefs="LORA"/>
 </segment>
-</net>
-<net name="LORA_AUX" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="IO26"/>
 <wire x1="2.54" y1="127" x2="-30.48" y2="127" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="127" size="1.778" layer="95" grouprefs="ESP32"/>
+</segment>
+</net>
+<net name="LORA_AUX" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A2"/>
+<wire x1="132.08" y1="124.46" x2="96.52" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="96.52" y="124.46" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="IO27"/>
+<wire x1="2.54" y1="124.46" x2="-30.48" y2="124.46" width="0.1524" layer="91" grouprefs="ESP32"/>
+<label x="-30.48" y="124.46" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 </net>
 <net name="LORA_M0M1" class="0">
@@ -610,12 +677,21 @@
 <wire x1="2.54" y1="129.54" x2="-30.48" y2="129.54" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="129.54" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="A1"/>
+<wire x1="132.08" y1="149.86" x2="96.52" y2="149.86" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="96.52" y="149.86" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="U12" gate="G$1" pin="M1"/>
 <pinref part="U12" gate="G$1" pin="M0"/>
-<wire x1="55.88" y1="43.18" x2="55.88" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="132.08" x2="185.42" y2="134.62" width="0.1524" layer="91" grouprefs="LORA"/>
+<pinref part="U2" gate="G$1" pin="B1"/>
+<wire x1="157.48" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91" grouprefs="LORA"/>
+<wire x1="185.42" y1="149.86" x2="185.42" y2="134.62" width="0.1524" layer="91" grouprefs="LORA"/>
+<junction x="185.42" y="134.62" grouprefs="LORA"/>
 </segment>
 </net>
 <net name="3V3" class="0">
@@ -624,10 +700,56 @@
 <wire x1="2.54" y1="149.86" x2="-30.48" y2="149.86" width="0.1524" layer="91"/>
 <label x="-30.48" y="149.86" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VCCA"/>
+<wire x1="132.08" y1="152.4" x2="121.92" y2="152.4" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="121.92" y="152.4" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="VCCA"/>
+<wire x1="132.08" y1="129.54" x2="121.92" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="121.92" y="129.54" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="DIR"/>
+<wire x1="157.48" y1="144.78" x2="167.64" y2="144.78" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="162.56" y="144.78" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U12" gate="G$1" pin="RX"/>
+<wire x1="185.42" y1="129.54" x2="182.88" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
+<wire x1="182.88" y1="129.54" x2="182.88" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
+<pinref part="U2" gate="G$1" pin="B2"/>
+<wire x1="182.88" y1="147.32" x2="157.48" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="B1"/>
+<pinref part="U12" gate="G$1" pin="TX"/>
+<wire x1="157.48" y1="127" x2="185.42" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="B2"/>
+<pinref part="U12" gate="G$1" pin="AUX"/>
+<wire x1="157.48" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
+</segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,185.42,121.92,VCC,+5V,,,,"/>
+<approved hash="102,1,2.54,104.14,5V,+5V,,,,"/>
+<approved hash="102,1,132.08,152.4,VCCA,3V3,,,,"/>
+<approved hash="102,1,157.48,152.4,VCCB,+5V,,,,"/>
+<approved hash="102,1,132.08,129.54,VCCA,3V3,,,,"/>
+<approved hash="102,1,157.48,129.54,VCCB,+5V,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
