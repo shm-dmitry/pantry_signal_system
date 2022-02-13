@@ -45,7 +45,7 @@ Project status
 | Logic module :: Open door alarm | OK |
 | Logic module :: Wakeup button | OK |
 | Air fan module | OK |
-| LoRa receiver and smart house integration | not tested |
+| LoRa receiver and smart house integration | OK |
 
 | Firmware | Status |
 | --- | --- |
