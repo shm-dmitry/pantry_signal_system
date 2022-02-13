@@ -570,6 +570,10 @@
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,127,60.96,FAN2,VCC,+12V,,,"/>
+<approved hash="104,1,111.76,60.96,FAN2,GND,N$22,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
