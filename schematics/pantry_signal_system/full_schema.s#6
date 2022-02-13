@@ -1931,7 +1931,7 @@
 <part name="C6" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
 <part name="C1" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
 <part name="C4" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
-<part name="D9" library="my_devices" deviceset="D" device="" value="MBR130LSFT1G"/>
+<part name="D9" library="my_devices" deviceset="D" device="SOD-123FL" value="MBR130LSFT1G"/>
 <part name="R9" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R8" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
