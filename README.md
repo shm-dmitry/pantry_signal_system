@@ -64,8 +64,8 @@ Project status
 | Board | Status |
 | --- | --- |
 | Supply board | no |
-| logic module board | no |
-| fan board | no |
+| logic module board | not tested |
+| fan board | not tested |
 | LoRa Receiver | not tested |
 
 | 3D models | Status |
