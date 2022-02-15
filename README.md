@@ -74,4 +74,4 @@ Project status
 | Logic model box | no |
 | Air dryer | not tested |
 | Fan box | no |
-| Fan air intake | no |
+| Fan air intake | not tested |
