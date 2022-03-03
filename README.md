@@ -72,6 +72,6 @@ Project status
 | --- | --- |
 | Supply board box | no |
 | Logic model box | no |
-| Air dryer | not tested |
+| Air dryer | OK |
 | Fan box | no |
-| Fan air intake | no |
+| Fan air intake | OK |
