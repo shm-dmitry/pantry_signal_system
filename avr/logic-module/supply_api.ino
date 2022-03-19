@@ -4,11 +4,17 @@
 
 #define SUPPLY_AVR_MAX_AWAIT_TIME 3000
 
-#define SUPPLY_AVR_PRINT_CALIBRATION true
+#define SUPPLY_AVR_PRINT_CALIBRATION false
+#define SUPPLY_AVR_PRINT_DEBUG false
 
 #define HEADER_1  0x12
 #define HEADER_2  0x13
 #define HEADER_3  0x14
+#define HEADER_BEGIN_BATTERY_LEVEL  0x55
+#define SUPPLY_API_RETRY_COUNT 50
+
+#define SUPPLY_API_ERROR_CRC 250
+#define SUPPLY_API_ERROR_BATTERY_HEADER 240
 
 #define SUPPLY_AVR_READ_UINT8(store_to, error) { \
     if (!supply_api_read_byte(&store_to)) { \
@@ -32,12 +38,40 @@
 SoftwareSerial supply(SUPPLY_UART_RX, SUPPLY_UART_TX);
 
 void supply_api_init() {
-  pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);
+  pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);  
   supply_api_off();
-  supply.begin(57600);
+  supply.begin(19200);
+}
+
+uint8_t supply_api_read_with_retry(ModuleData * data) {
+  uint8_t res;
+  for (uint8_t i = 0; i<SUPPLY_API_RETRY_COUNT; i++) {
+    res = supply_api_read(data);
+    if (!res) {
+      return res;
+    }
+
+    if (res != SUPPLY_API_ERROR_CRC && res != SUPPLY_API_ERROR_BATTERY_HEADER) {
+      return res;
+    }
+
+#ifdef SUPPLY_AVR_PRINT_DEBUG
+    Serial.print("ERROR ");
+    Serial.print(res);
+    Serial.println(". Retry...");
+#endif
+  }
+
+  return res;
 }
 
 uint8_t supply_api_read(ModuleData * data) {
+  // ensure supply controller is down and read stream fully if any
+  supply_api_off();
+  while(supply.available()) {
+    supply.read();
+  }
+  
   // wake up supply controller
   supply_api_on();
 
@@ -46,31 +80,47 @@ uint8_t supply_api_read(ModuleData * data) {
     return 1;
   }
 
-  uint16_t battery1_analog_input;
-  uint8_t battery1_voltage_x10;
-  uint8_t battery1_percent;
-  uint16_t battery2_analog_input;
-  uint8_t battery2_voltage_x10;
-  uint8_t battery2_percent;
-  uint16_t battery3_analog_input;
-  uint8_t battery3_voltage_x10;
-  uint8_t battery3_percent;
-  uint8_t active_battery_value;
-  uint8_t active_battery;
+  uint16_t battery1_analog_input = 0;
+  uint8_t battery1_voltage_x10 = 0;
+  uint8_t battery1_percent = 0;
+  uint16_t battery2_analog_input = 0;
+  uint8_t battery2_voltage_x10 = 0;
+  uint8_t battery2_percent = 0;
+  uint16_t battery3_analog_input = 0;
+  uint8_t battery3_voltage_x10 = 0;
+  uint8_t battery3_percent = 0;
+  uint8_t active_battery_value = 0;
+  uint8_t active_battery = 0;
 
-  uint8_t calculated_crc = 0;
+  uint16_t calculated_crc = 0;
+  uint8_t header_bettery_level = 0;
 
-  SUPPLY_AVR_READ_UINT16(battery1_analog_input, 1);
-  SUPPLY_AVR_READ_UINT8(battery1_voltage_x10, 2);
-  SUPPLY_AVR_READ_UINT8(battery1_percent, 3);
-  SUPPLY_AVR_READ_UINT16(battery2_analog_input, 4);
-  SUPPLY_AVR_READ_UINT8(battery2_voltage_x10, 5);
-  SUPPLY_AVR_READ_UINT8(battery2_percent, 6);
-  SUPPLY_AVR_READ_UINT16(battery3_analog_input, 7);
-  SUPPLY_AVR_READ_UINT8(battery3_voltage_x10, 8);
-  SUPPLY_AVR_READ_UINT8(battery3_percent, 9);
-  SUPPLY_AVR_READ_UINT8(active_battery_value, 10);
-  SUPPLY_AVR_READ_UINT8(active_battery, 11);
+  SUPPLY_AVR_READ_UINT8(header_bettery_level, 2);
+  if (header_bettery_level != HEADER_BEGIN_BATTERY_LEVEL) {
+    return SUPPLY_API_ERROR_BATTERY_HEADER;
+  }
+  SUPPLY_AVR_READ_UINT16(battery1_analog_input, 3);
+  SUPPLY_AVR_READ_UINT8(battery1_voltage_x10, 4);
+  SUPPLY_AVR_READ_UINT8(battery1_percent, 5);
+  
+  SUPPLY_AVR_READ_UINT8(header_bettery_level, 6);
+  if (header_bettery_level != HEADER_BEGIN_BATTERY_LEVEL) {
+    return SUPPLY_API_ERROR_BATTERY_HEADER;
+  }
+  SUPPLY_AVR_READ_UINT16(battery2_analog_input, 7);
+  SUPPLY_AVR_READ_UINT8(battery2_voltage_x10, 8);
+  SUPPLY_AVR_READ_UINT8(battery2_percent, 9);
+  
+  SUPPLY_AVR_READ_UINT8(header_bettery_level, 10);
+  if (header_bettery_level != HEADER_BEGIN_BATTERY_LEVEL) {
+    return SUPPLY_API_ERROR_BATTERY_HEADER;
+  }
+  SUPPLY_AVR_READ_UINT16(battery3_analog_input, 11);
+  SUPPLY_AVR_READ_UINT8(battery3_voltage_x10, 12);
+  SUPPLY_AVR_READ_UINT8(battery3_percent, 13);
+  
+  SUPPLY_AVR_READ_UINT8(active_battery_value, 14);
+  SUPPLY_AVR_READ_UINT8(active_battery, 15);
   
 #if SUPPLY_AVR_PRINT_CALIBRATION
   Serial.print("active battery level ");
@@ -83,15 +133,31 @@ uint8_t supply_api_read(ModuleData * data) {
   Serial.println(battery3_analog_input);
 #endif
 
-  uint8_t crc;
-  if (!supply_api_read_byte(&crc)) {
+  uint8_t crcH;
+  uint8_t crcL;
+  if (!supply_api_read_byte(&crcH)) {
     supply_api_off();
-    return 9;
+    return 16;
+  }
+  if (!supply_api_read_byte(&crcL)) {
+    supply_api_off();
+    return 17;
   }
 
-  if (calculated_crc != crc) {
+#ifdef SUPPLY_AVR_PRINT_DEBUG
+  Serial.println();
+#endif
+
+  if (calculated_crc != crcH * 0xFF + crcL) {
+#ifdef SUPPLY_AVR_PRINT_DEBUG
+    Serial.print("Invalid CRC. Calculated 0x");
+    Serial.print(calculated_crc, HEX);
+    Serial.print("; Readed 0x");
+    Serial.print((crcH * 0xFF + crcL), HEX);
+#endif
+    
     supply_api_off();
-    return 10;
+    return SUPPLY_API_ERROR_CRC;
   }
 
   data->battery1_voltage_x10 = battery1_voltage_x10;
@@ -144,11 +210,17 @@ bool supply_api_read_byte(uint8_t * storeTo) {
   long awaitUntill = millis() + SUPPLY_AVR_MAX_AWAIT_TIME;
   while(!supply.available()) {
     if (awaitUntill < millis()) {
+      Serial.println("supply_api_read_byte:: timeout!");
       return false;
     }
   }
 
   *storeTo = supply.read();
+
+#ifdef SUPPLY_AVR_PRINT_DEBUG
+  Serial.print(":");
+  Serial.print(*storeTo, HEX);
+#endif
 
   return true;
 }

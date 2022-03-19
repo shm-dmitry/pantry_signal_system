@@ -1683,6 +1683,21 @@
 <technology name=""/>
 </technologies>
 </device>
+<device name="SO-8" package="SO-8">
+<connects>
+<connect gate="G$1" pin="GND" pad="P4"/>
+<connect gate="G$1" pin="PB0" pad="P5"/>
+<connect gate="G$1" pin="PB1" pad="P6"/>
+<connect gate="G$1" pin="PB2" pad="P7"/>
+<connect gate="G$1" pin="PB3" pad="P2"/>
+<connect gate="G$1" pin="PB4" pad="P3"/>
+<connect gate="G$1" pin="PB5" pad="P1"/>
+<connect gate="G$1" pin="VCC" pad="P8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="FU" prefix="FU">
@@ -1936,7 +1951,7 @@
 <part name="GND35" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R28" library="my_devices" deviceset="R" device="" value="620"/>
-<part name="U9" library="my_devices" deviceset="ATTINY13" device=""/>
+<part name="U9" library="my_devices" deviceset="ATTINY13" device="SO-8" value="ATTINY13SO-8"/>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FU1" library="my_devices" deviceset="FU" device="" value="H520PT / 1A"/>
 <part name="FU2" library="my_devices" deviceset="FU" device="" value="H520PT / 1A"/>

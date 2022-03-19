@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="24" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,12 +53,12 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -76,21 +76,15 @@
 <library name="my_devices">
 <packages>
 <package name="BATTERY">
-<pad name="MINUS" x="-1.27" y="0" drill="0.6" shape="square"/>
-<pad name="PLUS" x="1.27" y="0" drill="0.6" shape="square"/>
-</package>
-<package name="TO-220IS">
-<pad name="IN" x="-2.54" y="0" drill="0.6" shape="square"/>
-<pad name="GND" x="0" y="0" drill="0.6" shape="square"/>
-<pad name="OUT" x="2.54" y="0" drill="0.6" shape="square"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.127" layer="21"/>
-<wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.127" layer="21"/>
-<text x="-3.81" y="1.27" size="0.6096" layer="21">in</text>
-<text x="-1.27" y="1.27" size="0.6096" layer="21">gnd</text>
-<text x="2.54" y="1.27" size="0.6096" layer="21">out</text>
-<text x="-3.81" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+<pad name="MINUS" x="-1.27" y="0" drill="0.8" shape="square"/>
+<pad name="PLUS" x="1.27" y="0" drill="0.8" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+<text x="1.27" y="-2.54" size="1.27" layer="21">+</text>
+<text x="-2.54" y="-2.54" size="1.27" layer="21">-</text>
 </package>
 <package name="D">
 <pad name="P$1" x="-1.27" y="0" drill="0.6" shape="square"/>
@@ -120,7 +114,7 @@
 <wire x1="-3.81" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="21"/>
 <text x="-3.81" y="5.08" size="1.27" layer="21">&gt;NAME</text>
 </package>
-<package name="RD-3296Z">
+<package name="RD-3266W-1-105LF">
 <pad name="P3" x="0" y="2.54" drill="0.8" shape="square"/>
 <pad name="P1" x="-2.54" y="0" drill="0.8" shape="square"/>
 <pad name="P2" x="2.54" y="0" drill="0.8" shape="square"/>
@@ -285,19 +279,19 @@
 <text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="I2C_DISPLAY">
-<pad name="VCC" x="-2.54" y="0" drill="0.6" shape="square"/>
-<pad name="GND" x="0" y="0" drill="0.6" shape="square"/>
-<pad name="SCL" x="2.54" y="0" drill="0.6" shape="square"/>
-<pad name="SDA" x="5.08" y="0" drill="0.6" shape="square"/>
-<wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-1.27" x2="6.35" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
-<text x="-1.27" y="2.54" size="1.27" layer="21">&gt;NAME</text>
-<wire x1="-3.81" y1="2.54" x2="-3.81" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<pad name="VCC" x="-2.54" y="0" drill="0.8" shape="square"/>
+<pad name="GND" x="0" y="0" drill="0.8" shape="square"/>
+<pad name="SCL" x="2.54" y="0" drill="0.8" shape="square"/>
+<pad name="SDA" x="5.08" y="0" drill="0.8" shape="square"/>
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-2.54" x2="7.62" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="2.54" width="0.127" layer="21"/>
+<wire x1="7.62" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-1.27" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+<wire x1="-5.08" y1="3.81" x2="-5.08" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="-5.08" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
 </package>
 <package name="BME280">
 <pad name="GND" x="-5.08" y="1.27" drill="0.8" shape="square"/>
@@ -329,12 +323,13 @@
 <wire x1="0" y1="-5.08" x2="0" y2="5.08" width="0.127" layer="21"/>
 </package>
 <package name="FAN_5V">
-<pad name="VCC" x="-1.27" y="0" drill="0.6" shape="square"/>
-<pad name="GND" x="1.27" y="0" drill="0.6" shape="square"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<pad name="VCC" x="-1.27" y="0" drill="0.8" shape="square"/>
+<pad name="GND" x="1.27" y="0" drill="0.8" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="RF">
 <pad name="PIN1" x="-1.5" y="0" drill="1.2" shape="square"/>
@@ -343,8 +338,13 @@
 <circle x="0" y="0" radius="2.83980625" width="0.127" layer="21"/>
 </package>
 <package name="FLOODING_SENSOR">
-<pad name="P$1" x="-1.27" y="0" drill="0.6" shape="square"/>
-<pad name="P$2" x="1.27" y="0" drill="0.6" shape="square"/>
+<pad name="P$1" x="-1.27" y="0" drill="0.8" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="0.8" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SB-NO-SPST-ANGLE">
 <pad name="NC1" x="-3.556" y="2.54" drill="1.5" shape="square"/>
@@ -378,13 +378,13 @@
 <text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SF">
-<pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
-<pad name="P$2" x="1.27" y="0" drill="1.2" shape="square"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
-<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
+<pad name="P$1" x="-1.27" y="0" drill="0.8" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="0.8" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SWITCH">
 <pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
@@ -507,19 +507,19 @@
 <wire x1="0" y1="2.54" x2="0" y2="3.81" width="0.127" layer="21"/>
 </package>
 <package name="C-MINI-5X7">
-<pad name="MINUS" x="1" y="0" drill="0.7" shape="square"/>
-<pad name="PLUS" x="-1" y="0" drill="0.7" shape="square"/>
+<pad name="MINUS" x="1" y="0" drill="0.8" shape="square"/>
+<pad name="PLUS" x="-1" y="0" drill="0.8" shape="square"/>
 <circle x="0" y="0" radius="3" width="0.127" layer="21"/>
 <text x="-3" y="3.5" size="1.27" layer="21">&gt;NAME</text>
 <text x="-2" y="-2" size="1.27" layer="21">+</text>
 </package>
 <package name="D-SOD-123FL">
-<smd name="ANODE" x="-1.5" y="0" dx="1.25" dy="1.22" layer="1"/>
-<smd name="CATHODE" x="1.5" y="0" dx="1.25" dy="1.22" layer="1"/>
-<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<smd name="ANODE" x="-1.8" y="0" dx="1.7" dy="1.22" layer="1"/>
+<smd name="CATHODE" x="1.8" y="0" dx="1.7" dy="1.22" layer="1"/>
+<wire x1="-3.14" y1="1.27" x2="3.24" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.24" y1="1.27" x2="3.24" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="3.24" y1="-1.27" x2="-3.14" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-3.14" y1="-1.27" x2="-3.14" y2="1.27" width="0.127" layer="21"/>
 <text x="-3.048" y="1.778" size="1.27" layer="21">&gt;NAME</text>
 <wire x1="-0.762" y1="0" x2="-0.254" y2="0" width="0.127" layer="21"/>
 <wire x1="-0.254" y1="0" x2="-0.254" y2="-0.508" width="0.127" layer="21"/>
@@ -531,13 +531,13 @@
 <wire x1="0.254" y1="0" x2="0.762" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="SB-EXT">
-<pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
-<pad name="P$2" x="1.27" y="0" drill="1.2" shape="square"/>
-<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
-<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
+<pad name="P$1" x="-1.27" y="0" drill="0.8" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="0.8" shape="square"/>
+<wire x1="-3.81" y1="2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SO-14">
 <smd name="P2" x="-2.67" y="2.54" dx="1.5" dy="0.6" layer="1"/>
@@ -572,6 +572,53 @@
 <wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
 <wire x1="2.54" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
 <text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="TO-220IS">
+<pad name="IN" x="-2.54" y="0" drill="1" shape="square"/>
+<pad name="GND" x="0" y="0" drill="1" shape="square"/>
+<pad name="OUT" x="2.54" y="0" drill="1" shape="square"/>
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.127" layer="21"/>
+<wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.127" layer="21"/>
+<text x="-3.81" y="1.27" size="0.6096" layer="21">in</text>
+<text x="-1.27" y="1.27" size="0.6096" layer="21">gnd</text>
+<text x="2.54" y="1.27" size="0.6096" layer="21">out</text>
+<text x="-3.81" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="RD-3296W-1-205LF">
+<pad name="P3" x="0" y="0" drill="0.8" shape="square"/>
+<pad name="P1" x="-2.54" y="0" drill="0.8" shape="square"/>
+<pad name="P2" x="2.54" y="0" drill="0.8" shape="square"/>
+<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="2.54" width="0.127" layer="21"/>
+<wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="5.08" y1="2.54" x2="6.35" y2="2.54" width="0.127" layer="21"/>
+<wire x1="6.35" y1="2.54" x2="6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="6.35" y1="1.27" x2="5.08" y2="1.27" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="SO-8-209">
+<smd name="P1" x="-3.04" y="2.54" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P2" x="-3.04" y="1.27" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P3" x="-3.04" y="0" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P4" x="-3.04" y="-1.27" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P8" x="3.04" y="2.54" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P7" x="3.04" y="1.27" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P6" x="3.04" y="0" dx="2.2" dy="0.72" layer="1"/>
+<smd name="P5" x="3.04" y="-1.27" dx="2.2" dy="0.72" layer="1"/>
+<wire x1="-2.54" y1="3.81" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="3.81" width="0.127" layer="21"/>
+<wire x1="2.54" y1="3.81" x2="0" y2="3.81" width="0.127" layer="21"/>
+<text x="-2.54" y="5.08" size="1.27" layer="21">&gt;NAME</text>
+<wire x1="0" y1="3.81" x2="-1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="3.81" x2="-2.54" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="3.81" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="2.54" x2="0" y2="2.54" width="0.127" layer="21"/>
+<wire x1="0" y1="2.54" x2="0" y2="3.81" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -1329,7 +1376,17 @@
 <technology name=""/>
 </technologies>
 </device>
-<device name="3296-Z" package="RD-3296Z">
+<device name="3296-Z" package="RD-3266W-1-105LF">
+<connects>
+<connect gate="G$1" pin="P1" pad="P1"/>
+<connect gate="G$1" pin="P2" pad="P2"/>
+<connect gate="G$1" pin="P3" pad="P3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3296W-1-205LF" package="RD-3296W-1-205LF">
 <connects>
 <connect gate="G$1" pin="P1" pad="P1"/>
 <connect gate="G$1" pin="P2" pad="P2"/>
@@ -1720,6 +1777,21 @@
 <technology name=""/>
 </technologies>
 </device>
+<device name="SO-8-209" package="SO-8-209">
+<connects>
+<connect gate="G$1" pin="GND" pad="P4"/>
+<connect gate="G$1" pin="PB0" pad="P5"/>
+<connect gate="G$1" pin="PB1" pad="P6"/>
+<connect gate="G$1" pin="PB2" pad="P7"/>
+<connect gate="G$1" pin="PB3" pad="P2"/>
+<connect gate="G$1" pin="PB4" pad="P3"/>
+<connect gate="G$1" pin="PB5" pad="P1"/>
+<connect gate="G$1" pin="VCC" pad="P8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="FU" prefix="FU">
@@ -1898,8 +1970,8 @@
 <part name="D2" library="my_devices" deviceset="D" device="SOD-123FL" value="MBR130LSFT1G"/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C3" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
-<part name="R1" library="my_devices" deviceset="RD" device="3296-Z" value="2M"/>
-<part name="R2" library="my_devices" deviceset="RD" device="3296-Z" value="2M"/>
+<part name="R1" library="my_devices" deviceset="RD" device="3296W-1-205LF" value="2M"/>
+<part name="R2" library="my_devices" deviceset="RD" device="3296W-1-205LF" value="2M"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="D4" library="my_devices" deviceset="D" device="SOD-123FL" value="MBR130LSFT1G"/>
@@ -1977,7 +2049,7 @@
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FU1" library="my_devices" deviceset="FU" device="" value="H520PT / 1A"/>
 <part name="FU2" library="my_devices" deviceset="FU" device="" value="H520PT / 1A"/>
-<part name="R5" library="my_devices" deviceset="RD" device="3296-Z" value="2M"/>
+<part name="R5" library="my_devices" deviceset="RD" device="3296W-1-205LF" value="2M"/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="BAT3" library="my_devices" deviceset="BATTERY" device="" value="10V ... 15V"/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>

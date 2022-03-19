@@ -353,10 +353,10 @@
 <wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
 </package>
 <package name="RF">
-<pad name="PIN1" x="-1.5" y="0" drill="0.8" shape="square"/>
-<pad name="PIN2" x="1.5" y="0" drill="0.8" shape="square"/>
-<circle x="0" y="0" radius="2.5" width="0.127" layer="21"/>
+<pad name="PIN1" x="-1.5" y="0" drill="1.2" shape="square"/>
+<pad name="PIN2" x="1.5" y="0" drill="1.2" shape="square"/>
 <text x="-3" y="3" size="1.27" layer="21">&gt;NAME</text>
+<circle x="0" y="0" radius="2.83980625" width="0.127" layer="21"/>
 </package>
 <package name="FLOODING_SENSOR">
 <pad name="P$1" x="-1.27" y="0" drill="0.6" shape="square"/>
@@ -384,8 +384,13 @@
 <pad name="GND" x="0" y="-7.62" drill="0.6" shape="square"/>
 </package>
 <package name="SF">
-<pad name="P$1" x="-1.27" y="0" drill="0.6" shape="square"/>
-<pad name="P$2" x="1.27" y="0" drill="0.6" shape="square"/>
+<pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="1.2" shape="square"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SWITCH">
 <pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
@@ -464,22 +469,21 @@
 <text x="3.81" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SC70">
-<smd name="P1" x="-2.54" y="1.27" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P2" x="-2.54" y="0" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P3" x="-2.54" y="-1.27" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P6" x="2.54" y="1.27" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P5" x="2.54" y="0" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P4" x="2.54" y="-1.27" dx="1.27" dy="0.635" layer="1"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="2.54" y1="2.54" x2="0" y2="2.54" width="0.127" layer="21"/>
-<wire x1="0" y1="2.54" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="2.54" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="1.27" x2="0" y2="1.27" width="0.127" layer="21"/>
-<wire x1="0" y1="1.27" x2="0" y2="2.54" width="0.127" layer="21"/>
-<text x="-2.54" y="-5.08" size="1.27" layer="21">&gt;NAME</text>
+<smd name="P1" x="-0.94" y="0.67" dx="0.5" dy="0.4" layer="1"/>
+<smd name="P2" x="-0.94" y="0" dx="0.5" dy="0.4" layer="1"/>
+<smd name="P3" x="-0.94" y="-0.67" dx="0.5" dy="0.4" layer="1"/>
+<smd name="P6" x="0.94" y="0.67" dx="0.5" dy="0.4" layer="1"/>
+<smd name="P5" x="0.94" y="0" dx="0.5" dy="0.4" layer="1"/>
+<smd name="P4" x="0.94" y="-0.67" dx="0.5" dy="0.4" layer="1"/>
+<text x="-3.04" y="-3.08" size="1.27" layer="21">&gt;NAME</text>
+<wire x1="-1.5" y1="1.5" x2="-1.5" y2="1" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="1" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.127" layer="21"/>
+<wire x1="1.5" y1="1.5" x2="-1" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="1.5" x2="-1" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-1" y1="1.5" x2="-1" y2="1" width="0.127" layer="21"/>
+<wire x1="-1" y1="1" x2="-1.5" y2="1" width="0.127" layer="21"/>
 </package>
 <package name="SO-8">
 <smd name="P1" x="-2.54" y="2.54" dx="1.78" dy="0.72" layer="1"/>
@@ -526,13 +530,37 @@
 <wire x1="0.254" y1="0" x2="0.762" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="SB-EXT">
-<pad name="P$1" x="-1.27" y="0" drill="0.8" shape="square"/>
-<pad name="P$2" x="1.27" y="0" drill="0.8" shape="square"/>
+<pad name="P$1" x="-1.27" y="0" drill="1.2" shape="square"/>
+<pad name="P$2" x="1.27" y="0" drill="1.2" shape="square"/>
 <wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
 <wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
 <wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
 <wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
 <text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="SO-14">
+<smd name="P2" x="-2.67" y="2.54" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P3" x="-2.67" y="1.27" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P4" x="-2.67" y="-0.05" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P5" x="-2.67" y="-1.27" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P6" x="-2.67" y="-2.54" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P7" x="-2.67" y="-3.81" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P1" x="-2.67" y="3.81" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P14" x="2.67" y="3.81" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P13" x="2.67" y="2.54" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P12" x="2.67" y="1.27" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P11" x="2.67" y="0" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P10" x="2.67" y="-1.27" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P9" x="2.67" y="-2.54" dx="1.5" dy="0.6" layer="1"/>
+<smd name="P8" x="2.67" y="-3.81" dx="1.5" dy="0.6" layer="1"/>
+<wire x1="-3.81" y1="5.08" x2="-3.81" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-5.08" x2="3.81" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-5.08" x2="3.81" y2="5.08" width="0.127" layer="21"/>
+<wire x1="3.81" y1="5.08" x2="-3.81" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="5" x2="-3.5" y2="4.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="4.5" x2="-3" y2="4.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="4.5" x2="-3" y2="5" width="0.127" layer="21"/>
+<text x="-2.54" y="6.35" size="1.27" layer="21">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -1332,6 +1360,27 @@
 <technology name=""/>
 </technologies>
 </device>
+<device name="SO-14" package="SO-14">
+<connects>
+<connect gate="G$1" pin="A+" pad="P3"/>
+<connect gate="G$1" pin="A-" pad="P2"/>
+<connect gate="G$1" pin="A_OUT" pad="P1"/>
+<connect gate="G$1" pin="B+" pad="P5"/>
+<connect gate="G$1" pin="B-" pad="P6"/>
+<connect gate="G$1" pin="B_OUT" pad="P7"/>
+<connect gate="G$1" pin="C+" pad="P10"/>
+<connect gate="G$1" pin="C-" pad="P9"/>
+<connect gate="G$1" pin="C_OUT" pad="P8"/>
+<connect gate="G$1" pin="D+" pad="P12"/>
+<connect gate="G$1" pin="D-" pad="P13"/>
+<connect gate="G$1" pin="D_OUT" pad="P14"/>
+<connect gate="G$1" pin="GND" pad="P11"/>
+<connect gate="G$1" pin="VCC" pad="P4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="TRANSISTOR_NPN" prefix="Q" uservalue="yes">
@@ -1842,7 +1891,7 @@
 <part name="U6" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="" value="MCP1703T-5002E/CB"/>
 <part name="C5" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U2" library="my_devices" deviceset="AD8544" device=""/>
+<part name="U2" library="my_devices" deviceset="AD8544" device="SO-14" value="AD8544SO-14"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R13" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R17" library="my_devices" deviceset="R" device="" value="1M"/>

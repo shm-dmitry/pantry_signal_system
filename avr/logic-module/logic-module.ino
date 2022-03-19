@@ -18,7 +18,7 @@ typedef struct ModuleData {
 #define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000L)
 //#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
 #define REQUEST_FULL_DATA_EVERY_MS            1
-#define PRINT_DATA_OBJECT true
+#define PRINT_DATA_OBJECT false
 
 unsigned long nextFullDataRequest = 0;
 
@@ -56,7 +56,11 @@ ModuleData * read_data(bool askSupply) {
   data2send->is_air_dryer_on = air_dryer_enable_if_need(data2send->humidity_x10);
 
   if (askSupply) {
-    supply_api_read(data2send);
+    uint8_t res = supply_api_read_with_retry(data2send);
+    if (res) {
+      Serial.print("supply-api read result: ");
+      Serial.println(res);
+    }
   }
 
 #if PRINT_DATA_OBJECT

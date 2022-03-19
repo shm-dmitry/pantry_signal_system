@@ -64,57 +64,57 @@ typedef struct t_measure_vector_data {
 
 const t_measure_vector_data primary_level[] = {
     {
-       .fromvalue = 0,
-       .koef = 7100
+      .fromvalue = 0,
+      .koef = 6685
     },
     {
-       .fromvalue = 55,
-       .koef = 6804
+      .fromvalue = 68,
+      .koef = 6583
     },
     {
-       .fromvalue = 67,
-       .koef = 6590
+      .fromvalue = 75,
+      .koef = 6452
     },
     {
-       .fromvalue = 90,
-       .koef = 6485
-    }
+      .fromvalue = 86,
+      .koef = 6350
+    }    
   };
 const t_measure_vector_data reserve_level[] = {
-   {
-       .fromvalue = 0,
-       .koef = 7278
+    {
+      .fromvalue = 0,
+      .koef = 6293
     },
     {
-       .fromvalue = 50,
-       .koef = 6455
+      .fromvalue = 73,
+      .koef = 6140
     },
     {
-       .fromvalue = 67,
-       .koef = 6288
-    },
-    {
-       .fromvalue = 77,
-       .koef = 6234
-    }
+      .fromvalue = 86,
+      .koef = 6116
+    } 
   };
 const t_measure_vector_data reserve5v_level[] = {
    {
-       .fromvalue = 0,
-       .koef = 7100
+      .fromvalue = 0,
+      .koef = 6523
     },
     {
-       .fromvalue = 55,
-       .koef = 6804
+      .fromvalue = 54,
+      .koef = 6404
     },
     {
-       .fromvalue = 67,
-       .koef = 6590
+      .fromvalue = 62,
+      .koef = 6301
     },
     {
-       .fromvalue = 90,
-       .koef = 6485
-    }
+      .fromvalue = 68,
+      .koef = 6245
+    },
+    {
+      .fromvalue = 86,
+      .koef = 6128
+    } 
   };
 
 #define PRIMARY_MAX_LEVEL_X10     144
@@ -124,9 +124,12 @@ const t_measure_vector_data reserve5v_level[] = {
 #define THRESHOLD_INUSE_RESERVE   90
 #define THRESHOLD_INUSE_PRIMARY   50
 
+#define MIN_VOLTAGE_LEVEL (5 * 10)
+
 #define HEADER_1  0x12
 #define HEADER_2  0x13
 #define HEADER_3  0x14
+#define HEADER_BEGIN_BATTERY_LEVEL 0x55
 
 #define SERIAL_WRITE(v) { \
   uint8_t serial_write_byte = (v); \
@@ -134,7 +137,7 @@ const t_measure_vector_data reserve5v_level[] = {
   Serial.write(serial_write_byte); \
 }
 
-uint8_t crc = 0;
+uint16_t crc = 0;
 
 void setup() {
   Serial.begin();
@@ -159,8 +162,6 @@ void setup() {
 }
 
 void loop() {
-  delay(100); // await some time before send data
-
   crc = 0;
 
   // write header
@@ -175,7 +176,8 @@ void loop() {
   readAndSendCurrentBatteryNumber();
 
   // write CRC
-  Serial.write(crc);
+  Serial.write(crc / 0xFF);
+  Serial.write(crc % 0xFF);
 
   // await some time and repeat...
   delay(500);
@@ -211,14 +213,13 @@ void readAndSendCurrentBatteryNumber() {
 }
 
 void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vector, uint8_t vector_size, uint8_t maxLevel_x10) {
+  // await some time to ensure read-side will read correct data
+  delay(30);
+
   uint16_t level_value = analogRead(pin);
   if (level_value < 200) {
     level_value = 0;
   }
-
-  // calibration raw data
-  SERIAL_WRITE(level_value / 0xFF);
-  SERIAL_WRITE(level_value % 0xFF);
 
   uint8_t level = 0xFF;
 
@@ -226,7 +227,7 @@ void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vect
     vector_size--;
     while(true) {
       if (level_value >= vector[vector_size].fromvalue * 10) {
-        level = (uint8_t) (((uint32_t)level_value * (uint32_t)1000) / (uint32_t)vector[vector_size].koef);
+        level = (uint8_t) ((uint32_t)((uint32_t)level_value * (uint32_t)1000) / (uint32_t)vector[vector_size].koef);
         break;
       }
       
@@ -237,6 +238,16 @@ void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vect
       vector_size--;
     }
   }
+
+  if (level < MIN_VOLTAGE_LEVEL) {
+    level = 0;
+  }
+
+  SERIAL_WRITE(HEADER_BEGIN_BATTERY_LEVEL);
+
+  // calibration raw data
+  SERIAL_WRITE(level_value / 0xFF);
+  SERIAL_WRITE(level_value % 0xFF);
 
   SERIAL_WRITE(level);
   SERIAL_WRITE(((uint16_t)level * 100) / maxLevel_x10);

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1344,12 +1344,12 @@
 <attribute name="NAME" x="67.31" y="40.64" size="1.778" layer="94"/>
 <attribute name="VALUE" x="67.31" y="34.29" size="1.778" layer="94"/>
 </instance>
-<instance part="J10" gate="G$1" x="-26.67" y="97.79" smashed="yes" grouprefs="LOGIC_AVR1">
-<attribute name="NAME" x="-28.575" y="106.045" size="0.8128" layer="94"/>
-<attribute name="VALUE" x="-28.575" y="88.265" size="0.8128" layer="94"/>
+<instance part="J10" gate="G$1" x="-33.02" y="76.2" smashed="yes">
+<attribute name="NAME" x="-34.925" y="84.455" size="0.8128" layer="94"/>
+<attribute name="VALUE" x="-34.925" y="66.675" size="0.8128" layer="94"/>
 </instance>
-<instance part="GND1" gate="1" x="-13.97" y="90.17" smashed="yes" grouprefs="LOGIC_AVR1">
-<attribute name="VALUE" x="-16.51" y="87.63" size="1.778" layer="96"/>
+<instance part="GND1" gate="1" x="-20.32" y="68.58" smashed="yes">
+<attribute name="VALUE" x="-22.86" y="66.04" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -1439,10 +1439,10 @@
 <segment>
 <pinref part="J10" gate="G$1" pin="GND1"/>
 <pinref part="J10" gate="G$1" pin="GND"/>
-<wire x1="-16.51" y1="92.71" x2="-16.51" y2="95.25" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<wire x1="-22.86" y1="71.12" x2="-22.86" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="-13.97" y1="92.71" x2="-16.51" y2="92.71" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<junction x="-16.51" y="92.71" grouprefs="LOGIC_AVR1"/>
+<wire x1="-20.32" y1="71.12" x2="-22.86" y2="71.12" width="0.1524" layer="91"/>
+<junction x="-22.86" y="71.12"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -1517,8 +1517,8 @@
 </segment>
 <segment>
 <pinref part="J10" gate="G$1" pin="VCC"/>
-<wire x1="-16.51" y1="102.87" x2="-6.35" y2="102.87" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-11.43" y="102.87" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+<wire x1="-22.86" y1="81.28" x2="-12.7" y2="81.28" width="0.1524" layer="91"/>
+<label x="-17.78" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SUPPLY_UART_TX" class="0">
@@ -1557,26 +1557,26 @@
 </net>
 <net name="I2C_SDA" class="0">
 <segment>
+<pinref part="U11" gate="G$1" pin="PC5"/>
+<wire x1="-6.35" y1="156.845" x2="21.59" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="11.43" y="156.845" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+<segment>
 <pinref part="U13" gate="G$1" pin="SDA"/>
 <wire x1="88.9" y1="-22.86" x2="71.12" y2="-22.86" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 <label x="71.12" y="-22.86" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 </segment>
+</net>
+<net name="I2C_SCL" class="0">
 <segment>
 <pinref part="U11" gate="G$1" pin="PC4"/>
 <wire x1="-6.35" y1="154.305" x2="21.59" y2="154.305" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
 <label x="11.43" y="154.305" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
-</net>
-<net name="I2C_SCL" class="0">
 <segment>
 <pinref part="U13" gate="G$1" pin="SCL"/>
 <wire x1="88.9" y1="-20.32" x2="71.12" y2="-20.32" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 <label x="71.12" y="-20.32" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
-</segment>
-<segment>
-<pinref part="U11" gate="G$1" pin="PC5"/>
-<wire x1="-6.35" y1="156.845" x2="21.59" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="11.43" y="156.845" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
 </net>
 <net name="ENABLE_DISPLAY" class="0">
@@ -1696,11 +1696,6 @@
 <wire x1="-6.35" y1="128.905" x2="34.29" y2="128.905" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
 <label x="8.89" y="128.905" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="MOSI"/>
-<wire x1="-36.83" y1="102.87" x2="-55.88" y2="102.87" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-62.23" y="102.87" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
 </net>
 <net name="N$6" class="0">
 <segment>
@@ -1780,11 +1775,6 @@
 <wire x1="114.3" y1="27.94" x2="99.06" y2="27.94" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
 <label x="99.06" y="27.94" size="1.778" layer="95" grouprefs="DISPLAY1"/>
 </segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="SCK"/>
-<wire x1="-36.83" y1="95.25" x2="-55.88" y2="95.25" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-55.88" y="95.25" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
 </net>
 <net name="I2C2_SDA" class="0">
 <segment>
@@ -1797,11 +1787,6 @@
 <wire x1="114.3" y1="25.4" x2="99.06" y2="25.4" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
 <label x="99.06" y="25.4" size="1.778" layer="95" grouprefs="DISPLAY1"/>
 </segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="MISO"/>
-<wire x1="-36.83" y1="92.71" x2="-55.88" y2="92.71" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-55.88" y="92.71" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
 </net>
 <net name="RESET" class="0">
 <segment>
@@ -1811,55 +1796,26 @@
 <pinref part="U11" gate="G$1" pin="PC6"/>
 <wire x1="-52.07" y1="156.845" x2="-46.99" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
 <junction x="-52.07" y="156.845" grouprefs="LOGIC_AVR1"/>
-<wire x1="-64.77" y1="156.845" x2="-82.55" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<junction x="-64.77" y="156.845" grouprefs="LOGIC_AVR1"/>
-<label x="-82.55" y="157.48" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="RESET"/>
-<wire x1="-36.83" y1="97.79" x2="-55.88" y2="97.79" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-55.88" y="97.79" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
-</net>
-<net name="SERIAL_TX" class="0">
-<segment>
-<pinref part="U11" gate="G$1" pin="PD0"/>
-<wire x1="-46.99" y1="154.305" x2="-66.04" y2="154.305" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-66.04" y="154.94" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="TXD"/>
-<wire x1="-16.51" y1="100.33" x2="0" y2="100.33" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-12.7" y="100.33" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
-</net>
-<net name="SERIAL_RX" class="0">
-<segment>
-<pinref part="U11" gate="G$1" pin="PD1"/>
-<wire x1="-46.99" y1="151.765" x2="-66.04" y2="151.765" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-66.04" y="152.4" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
-</segment>
-<segment>
-<pinref part="J10" gate="G$1" pin="RXD"/>
-<wire x1="-16.51" y1="97.79" x2="0" y2="97.79" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<label x="-12.7" y="97.79" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+<wire x1="-64.77" y1="156.845" x2="-82.55" y2="156.845" width="0.1524" layer="91"/>
+<junction x="-64.77" y="156.845"/>
+<label x="-82.55" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="102,1,88.9,-15.24,VCC,+5V,,,,"/>
+<approved hash="102,1,22.86,-7.62,VCC,+5V,,,,"/>
 <approved hash="102,1,-30.48,-142.24,VCC,+5V,,,,"/>
 <approved hash="104,1,-46.99,141.605,U11,VCC,+5V,,,"/>
 <approved hash="104,1,-6.35,141.605,U11,GND1,GND,,,"/>
 <approved hash="104,1,-6.35,136.525,U11,AVCC,+5V,,,"/>
-<approved hash="104,1,114.3,33.02,U14,VCC,+5V,,,"/>
-<approved hash="104,1,114.3,30.48,U14,GND,N$10,,,"/>
+<approved hash="104,1,66.04,33.02,U14,VCC,+5V,,,"/>
+<approved hash="104,1,66.04,30.48,U14,GND,N$10,,,"/>
+<approved hash="104,1,66.04,-50.8,FAN1,VCC,N$14,,,"/>
+<approved hash="104,1,66.04,-66.04,FAN1,GND,N$15,,,"/>
 <approved hash="104,1,-66.04,-73.66,U10,VDD,+12V,,,"/>
 <approved hash="104,1,-45.72,-73.66,U10,VB,+12V,,,"/>
-<approved hash="104,1,-16.51,102.87,J10,VCC,+5V,,,"/>
-<approved hash="104,1,-16.51,92.71,J10,GND1,GND,,,"/>
 </errors>
 </schematic>
 </drawing>

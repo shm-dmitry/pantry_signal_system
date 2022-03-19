@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -70,6 +70,9 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="99" name="SpiceOrder" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="101" name="Hidden" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="102" name="Changes" color="12" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -285,15 +288,6 @@
 <wire x1="-6.35" y1="-5.08" x2="0" y2="-5.08" width="0.127" layer="21"/>
 <wire x1="0" y1="-5.08" x2="0" y2="5.08" width="0.127" layer="21"/>
 </package>
-<package name="FAN_5V">
-<pad name="VCC" x="-1.27" y="0" drill="0.8" shape="square"/>
-<pad name="GND" x="1.27" y="0" drill="0.8" shape="square"/>
-<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
-<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
-</package>
 <package name="RF">
 <pad name="PIN1" x="-1.5" y="0" drill="1.2" shape="square"/>
 <pad name="PIN2" x="1.5" y="0" drill="1.2" shape="square"/>
@@ -375,6 +369,28 @@
 <wire x1="-3" y1="2.5" x2="-3" y2="2" width="0.127" layer="21"/>
 <wire x1="-3" y1="2" x2="-2.5" y2="2" width="0.127" layer="21"/>
 <wire x1="-2.5" y1="2" x2="-2.5" y2="2.5" width="0.127" layer="21"/>
+</package>
+<package name="USBASP_PIN">
+<pad name="RST" x="-1.27" y="0" drill="0.9" shape="square"/>
+<pad name="NC1" x="-1.27" y="2.54" drill="0.9" shape="square"/>
+<pad name="MOSI" x="-1.27" y="5.08" drill="0.9" shape="square"/>
+<pad name="SCK" x="-1.27" y="-2.54" drill="0.9" shape="square"/>
+<pad name="MISO" x="-1.27" y="-5.08" drill="0.9" shape="square"/>
+<pad name="GND1" x="1.27" y="-5.08" drill="0.9" shape="square"/>
+<pad name="GND" x="1.27" y="-2.54" drill="0.9" shape="square"/>
+<pad name="RXD" x="1.27" y="0" drill="0.9" shape="square"/>
+<pad name="TXD" x="1.27" y="2.54" drill="0.9" shape="square"/>
+<pad name="VCC" x="1.27" y="5.08" drill="0.9" shape="square"/>
+<wire x1="-2.54" y1="6.35" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="-6.35" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-6.35" x2="2.54" y2="-6.35" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-6.35" x2="2.54" y2="6.35" width="0.127" layer="21"/>
+<wire x1="2.54" y1="6.35" x2="-2.54" y2="6.35" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<text x="3.81" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -581,15 +597,6 @@
 <text x="5.08" y="10.16" size="1.778" layer="94">&gt;NAME</text>
 <text x="7.62" y="0" size="1.778" layer="94">BME280</text>
 </symbol>
-<symbol name="FAN_5V">
-<circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
-<pin name="VCC" x="-7.62" y="0" visible="off" length="middle" direction="pwr"/>
-<pin name="GND" x="7.62" y="0" visible="off" length="middle" direction="pwr" rot="R180"/>
-<text x="-1.905" y="0" size="0.4064" layer="94">+5V</text>
-<text x="0.635" y="0" size="0.4064" layer="94">GND</text>
-<text x="-5.08" y="5.08" size="1.778" layer="94">&gt;NAME</text>
-<text x="-5.08" y="-5.08" size="1.778" layer="94">&gt;VALUE</text>
-</symbol>
 <symbol name="RF">
 <pin name="P$1" x="-12.7" y="0" visible="off" length="middle"/>
 <pin name="P$2" x="12.7" y="0" visible="off" length="middle" rot="R180"/>
@@ -698,6 +705,38 @@
 <text x="3.175" y="-0.635" size="0.6096" layer="94">VS</text>
 <text x="-4.445" y="-7.62" size="1.778" layer="94">&gt;NAME</text>
 <text x="-4.445" y="-10.16" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="USBASP_PIN">
+<pin name="MOSI" x="-10.16" y="5.08" visible="off" length="middle"/>
+<pin name="NC1" x="-10.16" y="2.54" visible="off" length="middle" direction="nc"/>
+<pin name="RESET" x="-10.16" y="0" visible="off" length="middle"/>
+<pin name="SCK" x="-10.16" y="-2.54" visible="off" length="middle"/>
+<pin name="MISO" x="-10.16" y="-5.08" visible="off" length="middle"/>
+<pin name="VCC" x="10.16" y="5.08" visible="off" length="middle" direction="pwr" rot="R180"/>
+<pin name="TXD" x="10.16" y="2.54" visible="off" length="middle" rot="R180"/>
+<pin name="RXD" x="10.16" y="0" visible="off" length="middle" rot="R180"/>
+<pin name="GND" x="10.16" y="-2.54" visible="off" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND1" x="10.16" y="-5.08" visible="off" length="middle" direction="pwr" rot="R180"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="1.27" x2="-5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-1.27" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="1.27" x2="-3.81" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-1.27" x2="-5.08" y2="-1.27" width="0.254" layer="94"/>
+<text x="-3.81" y="5.08" size="0.8128" layer="94">MOSI</text>
+<text x="-3.175" y="0" size="0.8128" layer="94">RST</text>
+<text x="-3.81" y="-2.54" size="0.8128" layer="94">SCK</text>
+<text x="-3.81" y="-5.08" size="0.8128" layer="94">MISO</text>
+<text x="1.905" y="5.08" size="0.8128" layer="94">VCC</text>
+<text x="1.905" y="-2.54" size="0.8128" layer="94">GND</text>
+<text x="1.905" y="-5.08" size="0.8128" layer="94">GND</text>
+<text x="-1.905" y="8.255" size="0.8128" layer="94">&gt;NAME</text>
+<text x="-1.905" y="-9.525" size="0.8128" layer="94">&gt;VALUE</text>
+<text x="1.905" y="0" size="0.8128" layer="94">RXD</text>
+<text x="1.905" y="2.54" size="0.8128" layer="94">TXD</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -916,22 +955,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="FAN_5V" prefix="FAN">
-<gates>
-<gate name="G$1" symbol="FAN_5V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="FAN_5V">
-<connects>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="VCC" pad="VCC"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="RF" prefix="R">
 <gates>
 <gate name="G$1" symbol="RF" x="0" y="0"/>
@@ -1048,6 +1071,30 @@
 </device>
 </devices>
 </deviceset>
+<deviceset name="USBASP_PIN" prefix="J">
+<gates>
+<gate name="G$1" symbol="USBASP_PIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="USBASP_PIN">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="GND1" pad="GND1"/>
+<connect gate="G$1" pin="MISO" pad="MISO"/>
+<connect gate="G$1" pin="MOSI" pad="MOSI"/>
+<connect gate="G$1" pin="NC1" pad="NC1"/>
+<connect gate="G$1" pin="RESET" pad="RST"/>
+<connect gate="G$1" pin="RXD" pad="RXD"/>
+<connect gate="G$1" pin="SCK" pad="SCK"/>
+<connect gate="G$1" pin="TXD" pad="TXD"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
@@ -1120,11 +1167,9 @@
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U13" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="FAN1" library="my_devices" deviceset="FAN_5V" device="" value="EC6010H12S"/>
 <part name="GND24" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q4" library="my_devices" deviceset="MOSFET_N" device="" value="STP14NM50N"/>
 <part name="J7" library="my_devices" deviceset="JST-XH254-2P" device=""/>
-<part name="J8" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="R27" library="my_devices" deviceset="RF" device="" value="GL5528"/>
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R23" library="my_devices" deviceset="R" device="" value="1M"/>
@@ -1147,6 +1192,8 @@
 <part name="GND37" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R22" library="my_devices" deviceset="R" device="" value="620"/>
+<part name="J10" library="my_devices" deviceset="USBASP_PIN" device=""/>
+<part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1158,16 +1205,16 @@
 <attribute name="NAME" x="-31.75" y="164.465" size="1.778" layer="94"/>
 <attribute name="VALUE" x="-35.56" y="114.935" size="1.778" layer="94"/>
 </instance>
-<instance part="J6" gate="G$1" x="-83.82" y="12.7" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
-<attribute name="NAME" x="-96.52" y="10.16" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="-96.52" y="15.24" size="1.778" layer="94" rot="R180"/>
+<instance part="J6" gate="G$1" x="-43.18" y="-22.86" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="-55.88" y="-25.4" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="-55.88" y="-20.32" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="J5" gate="G$1" x="-83.82" y="45.72" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
-<attribute name="NAME" x="-96.52" y="43.18" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="-96.52" y="48.26" size="1.778" layer="94" rot="R180"/>
+<instance part="J5" gate="G$1" x="-43.18" y="10.16" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="-55.88" y="7.62" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="-55.88" y="12.7" size="1.778" layer="94" rot="R180"/>
 </instance>
-<instance part="GND8" gate="1" x="-73.66" y="38.1" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
-<attribute name="VALUE" x="-76.2" y="35.56" size="1.778" layer="96"/>
+<instance part="GND8" gate="1" x="-33.02" y="2.54" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="VALUE" x="-35.56" y="0" size="1.778" layer="96"/>
 </instance>
 <instance part="GND18" gate="1" x="8.89" y="139.065" smashed="yes" grouprefs="LOGIC_AVR1">
 <attribute name="VALUE" x="6.35" y="136.525" size="1.778" layer="96"/>
@@ -1186,30 +1233,26 @@
 <attribute name="NAME" x="-54.61" y="158.115" size="1.778" layer="94" rot="R90"/>
 <attribute name="VALUE" x="-48.26" y="158.115" size="1.778" layer="94" rot="R90"/>
 </instance>
-<instance part="U14" gate="G$1" x="71.12" y="30.48" smashed="yes" grouprefs="DISPLAY1">
-<attribute name="NAME" x="86.36" y="30.48" size="1.778" layer="94"/>
-<attribute name="VALUE" x="86.36" y="25.4" size="1.778" layer="94"/>
+<instance part="U14" gate="G$1" x="119.38" y="30.48" smashed="yes" grouprefs="DISPLAY1">
+<attribute name="NAME" x="134.62" y="30.48" size="1.778" layer="94"/>
+<attribute name="VALUE" x="134.62" y="25.4" size="1.778" layer="94"/>
 </instance>
-<instance part="Q5" gate="G$1" x="38.1" y="30.48" smashed="yes" rot="R270" grouprefs="DISPLAY1">
-<attribute name="NAME" x="39.37" y="35.56" size="1.778" layer="94"/>
-<attribute name="VALUE" x="32.385" y="23.495" size="1.778" layer="94"/>
+<instance part="Q5" gate="G$1" x="86.36" y="30.48" smashed="yes" rot="R270" grouprefs="DISPLAY1">
+<attribute name="NAME" x="87.63" y="35.56" size="1.778" layer="94"/>
+<attribute name="VALUE" x="80.645" y="23.495" size="1.778" layer="94"/>
 </instance>
-<instance part="C10" gate="G$1" x="-55.88" y="38.1" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
-<attribute name="NAME" x="-50.8" y="43.18" size="1.778" layer="94" rot="R270"/>
-<attribute name="VALUE" x="-63.5" y="43.18" size="1.778" layer="94" rot="R270"/>
+<instance part="C10" gate="G$1" x="-15.24" y="2.54" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="-10.16" y="7.62" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="-22.86" y="7.62" size="1.778" layer="94" rot="R270"/>
 </instance>
-<instance part="GND22" gate="1" x="-55.88" y="27.94" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
-<attribute name="VALUE" x="-58.42" y="25.4" size="1.778" layer="96"/>
+<instance part="GND22" gate="1" x="-15.24" y="-7.62" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="VALUE" x="-17.78" y="-10.16" size="1.778" layer="96"/>
 </instance>
-<instance part="U13" gate="G$1" x="33.02" y="-12.7" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1">
-<attribute name="NAME" x="38.1" y="-2.54" size="1.778" layer="94"/>
+<instance part="U13" gate="G$1" x="99.06" y="-20.32" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1">
+<attribute name="NAME" x="104.14" y="-10.16" size="1.778" layer="94"/>
 </instance>
-<instance part="GND23" gate="1" x="0" y="-12.7" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1">
-<attribute name="VALUE" x="-2.54" y="-15.24" size="1.778" layer="96"/>
-</instance>
-<instance part="FAN1" gate="G$1" x="66.04" y="-58.42" smashed="yes" rot="R270" grouprefs="AIR_DRYER1">
-<attribute name="NAME" x="71.12" y="-53.34" size="1.778" layer="94" rot="R270"/>
-<attribute name="VALUE" x="60.96" y="-53.34" size="1.778" layer="94" rot="R270"/>
+<instance part="GND23" gate="1" x="66.04" y="-20.32" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1">
+<attribute name="VALUE" x="63.5" y="-22.86" size="1.778" layer="96"/>
 </instance>
 <instance part="GND24" gate="1" x="-17.78" y="-88.9" smashed="yes" grouprefs="AIR_DRYER1">
 <attribute name="VALUE" x="-20.32" y="-91.44" size="1.778" layer="96"/>
@@ -1221,10 +1264,6 @@
 <instance part="J7" gate="G$1" x="-12.7" y="-58.42" smashed="yes" grouprefs="AIR_DRYER1">
 <attribute name="NAME" x="0" y="-55.88" size="1.778" layer="94"/>
 <attribute name="VALUE" x="0" y="-60.96" size="1.778" layer="94"/>
-</instance>
-<instance part="J8" gate="G$1" x="43.18" y="-58.42" smashed="yes" rot="R180" grouprefs="AIR_DRYER1">
-<attribute name="NAME" x="30.48" y="-60.96" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="30.48" y="-55.88" size="1.778" layer="94" rot="R180"/>
 </instance>
 <instance part="R27" gate="G$1" x="96.52" y="66.04" smashed="yes" grouprefs="LIGHT_SENSOR_MODULE1">
 <attribute name="NAME" x="92.202" y="59.182" size="1.778" layer="94"/>
@@ -1298,12 +1337,19 @@
 <instance part="GND37" gate="1" x="-40.64" y="-81.28" smashed="yes" grouprefs="AIR_DRYER1">
 <attribute name="VALUE" x="-43.18" y="-83.82" size="1.778" layer="96"/>
 </instance>
-<instance part="GND21" gate="1" x="27.94" y="27.94" smashed="yes" grouprefs="DISPLAY1">
-<attribute name="VALUE" x="25.4" y="25.4" size="1.778" layer="96"/>
+<instance part="GND21" gate="1" x="76.2" y="27.94" smashed="yes" grouprefs="DISPLAY1">
+<attribute name="VALUE" x="73.66" y="25.4" size="1.778" layer="96"/>
 </instance>
-<instance part="R22" gate="G$1" x="25.4" y="38.1" smashed="yes" grouprefs="DISPLAY1">
-<attribute name="NAME" x="19.05" y="40.64" size="1.778" layer="94"/>
-<attribute name="VALUE" x="19.05" y="34.29" size="1.778" layer="94"/>
+<instance part="R22" gate="G$1" x="73.66" y="38.1" smashed="yes" grouprefs="DISPLAY1">
+<attribute name="NAME" x="67.31" y="40.64" size="1.778" layer="94"/>
+<attribute name="VALUE" x="67.31" y="34.29" size="1.778" layer="94"/>
+</instance>
+<instance part="J10" gate="G$1" x="-26.67" y="97.79" smashed="yes" grouprefs="LOGIC_AVR1">
+<attribute name="NAME" x="-28.575" y="106.045" size="0.8128" layer="94"/>
+<attribute name="VALUE" x="-28.575" y="88.265" size="0.8128" layer="94"/>
+</instance>
+<instance part="GND1" gate="1" x="-13.97" y="90.17" smashed="yes" grouprefs="LOGIC_AVR1">
+<attribute name="VALUE" x="-16.51" y="87.63" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -1313,7 +1359,7 @@
 <segment>
 <pinref part="J5" gate="G$1" pin="PIN1"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="-78.74" y1="40.64" x2="-73.66" y2="40.64" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-38.1" y1="5.08" x2="-33.02" y2="5.08" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
@@ -1333,11 +1379,11 @@
 <segment>
 <pinref part="C10" gate="G$1" pin="PIN_GND"/>
 <pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="-55.88" y1="33.02" x2="-55.88" y2="30.48" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-15.24" y1="-2.54" x2="-15.24" y2="-5.08" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="GND"/>
-<wire x1="22.86" y1="-10.16" x2="0" y2="-10.16" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<wire x1="88.9" y1="-17.78" x2="66.04" y2="-17.78" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -1383,22 +1429,30 @@
 <segment>
 <pinref part="Q5" gate="G$1" pin="E"/>
 <pinref part="GND21" gate="1" pin="GND"/>
-<wire x1="30.48" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<wire x1="78.74" y1="30.48" x2="76.2" y2="30.48" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
 </segment>
 <segment>
 <pinref part="Q4" gate="G$1" pin="S"/>
 <pinref part="GND24" gate="1" pin="GND"/>
 <wire x1="-17.78" y1="-80.645" x2="-17.78" y2="-86.36" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
 </segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="GND1"/>
+<pinref part="J10" gate="G$1" pin="GND"/>
+<wire x1="-16.51" y1="92.71" x2="-16.51" y2="95.25" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+<wire x1="-13.97" y1="92.71" x2="-16.51" y2="92.71" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<junction x="-16.51" y="92.71" grouprefs="LOGIC_AVR1"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="J5" gate="G$1" pin="PIN2"/>
-<wire x1="-78.74" y1="45.72" x2="-55.88" y2="45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<label x="-48.26" y="45.72" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-38.1" y1="10.16" x2="-15.24" y2="10.16" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="-7.62" y="10.16" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <pinref part="C10" gate="G$1" pin="PIN_PLUS"/>
-<wire x1="-55.88" y1="45.72" x2="-40.64" y2="45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<junction x="-55.88" y="45.72" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-15.24" y1="10.16" x2="0" y2="10.16" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<junction x="-15.24" y="10.16" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="U11" gate="G$1" pin="VCC"/>
@@ -1421,8 +1475,8 @@
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="VCC"/>
-<wire x1="22.86" y1="-7.62" x2="10.16" y2="-7.62" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
-<label x="10.16" y="-7.62" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<wire x1="88.9" y1="-15.24" x2="76.2" y2="-15.24" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<label x="76.2" y="-15.24" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="P$1"/>
@@ -1458,15 +1512,20 @@
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="VCC"/>
-<wire x1="66.04" y1="33.02" x2="45.72" y2="33.02" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
-<label x="45.72" y="33.02" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+<wire x1="114.3" y1="33.02" x2="93.98" y2="33.02" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<label x="93.98" y="33.02" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="VCC"/>
+<wire x1="-16.51" y1="102.87" x2="-6.35" y2="102.87" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-11.43" y="102.87" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
 </net>
 <net name="SUPPLY_UART_TX" class="0">
 <segment>
 <pinref part="J6" gate="G$1" pin="PIN2"/>
-<wire x1="-78.74" y1="15.24" x2="-40.64" y2="15.24" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<label x="-63.5" y="15.24" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-38.1" y1="-20.32" x2="0" y2="-20.32" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="-22.86" y="-20.32" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="U11" gate="G$1" pin="PB0"/>
@@ -1477,8 +1536,8 @@
 <net name="+12V" class="0">
 <segment>
 <pinref part="J5" gate="G$1" pin="PIN3"/>
-<wire x1="-78.74" y1="50.8" x2="-40.64" y2="50.8" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<label x="-48.26" y="50.8" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-38.1" y1="15.24" x2="0" y2="15.24" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="-7.62" y="15.24" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="U10" gate="G$1" pin="VDD"/>
@@ -1496,16 +1555,6 @@
 <label x="-58.42" y="-55.88" size="1.778" layer="95" grouprefs="AIR_DRYER1"/>
 </segment>
 </net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="C9" gate="G$1" pin="P$1"/>
-<pinref part="R21" gate="G$1" pin="P$1"/>
-<wire x1="-64.77" y1="156.845" x2="-52.07" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<pinref part="U11" gate="G$1" pin="PC6"/>
-<wire x1="-52.07" y1="156.845" x2="-46.99" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
-<junction x="-52.07" y="156.845" grouprefs="LOGIC_AVR1"/>
-</segment>
-</net>
 <net name="I2C_SDA" class="0">
 <segment>
 <pinref part="U11" gate="G$1" pin="PC5"/>
@@ -1514,8 +1563,8 @@
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="SDA"/>
-<wire x1="22.86" y1="-15.24" x2="5.08" y2="-15.24" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
-<label x="5.08" y="-15.24" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<wire x1="88.9" y1="-22.86" x2="71.12" y2="-22.86" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<label x="71.12" y="-22.86" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -1526,8 +1575,8 @@
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="SCL"/>
-<wire x1="22.86" y1="-12.7" x2="5.08" y2="-12.7" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
-<label x="5.08" y="-12.7" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<wire x1="88.9" y1="-20.32" x2="71.12" y2="-20.32" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
+<label x="71.12" y="-20.32" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR1"/>
 </segment>
 </net>
 <net name="ENABLE_DISPLAY" class="0">
@@ -1538,8 +1587,8 @@
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="P$1"/>
-<wire x1="17.78" y1="38.1" x2="-2.54" y2="38.1" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
-<label x="-2.54" y="38.1" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+<wire x1="66.04" y1="38.1" x2="45.72" y2="38.1" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<label x="45.72" y="38.1" size="1.778" layer="95" grouprefs="DISPLAY1"/>
 </segment>
 </net>
 <net name="ENABLE_DR\YER" class="0">
@@ -1552,22 +1601,6 @@
 <wire x1="-66.04" y1="-76.2" x2="-91.44" y2="-76.2" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
 <label x="-93.98" y="-78.74" size="1.778" layer="95" grouprefs="AIR_DRYER1"/>
 <pinref part="U10" gate="G$1" pin="IN"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="J8" gate="G$1" pin="PIN2"/>
-<pinref part="FAN1" gate="G$1" pin="VCC"/>
-<wire x1="48.26" y1="-55.88" x2="48.26" y2="-50.8" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
-<wire x1="48.26" y1="-50.8" x2="66.04" y2="-50.8" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="J8" gate="G$1" pin="PIN1"/>
-<pinref part="FAN1" gate="G$1" pin="GND"/>
-<wire x1="48.26" y1="-60.96" x2="48.26" y2="-66.04" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
-<wire x1="48.26" y1="-66.04" x2="66.04" y2="-66.04" width="0.1524" layer="91" grouprefs="AIR_DRYER1"/>
 </segment>
 </net>
 <net name="LIGHT_SENSOR" class="0">
@@ -1663,6 +1696,11 @@
 <wire x1="-6.35" y1="128.905" x2="34.29" y2="128.905" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
 <label x="8.89" y="128.905" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="MOSI"/>
+<wire x1="-36.83" y1="102.87" x2="-55.88" y2="102.87" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-62.23" y="102.87" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
 </net>
 <net name="N$6" class="0">
 <segment>
@@ -1701,7 +1739,7 @@
 <net name="N$10" class="0">
 <segment>
 <pinref part="U14" gate="G$1" pin="GND"/>
-<wire x1="45.72" y1="30.48" x2="66.04" y2="30.48" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<wire x1="93.98" y1="30.48" x2="114.3" y2="30.48" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
 <pinref part="Q5" gate="G$1" pin="C"/>
 </segment>
 </net>
@@ -1709,7 +1747,7 @@
 <segment>
 <pinref part="Q5" gate="G$1" pin="B"/>
 <pinref part="R22" gate="G$1" pin="P$2"/>
-<wire x1="38.1" y1="38.1" x2="34.29" y2="38.1" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<wire x1="86.36" y1="38.1" x2="82.55" y2="38.1" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -1722,8 +1760,8 @@
 <net name="REQUEST_SUPPLY_MEASURE_INV" class="0">
 <segment>
 <pinref part="J6" gate="G$1" pin="PIN1"/>
-<wire x1="-78.74" y1="10.16" x2="-40.64" y2="10.16" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<label x="-71.12" y="10.16" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="-38.1" y1="-25.4" x2="0" y2="-25.4" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="-30.48" y="-25.4" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 <segment>
 <pinref part="U11" gate="G$1" pin="PB2"/>
@@ -1739,8 +1777,13 @@
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="SCL"/>
-<wire x1="66.04" y1="27.94" x2="50.8" y2="27.94" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
-<label x="50.8" y="27.94" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+<wire x1="114.3" y1="27.94" x2="99.06" y2="27.94" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<label x="99.06" y="27.94" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="SCK"/>
+<wire x1="-36.83" y1="95.25" x2="-55.88" y2="95.25" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-55.88" y="95.25" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
 </net>
 <net name="I2C2_SDA" class="0">
@@ -1751,25 +1794,72 @@
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="SDA"/>
-<wire x1="66.04" y1="25.4" x2="50.8" y2="25.4" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
-<label x="50.8" y="25.4" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+<wire x1="114.3" y1="25.4" x2="99.06" y2="25.4" width="0.1524" layer="91" grouprefs="DISPLAY1"/>
+<label x="99.06" y="25.4" size="1.778" layer="95" grouprefs="DISPLAY1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="MISO"/>
+<wire x1="-36.83" y1="92.71" x2="-55.88" y2="92.71" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-55.88" y="92.71" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="C9" gate="G$1" pin="P$1"/>
+<pinref part="R21" gate="G$1" pin="P$1"/>
+<wire x1="-64.77" y1="156.845" x2="-52.07" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<pinref part="U11" gate="G$1" pin="PC6"/>
+<wire x1="-52.07" y1="156.845" x2="-46.99" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<junction x="-52.07" y="156.845" grouprefs="LOGIC_AVR1"/>
+<wire x1="-64.77" y1="156.845" x2="-82.55" y2="156.845" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<junction x="-64.77" y="156.845" grouprefs="LOGIC_AVR1"/>
+<label x="-82.55" y="157.48" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="RESET"/>
+<wire x1="-36.83" y1="97.79" x2="-55.88" y2="97.79" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-55.88" y="97.79" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+</net>
+<net name="SERIAL_TX" class="0">
+<segment>
+<pinref part="U11" gate="G$1" pin="PD0"/>
+<wire x1="-46.99" y1="154.305" x2="-66.04" y2="154.305" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-66.04" y="154.94" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="TXD"/>
+<wire x1="-16.51" y1="100.33" x2="0" y2="100.33" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-12.7" y="100.33" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+</net>
+<net name="SERIAL_RX" class="0">
+<segment>
+<pinref part="U11" gate="G$1" pin="PD1"/>
+<wire x1="-46.99" y1="151.765" x2="-66.04" y2="151.765" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-66.04" y="152.4" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="RXD"/>
+<wire x1="-16.51" y1="97.79" x2="0" y2="97.79" width="0.1524" layer="91" grouprefs="LOGIC_AVR1"/>
+<label x="-12.7" y="97.79" size="1.778" layer="95" grouprefs="LOGIC_AVR1"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="102,1,22.86,-7.62,VCC,+5V,,,,"/>
+<approved hash="102,1,88.9,-15.24,VCC,+5V,,,,"/>
 <approved hash="102,1,-30.48,-142.24,VCC,+5V,,,,"/>
 <approved hash="104,1,-46.99,141.605,U11,VCC,+5V,,,"/>
 <approved hash="104,1,-6.35,141.605,U11,GND1,GND,,,"/>
 <approved hash="104,1,-6.35,136.525,U11,AVCC,+5V,,,"/>
-<approved hash="104,1,66.04,33.02,U14,VCC,+5V,,,"/>
-<approved hash="104,1,66.04,30.48,U14,GND,N$10,,,"/>
-<approved hash="104,1,66.04,-50.8,FAN1,VCC,N$14,,,"/>
-<approved hash="104,1,66.04,-66.04,FAN1,GND,N$15,,,"/>
+<approved hash="104,1,114.3,33.02,U14,VCC,+5V,,,"/>
+<approved hash="104,1,114.3,30.48,U14,GND,N$10,,,"/>
 <approved hash="104,1,-66.04,-73.66,U10,VDD,+12V,,,"/>
 <approved hash="104,1,-45.72,-73.66,U10,VB,+12V,,,"/>
+<approved hash="104,1,-16.51,102.87,J10,VCC,+5V,,,"/>
+<approved hash="104,1,-16.51,92.71,J10,GND1,GND,,,"/>
 </errors>
 </schematic>
 </drawing>

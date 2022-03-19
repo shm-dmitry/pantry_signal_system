@@ -5,5 +5,5 @@ void wakeup_button_init() {
 }
 
 boolean wakeup_button_is_pressed() {
-  return digitalRead(WAKEUP_BUTTON_PIN) == LOW;
+  return digitalRead(WAKEUP_BUTTON_PIN) == LOW || true;
 }
