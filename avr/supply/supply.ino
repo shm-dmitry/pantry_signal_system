@@ -40,9 +40,14 @@ typedef struct t_measure_vector_data {
 // 2. get absolute maximum value from your power supplies
 // 3. multiply it on 10
 // 4. write it into PRIMARY_MAX_LEVEL_X10, RESERVE_MAX_LEVEL_X10 and RESERVE_5V_MAX_LEVEL_X10
+// 5. get absolute minimum value for your power supplies
+// 6. multiply it on 10
+// 7. write it into PRIMARY_MIN_LEVEL_X10, RESERVE_MIN_LEVEL_X10, RESERVE_5V_MIN_LEVEL_X10
 // --- Example ---
 // If absolute maximum voltage of your primary supply is 12.3 volts, you have to write in source code
 // #define PRIMARY_MAX_LEVEL_X10 123
+// If absolute minimum voltage of your primary supply is 9.1 volts, you have to write in source code
+// #define PRIMARY_MIN_LEVEL_X10 91
 
 // *** Calibration of current battery usage ***
 // 1. enable SUPPLY_AVR_PRINT_CALIBRATION in logic-module/supply-api.ino
@@ -117,25 +122,24 @@ const t_measure_vector_data reserve5v_level[] = {
     } 
   };
 
-#define PRIMARY_MAX_LEVEL_X10     144
-#define RESERVE_MAX_LEVEL_X10     120
-#define RESERVE_5V_MAX_LEVEL_X10  120
+#define PRIMARY_MIN_LEVEL_X10     100
+#define PRIMARY_MAX_LEVEL_X10     136
+#define RESERVE_MIN_LEVEL_X10     100
+#define RESERVE_MAX_LEVEL_X10     136
+#define RESERVE_5V_MIN_LEVEL_X10  50
+#define RESERVE_5V_MAX_LEVEL_X10  118
 
 #define THRESHOLD_INUSE_RESERVE   90
 #define THRESHOLD_INUSE_PRIMARY   50
 
-#define MIN_VOLTAGE_LEVEL (5 * 10)
+// min voltage level. Used to remove noise when supply not connected.
+#define MIN_VOLTAGE_LEVEL 50
 
+// Headers in binary protocol. If you change this magic numbers - you must change same values in logic-module/supply-api.ino
 #define HEADER_1  0x12
 #define HEADER_2  0x13
 #define HEADER_3  0x14
 #define HEADER_BEGIN_BATTERY_LEVEL 0x55
-
-#define SERIAL_WRITE(v) { \
-  uint8_t serial_write_byte = (v); \
-  crc += serial_write_byte; \
-  Serial.write(serial_write_byte); \
-}
 
 uint16_t crc = 0;
 
@@ -161,6 +165,11 @@ void setup() {
   delay(100);
 }
 
+void serialWriteWithCRC(uint8_t serial_write_byte) { 
+  crc += serial_write_byte; 
+  Serial.write(serial_write_byte); 
+}
+
 void loop() {
   crc = 0;
 
@@ -170,9 +179,9 @@ void loop() {
   Serial.write(HEADER_3);
 
   // write data
-  readAndSendBatteryLevel(PRIMARY_BATTERY_LEVEL, primary_level,    sizeof(primary_level)/sizeof(t_measure_vector_data),    PRIMARY_MAX_LEVEL_X10);
-  readAndSendBatteryLevel(RESERVE_BATTERY_LEVEL, reserve_level,    sizeof(reserve_level)/sizeof(t_measure_vector_data),    RESERVE_MAX_LEVEL_X10);
-  readAndSendBatteryLevel(RESERVE_5V_LEVEL,      reserve5v_level,  sizeof(reserve5v_level)/sizeof(t_measure_vector_data),  RESERVE_5V_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(PRIMARY_BATTERY_LEVEL, primary_level,    sizeof(primary_level)/sizeof(t_measure_vector_data),    PRIMARY_MIN_LEVEL_X10,    PRIMARY_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(RESERVE_BATTERY_LEVEL, reserve_level,    sizeof(reserve_level)/sizeof(t_measure_vector_data),    RESERVE_MIN_LEVEL_X10,    RESERVE_MAX_LEVEL_X10);
+  readAndSendBatteryLevel(RESERVE_5V_LEVEL,      reserve5v_level,  sizeof(reserve5v_level)/sizeof(t_measure_vector_data),  RESERVE_5V_MIN_LEVEL_X10, RESERVE_5V_MAX_LEVEL_X10);
   readAndSendCurrentBatteryNumber();
 
   // write CRC
@@ -197,7 +206,7 @@ void readAndSendCurrentBatteryNumber() {
   
   uint8_t passed = (uint8_t) (millis() - start);
 
-  SERIAL_WRITE(passed);
+  serialWriteWithCRC(passed);
 
   uint8_t value;
 
@@ -209,10 +218,10 @@ void readAndSendCurrentBatteryNumber() {
     value = 3;
   }
 
-  SERIAL_WRITE(value);
+  serialWriteWithCRC(value);
 }
 
-void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vector, uint8_t vector_size, uint8_t maxLevel_x10) {
+void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vector, uint8_t vector_size, uint8_t minLevel_x10, uint8_t maxLevel_x10) {
   // await some time to ensure read-side will read correct data
   delay(30);
 
@@ -226,7 +235,7 @@ void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vect
   if (vector_size > 0) {
     vector_size--;
     while(true) {
-      if (level_value >= vector[vector_size].fromvalue * 10) {
+      if (level_value >= vector[vector_size].fromvalue || vector_size == 0) {
         level = (uint8_t) ((uint32_t)((uint32_t)level_value * (uint32_t)1000) / (uint32_t)vector[vector_size].koef);
         break;
       }
@@ -243,12 +252,18 @@ void readAndSendBatteryLevel(analog_pin_t pin, const t_measure_vector_data* vect
     level = 0;
   }
 
-  SERIAL_WRITE(HEADER_BEGIN_BATTERY_LEVEL);
+  serialWriteWithCRC(HEADER_BEGIN_BATTERY_LEVEL);
 
   // calibration raw data
-  SERIAL_WRITE(level_value / 0xFF);
-  SERIAL_WRITE(level_value % 0xFF);
+  serialWriteWithCRC(level_value / 0xFF);
+  serialWriteWithCRC(level_value % 0xFF);
 
-  SERIAL_WRITE(level);
-  SERIAL_WRITE(((uint16_t)level * 100) / maxLevel_x10);
+  serialWriteWithCRC(level);
+  if (level < minLevel_x10) {
+    serialWriteWithCRC(0);
+  } else if (level > maxLevel_x10) {
+    serialWriteWithCRC(100);
+  } else {
+    serialWriteWithCRC(((uint16_t)(level - minLevel_x10) * 100) / (maxLevel_x10 - minLevel_x10));
+  }
 }
