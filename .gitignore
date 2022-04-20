@@ -2,4 +2,4 @@ esp32/lora_receiver/build
 
 esp32/lora_receiver/sdkconfig.old
 esp32/lora_receiver/sdkconfig
-avr/logic-module/encrypter_secret.h
+avr/logic-module/encrypter_secret.private.h
