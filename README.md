@@ -59,7 +59,7 @@ Project status
 | Logic controller :: Open door alarm | OK |
 | Logic controller :: Wakeup button and deep sleep mode | OK |
 | Logic controller :: Integration with supply controller | OK |
-| LoRa receiver and smart house integration | not tested |
+| LoRa receiver and smart house integration | OK |
 
 | Board | Status |
 | --- | --- |
@@ -70,8 +70,9 @@ Project status
 
 | 3D models | Status |
 | --- | --- |
-| Supply board box | no |
-| Logic model box | no |
+| Supply board box | OK |
+| Logic model box | OK |
 | Air dryer | OK |
-| Fan box | no |
+| Fan box | OK |
 | Fan air intake | OK |
+| LoRa receiver box | no |
