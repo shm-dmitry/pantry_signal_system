@@ -31,10 +31,6 @@ const uint8_t LORA_MAGIC_END[3] = { 'E', 'O', 'S' };
 #define LORA_M0M1                 7
 #define LORA_AUX                  6
 
-// CHANGEME!
-#define LORA_ADDRESS              0x1234
-#define LORA_SECRET               0x5678
-
 void lora_init() {
   pinMode(LORA_M0M1, OUTPUT);
   pinMode(LORA_AUX,  INPUT);
@@ -69,7 +65,8 @@ void lora_wakeup() {
 
 void lora_autoconfigure() {
   lora_go_sleep();
-/*
+
+#if LORA_ENABLE_CONFIRURE
   // address
   lora.write((uint8_t) 0xC2);
   lora.write((uint8_t) 0x00);
@@ -88,7 +85,7 @@ void lora_autoconfigure() {
 
   // check config applied?
   LORA_CONFIRM_SETTINGS(0xC1);
-  */
+#endif
 }
 
 void lora_send(const ModuleData * data, bool allow_resend) {
@@ -111,9 +108,9 @@ void lora_send(const ModuleData * data, bool allow_resend) {
   SET_BIT(data->light_alarm, flags, 2);
   SET_BIT(data->is_air_dryer_on, flags, 3);
   SET_BIT(data->open_door_alarm, flags, 4);
-  SET_BIT(data->active_battery == 0, flags, 5);
-  SET_BIT(data->active_battery == 1, flags, 6);
-  SET_BIT(data->active_battery == 2, flags, 7);
+  SET_BIT(data->active_battery == 1, flags, 5);
+  SET_BIT(data->active_battery == 2, flags, 6);
+  SET_BIT(data->active_battery == 3, flags, 7);
 
   // write data
   lora.write(encrypt_next(flags));

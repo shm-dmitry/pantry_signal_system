@@ -226,11 +226,30 @@
 <text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="C-MINI-5X7">
-<pad name="MINUS" x="1" y="0" drill="0.7" shape="square"/>
-<pad name="PLUS" x="-1" y="0" drill="0.7" shape="square"/>
+<pad name="MINUS" x="1" y="0" drill="0.8" shape="square"/>
+<pad name="PLUS" x="-1" y="0" drill="0.8" shape="square"/>
 <circle x="0" y="0" radius="3" width="0.127" layer="21"/>
 <text x="-3" y="3.5" size="1.27" layer="21">&gt;NAME</text>
 <text x="-2" y="-2" size="1.27" layer="21">+</text>
+</package>
+<package name="R-PDSO-G8">
+<smd name="P8" x="1.524" y="0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P7" x="1.524" y="0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P6" x="1.524" y="-0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P5" x="1.524" y="-0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P1" x="-1.651" y="0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P2" x="-1.651" y="0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P3" x="-1.651" y="-0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P4" x="-1.651" y="-0.762" dx="1" dy="0.25" layer="1"/>
+<wire x1="-2.54" y1="1.27" x2="-1.905" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.905" x2="-1.905" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="1.905" x2="-1.905" y2="1.27" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.175" size="1.27" layer="21">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -473,6 +492,21 @@
 <technology name=""/>
 </technologies>
 </device>
+<device name="R-PDSO-G8" package="R-PDSO-G8">
+<connects>
+<connect gate="G$1" pin="A1" pad="P2"/>
+<connect gate="G$1" pin="A2" pad="P3"/>
+<connect gate="G$1" pin="B1" pad="P7"/>
+<connect gate="G$1" pin="B2" pad="P6"/>
+<connect gate="G$1" pin="DIR" pad="P5"/>
+<connect gate="G$1" pin="GND" pad="P4"/>
+<connect gate="G$1" pin="VCCA" pad="P1"/>
+<connect gate="G$1" pin="VCCB" pad="P8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="C" prefix="C">
@@ -557,8 +591,8 @@
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J1" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U2" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
-<part name="U3" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
+<part name="U2" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="R-PDSO-G8" value="SN74LVC2T45DCUR"/>
+<part name="U3" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="R-PDSO-G8" value="SN74LVC2T45DCUR"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -705,17 +739,17 @@
 <wire x1="132.08" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="96.52" y="147.32" size="1.778" layer="95" grouprefs="LORA"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="IO26"/>
+<wire x1="2.54" y1="127" x2="-30.48" y2="127" width="0.1524" layer="91" grouprefs="ESP32"/>
+<label x="-30.48" y="127" size="1.778" layer="95" grouprefs="ESP32"/>
+</segment>
 </net>
 <net name="LORA_TX" class="0">
 <segment>
 <pinref part="U3" gate="G$1" pin="A1"/>
 <wire x1="132.08" y1="127" x2="96.52" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="96.52" y="127" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="IO26"/>
-<wire x1="2.54" y1="127" x2="-30.48" y2="127" width="0.1524" layer="91" grouprefs="ESP32"/>
-<label x="-30.48" y="127" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IO27"/>

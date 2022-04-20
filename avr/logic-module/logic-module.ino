@@ -16,11 +16,12 @@ typedef struct ModuleData {
 };
 
 #define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000L)
-//#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
-#define REQUEST_FULL_DATA_EVERY_MS            1
+#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
+//#define REQUEST_FULL_DATA_EVERY_MS            1
 #define PRINT_DATA_OBJECT false
 
 unsigned long nextFullDataRequest = 0;
+bool isInAlarmNow = false;
 
 void setup() {
   Serial.begin(9600);
@@ -142,8 +143,15 @@ void loop() {
 }
 
 bool check_is_alarm(const ModuleData * data2send) {
-  return data2send->outdoor_flooding_sensor_alarm || 
-         data2send->indoor_flooding_sensor_alarm || 
-         data2send->light_alarm || 
-         data2send->open_door_alarm;
+  bool alarm = data2send->outdoor_flooding_sensor_alarm || 
+               data2send->indoor_flooding_sensor_alarm || 
+               data2send->light_alarm || 
+               data2send->open_door_alarm;
+  
+  if (alarm != isInAlarmNow) {
+    isInAlarmNow = alarm;
+    return true;
+  } else {
+    return false;
+  }
 }

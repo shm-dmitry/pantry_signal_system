@@ -89,8 +89,8 @@
 <text x="48.895" y="15.875" size="1.778" layer="26" rot="MR0">GND</text>
 <text x="53.34" y="20.32" size="1.778" layer="26" rot="MR0">+5V</text>
 <text x="57.785" y="15.875" size="1.778" layer="26" rot="MR0">+12V</text>
-<text x="62.23" y="20.32" size="1.778" layer="26" rot="MR0">+12V</text>
-<text x="66.04" y="15.875" size="1.778" layer="26" rot="MR0">GND</text>
+<text x="67.31" y="15.875" size="1.778" layer="26" rot="MR0">+12V</text>
+<text x="60.96" y="20.32" size="1.778" layer="26" rot="MR0">GND</text>
 <text x="74.295" y="15.875" size="1.778" layer="26" rot="MR0">TX</text>
 <text x="71.12" y="20.32" size="1.778" layer="26" rot="MR0">REQ</text>
 <text x="12.065" y="22.225" size="1.778" layer="25">PRIM</text>

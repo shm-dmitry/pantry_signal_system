@@ -12,7 +12,7 @@
 
 #include "wifi_nvs.h"
 #include "mqtt.h"
-#include "../cjson/cJSON.h"
+#include "cJSON.h"
 
 #define WIFI_MAXIMUM_RETRY 30
 #define WIFI_CONNECTED_BIT BIT0

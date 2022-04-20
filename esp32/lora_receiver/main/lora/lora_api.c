@@ -6,20 +6,16 @@
 #include "lora_api_control.h"
 #include "lora_api_uart.h"
 #include "lora_decrypter.h"
-
-#define LORA_ADDRESS 0x1234
-#define LORA_SECRET  0x5678
+#include "../../../../avr/logic-module/encrypter_secret.h"
 
 const uint8_t LORA_MAGIC_BEGIN[3] = { 'B', 'O', 'S' };
 const uint8_t LORA_MAGIC_END[3]   = { 'E', 'O', 'S' };
-#define LORA_TEMPERATURE_OFFSET   100.0
-
-#define LORA_CONFIGURE			  false
+#define LORA_TEMPERATURE_OFFSET   (100.0 * 10.0)
 
 esp_err_t lora_api_configure() {
 	lora_api_control_go_sleep();
 
-#if LORA_CONFIGURE
+#if LORA_ENABLE_CONFIRURE
 	lora_api_uart_configure(0x00, LORA_ADDRESS);
 	lora_api_uart_configure(0x06, LORA_SECRET);
 #endif
@@ -63,7 +59,7 @@ bool lora_api_check_magic(bool begin) {
 			}
 		} else {
 			if (buffer[i] != LORA_MAGIC_END[i]) {
-				ESP_LOGE(LORA_LOG, "lora_api_read error: bad end magic[%d] : %d expected %d", i, buffer[i], LORA_MAGIC_BEGIN[i]);
+				ESP_LOGE(LORA_LOG, "lora_api_read error: bad end magic[%d] : %d expected %d", i, buffer[i], LORA_MAGIC_END[i]);
 				return false;
 			}
 		}
@@ -98,12 +94,35 @@ bool lora_api_read_uint16t_as_float(const char * msg, float * result) {
 	return true;
 }
 
+bool lora_api_read_salt() {
+	uint8_t salt[3] = {0, 0, 0};
+	if (lora_api_uart_read(salt, 3)) {
+		for (uint8_t i = 0; i<3; i++) {
+			decrypter_decrypt_byte(salt[i]);
+		}
+
+		return true;
+	} else {
+		ESP_LOGE(LORA_LOG, "Cant read salt");
+
+		return false;
+	}
+}
+
+bool lora_is_bit_set(uint8_t b, int pos) {
+	return (b & (1 << pos)) != 0;
+}
+
 LoraData * lora_api_read() {
 	if (!lora_api_check_magic(true)) {
 		return NULL;
 	}
 
 	decrypter_reset();
+
+	if (!lora_api_read_salt(3)) {
+		return NULL;
+	}
 
 	uint8_t buffer = 0;
 	if (!lora_api_read_decrypt("flags", &buffer)) {
@@ -113,17 +132,19 @@ LoraData * lora_api_read() {
 	LoraData * data = (LoraData *) malloc(sizeof(LoraData));
 	memset(data, 0, sizeof(LoraData));
 
-	data->outdoor_flooding_sensor_alarm = buffer & 0b00000001 ? true : false;
-	data->indoor_flooding_sensor_alarm  = buffer & 0b00000010 ? true : false;
-	data->light_alarm                   = buffer & 0b00000100 ? true : false;
-	data->is_air_dryer_on               = buffer & 0b00001000 ? true : false;
-	data->open_door_alarm               = buffer & 0b00010000 ? true : false;
+	ESP_LOGI(LORA_LOG, "Flags: %02x", buffer);
 
-	if (buffer & 0x0010000) {
+	data->outdoor_flooding_sensor_alarm = lora_is_bit_set(buffer, 0) ? true : false;
+	data->indoor_flooding_sensor_alarm  = lora_is_bit_set(buffer, 1) ? true : false;
+	data->light_alarm                   = lora_is_bit_set(buffer, 2) ? true : false;
+	data->is_air_dryer_on               = lora_is_bit_set(buffer, 3) ? true : false;
+	data->open_door_alarm               = lora_is_bit_set(buffer, 4) ? true : false;
+
+	if (lora_is_bit_set(buffer, 5)) {
 		data->active_battery = 1;
-	} else if (buffer & 0x01000000) {
+	} else if (lora_is_bit_set(buffer, 6)) {
 		data->active_battery = 2;
-	} else if (buffer & 0x10000000) {
+	} else if (lora_is_bit_set(buffer, 7)) {
 		data->active_battery = 3;
 	}
 
@@ -175,11 +196,14 @@ LoraData * lora_api_read() {
 	}
 
 	data->temperature -= LORA_TEMPERATURE_OFFSET;
+	data->temperature /= 10.0;
 
 	if (!lora_api_read_uint16t_as_float("humidity", &(data->humidity))) {
 		free(data);
 		return NULL;
 	}
+
+	data->humidity /= 10.0;
 
 	if (!lora_api_check_magic(false)) {
 		free(data);

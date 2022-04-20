@@ -13,6 +13,8 @@
 #define LORA_CONFIGURE_AWAIT_RESPONSE_TIMEOUT 	1000
 #define LORA_READ_DATA_TIMEOUT 					3000
 
+#define LORA_UART_DEBUG false
+
 esp_err_t lora_api_uart_init(int uart_pin_tx, int uart_pin_rx) {
     uart_config_t uart_config = {
         .baud_rate = LORA_BAUD_RATE,
@@ -95,6 +97,10 @@ int lora_api_uart_read(uint8_t * buffer, int size) {
 		if (readed > 0) {
 			index += readed;
 			if (index >= size) {
+#if LORA_UART_DEBUG
+				ESP_LOGI(LORA_LOG, "Readed %d bytes from UART: ", index);
+				ESP_LOG_BUFFER_HEXDUMP(LORA_LOG, buffer, index, ESP_LOG_INFO);
+#endif
 				return index;
 			}
 		} else {

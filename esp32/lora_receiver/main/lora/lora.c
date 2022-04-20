@@ -7,6 +7,7 @@
 #include "lora_def.h"
 #include "../cjson/cjson_helper.h"
 #include "../init/mqtt.h"
+#include "../log.h"
 
 #define LORA_EXEC_PERIOD 500
 
@@ -60,4 +61,6 @@ void lora_init(const char * mqtt_topic, int pin_m0m1, int pin_aux, int uart_pin_
 	esp_timer_handle_t periodic_timer;
 	ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));
 	ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, LORA_EXEC_PERIOD));
+
+	ESP_LOGI(LORA_LOG, "Driver initialized.");
 }

@@ -197,25 +197,6 @@
 <wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
 <text x="-3.81" y="-3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
-<package name="VSSOP-8">
-<smd name="P1" x="-1.7" y="0.65" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P2" x="-1.7" y="0" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P3" x="-1.7" y="-0.65" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P4" x="-1.7" y="-1.3" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P8" x="1.7" y="0.65" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P7" x="1.7" y="0" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P6" x="1.7" y="-0.65" dx="1.55" dy="0.25" layer="1"/>
-<smd name="P5" x="1.7" y="-1.3" dx="1.55" dy="0.25" layer="1"/>
-<wire x1="-3" y1="2" x2="-3" y2="1" width="0.127" layer="21"/>
-<wire x1="-3" y1="1" x2="-3" y2="-2" width="0.127" layer="21"/>
-<wire x1="-3" y1="-2" x2="3" y2="-2" width="0.127" layer="21"/>
-<wire x1="3" y1="-2" x2="3" y2="2" width="0.127" layer="21"/>
-<wire x1="3" y1="2" x2="-2" y2="2" width="0.127" layer="21"/>
-<wire x1="-2" y1="2" x2="-3" y2="2" width="0.127" layer="21"/>
-<wire x1="-2" y1="2" x2="-2" y2="1" width="0.127" layer="21"/>
-<wire x1="-2" y1="1" x2="-3" y2="1" width="0.127" layer="21"/>
-<text x="-3" y="-4" size="1.27" layer="21">&gt;NAME</text>
-</package>
 <package name="C">
 <pad name="PIN_PLUS" x="-2.54" y="0" drill="0.8" shape="square"/>
 <pad name="PIN_GND" x="2.54" y="0" drill="0.8" shape="square"/>
@@ -322,35 +303,6 @@
 <text x="12.7" y="2.54" size="1.778" layer="94">&gt;NAME</text>
 <text x="12.7" y="-2.54" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
-<symbol name="LEVEL_CONVERTOR_2L">
-<pin name="VCCA" x="-12.7" y="5.08" visible="off" length="middle" direction="sup"/>
-<pin name="A1" x="-12.7" y="2.54" visible="off" length="middle"/>
-<pin name="A2" x="-12.7" y="0" visible="off" length="middle"/>
-<pin name="GND" x="-12.7" y="-2.54" visible="off" length="middle" direction="sup"/>
-<pin name="VCCB" x="12.7" y="5.08" visible="off" length="middle" direction="sup" rot="R180"/>
-<pin name="B1" x="12.7" y="2.54" visible="off" length="middle" rot="R180"/>
-<pin name="B2" x="12.7" y="0" visible="off" length="middle" rot="R180"/>
-<pin name="DIR" x="12.7" y="-2.54" visible="off" length="middle" rot="R180"/>
-<wire x1="-7.62" y1="7.62" x2="-7.62" y2="6.35" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="6.35" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="7.62" width="0.254" layer="94"/>
-<wire x1="7.62" y1="7.62" x2="-6.35" y2="7.62" width="0.254" layer="94"/>
-<text x="-5.08" y="5.08" size="0.6096" layer="94">Vcc A</text>
-<text x="-5.08" y="5.08" size="0.6096" layer="94">Vcc A</text>
-<text x="-5.08" y="2.54" size="0.6096" layer="94">A1</text>
-<text x="-5.08" y="0" size="0.6096" layer="94">A2</text>
-<text x="-5.08" y="-2.54" size="0.6096" layer="94">GND</text>
-<text x="2.54" y="5.08" size="0.6096" layer="94">Vcc B</text>
-<text x="2.54" y="2.54" size="0.6096" layer="94">B1</text>
-<text x="2.54" y="0" size="0.6096" layer="94">B2</text>
-<text x="2.54" y="-2.54" size="0.6096" layer="94">DIR</text>
-<wire x1="-6.35" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="6.35" x2="-6.35" y2="6.35" width="0.254" layer="94"/>
-<wire x1="-6.35" y1="6.35" x2="-6.35" y2="7.62" width="0.254" layer="94"/>
-<text x="-5.08" y="8.89" size="1.778" layer="94">&gt;NAME</text>
-<text x="-5.334" y="-7.62" size="1.778" layer="94">&gt;VALUE</text>
-</symbol>
 <symbol name="C">
 <pin name="PIN_PLUS" x="-7.62" y="0" visible="off" length="middle"/>
 <pin name="PIN_GND" x="5.08" y="0" visible="off" length="middle" rot="R180"/>
@@ -453,28 +405,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LEVEL_CONVERTER_2L" prefix="U">
-<gates>
-<gate name="G$1" symbol="LEVEL_CONVERTOR_2L" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="VSSOP-8">
-<connects>
-<connect gate="G$1" pin="A1" pad="P2"/>
-<connect gate="G$1" pin="A2" pad="P3"/>
-<connect gate="G$1" pin="B1" pad="P7"/>
-<connect gate="G$1" pin="B2" pad="P6"/>
-<connect gate="G$1" pin="DIR" pad="P5"/>
-<connect gate="G$1" pin="GND" pad="P4"/>
-<connect gate="G$1" pin="VCCA" pad="P1"/>
-<connect gate="G$1" pin="VCCB" pad="P8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="C" prefix="C">
 <gates>
 <gate name="G$1" symbol="C" x="2.54" y="0"/>
@@ -557,11 +487,6 @@
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J1" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U2" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
-<part name="U3" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
-<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C1" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
 </parts>
@@ -595,23 +520,6 @@
 <instance part="GND4" gate="1" x="-68.58" y="121.92" smashed="yes" grouprefs="SUPPLY">
 <attribute name="VALUE" x="-71.12" y="119.38" size="1.778" layer="96"/>
 </instance>
-<instance part="U2" gate="G$1" x="144.78" y="147.32" smashed="yes" grouprefs="LORA">
-<attribute name="NAME" x="139.7" y="156.21" size="1.778" layer="94"/>
-<attribute name="VALUE" x="139.446" y="139.7" size="1.778" layer="94"/>
-</instance>
-<instance part="U3" gate="G$1" x="144.78" y="124.46" smashed="yes" grouprefs="LORA">
-<attribute name="NAME" x="139.7" y="133.35" size="1.778" layer="94"/>
-<attribute name="VALUE" x="139.446" y="116.84" size="1.778" layer="94"/>
-</instance>
-<instance part="GND5" gate="1" x="129.54" y="142.24" smashed="yes" grouprefs="LORA">
-<attribute name="VALUE" x="127" y="139.7" size="1.778" layer="96"/>
-</instance>
-<instance part="GND6" gate="1" x="129.54" y="119.38" smashed="yes" grouprefs="LORA">
-<attribute name="VALUE" x="127" y="116.84" size="1.778" layer="96"/>
-</instance>
-<instance part="GND7" gate="1" x="167.64" y="119.38" smashed="yes" grouprefs="LORA">
-<attribute name="VALUE" x="165.1" y="116.84" size="1.778" layer="96"/>
-</instance>
 <instance part="GND8" gate="1" x="182.88" y="116.84" smashed="yes" grouprefs="LORA">
 <attribute name="VALUE" x="180.34" y="114.3" size="1.778" layer="96"/>
 </instance>
@@ -638,21 +546,6 @@
 <pinref part="U1" gate="G$1" pin="GND"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="43.18" y1="149.86" x2="55.88" y2="149.86" width="0.1524" layer="91" grouprefs="ESP32"/>
-</segment>
-<segment>
-<pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="U2" gate="G$1" pin="GND"/>
-<wire x1="129.54" y1="144.78" x2="132.08" y2="144.78" width="0.1524" layer="91" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="GND6" gate="1" pin="GND"/>
-<pinref part="U3" gate="G$1" pin="GND"/>
-<wire x1="129.54" y1="121.92" x2="132.08" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="DIR"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="157.48" y1="121.92" x2="167.64" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
 </segment>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
@@ -684,16 +577,6 @@
 <junction x="-73.66" y="137.16" grouprefs="SUPPLY"/>
 </segment>
 <segment>
-<pinref part="U2" gate="G$1" pin="VCCB"/>
-<wire x1="157.48" y1="152.4" x2="167.64" y2="152.4" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="162.56" y="152.4" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="VCCB"/>
-<wire x1="157.48" y1="129.54" x2="167.64" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="162.56" y="129.54" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
 <pinref part="U12" gate="G$1" pin="VCC"/>
 <wire x1="185.42" y1="121.92" x2="175.26" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="175.26" y="121.92" size="1.778" layer="95" grouprefs="LORA"/>
@@ -701,38 +584,38 @@
 </net>
 <net name="LORA_RX" class="0">
 <segment>
-<pinref part="U2" gate="G$1" pin="A2"/>
-<wire x1="132.08" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="96.52" y="147.32" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="IO26"/>
 <wire x1="2.54" y1="127" x2="-30.48" y2="127" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="127" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
+<segment>
+<pinref part="U12" gate="G$1" pin="RX"/>
+<wire x1="185.42" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="157.48" y="129.54" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LORA_TX" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="A1"/>
-<wire x1="132.08" y1="127" x2="96.52" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="96.52" y="127" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IO27"/>
 <wire x1="2.54" y1="124.46" x2="-30.48" y2="124.46" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="124.46" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
+<segment>
+<pinref part="U12" gate="G$1" pin="TX"/>
+<wire x1="157.48" y1="127" x2="185.42" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="157.48" y="127" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LORA_AUX" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="A2"/>
-<wire x1="132.08" y1="124.46" x2="96.52" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="96.52" y="124.46" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IO14"/>
 <wire x1="2.54" y1="121.92" x2="-30.48" y2="121.92" width="0.1524" layer="91" grouprefs="ESP32"/>
 <label x="-30.48" y="121.92" size="1.778" layer="95" grouprefs="ESP32"/>
+</segment>
+<segment>
+<pinref part="U12" gate="G$1" pin="AUX"/>
+<wire x1="157.48" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="157.48" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LORA_M0M1" class="0">
@@ -742,65 +625,12 @@
 <label x="-30.48" y="129.54" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
-<pinref part="U2" gate="G$1" pin="A1"/>
-<wire x1="132.08" y1="149.86" x2="96.52" y2="149.86" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="96.52" y="149.86" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
 <pinref part="U12" gate="G$1" pin="M1"/>
 <pinref part="U12" gate="G$1" pin="M0"/>
+<wire x1="157.48" y1="132.08" x2="185.42" y2="132.08" width="0.1524" layer="91" grouprefs="LORA"/>
 <wire x1="185.42" y1="132.08" x2="185.42" y2="134.62" width="0.1524" layer="91" grouprefs="LORA"/>
-<pinref part="U2" gate="G$1" pin="B1"/>
-<wire x1="157.48" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91" grouprefs="LORA"/>
-<wire x1="185.42" y1="149.86" x2="185.42" y2="134.62" width="0.1524" layer="91" grouprefs="LORA"/>
 <junction x="185.42" y="134.62" grouprefs="LORA"/>
-</segment>
-</net>
-<net name="3V3" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="3V3"/>
-<wire x1="2.54" y1="149.86" x2="-30.48" y2="149.86" width="0.1524" layer="91"/>
-<label x="-30.48" y="149.86" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="VCCA"/>
-<wire x1="132.08" y1="152.4" x2="121.92" y2="152.4" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="121.92" y="152.4" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="VCCA"/>
-<wire x1="132.08" y1="129.54" x2="121.92" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="121.92" y="129.54" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="DIR"/>
-<wire x1="157.48" y1="144.78" x2="167.64" y2="144.78" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="162.56" y="144.78" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="U12" gate="G$1" pin="RX"/>
-<wire x1="185.42" y1="129.54" x2="182.88" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
-<wire x1="182.88" y1="129.54" x2="182.88" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
-<pinref part="U2" gate="G$1" pin="B2"/>
-<wire x1="182.88" y1="147.32" x2="157.48" y2="147.32" width="0.1524" layer="91" grouprefs="LORA"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B1"/>
-<pinref part="U12" gate="G$1" pin="TX"/>
-<wire x1="157.48" y1="127" x2="185.42" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B2"/>
-<pinref part="U12" gate="G$1" pin="AUX"/>
-<wire x1="157.48" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
+<label x="157.48" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -809,10 +639,8 @@
 <errors>
 <approved hash="102,1,185.42,121.92,VCC,+5V,,,,"/>
 <approved hash="102,1,2.54,104.14,5V,+5V,,,,"/>
-<approved hash="102,1,132.08,152.4,VCCA,3V3,,,,"/>
-<approved hash="102,1,157.48,152.4,VCCB,+5V,,,,"/>
-<approved hash="102,1,132.08,129.54,VCCA,3V3,,,,"/>
-<approved hash="102,1,157.48,129.54,VCCB,+5V,,,,"/>
+<approved hash="204,1,2.54,149.86,U1,3V3,,,,"/>
+<approved hash="108,1,185.42,132.08,LORA_M0M1,,,,,"/>
 </errors>
 </schematic>
 </drawing>

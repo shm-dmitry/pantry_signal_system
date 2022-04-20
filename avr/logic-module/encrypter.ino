@@ -1,4 +1,3 @@
-// REPLACE BEFORE BUILD FINISH FIRMWARE!
 #include "encrypter_secret.h"
 
 uint8_t encrypter_send_key_offset = 0;
@@ -21,11 +20,13 @@ uint8_t encrypter_next_random() {
 }
 
 uint8_t encrypt_next(uint8_t value) {
-  if (encrypter_send_key_offset >= ENCRYPTER_SEND_SECRET_KEY_SIZE) {
+  uint8_t secret[ENCRYPTER_SEND_SECRET_KEY_SIZE] = ENCRYPTER_SEND_SECRET_KEY;
+
+  if (encrypter_send_key_offset >= secret) {
     encrypter_send_key_offset = 0;
   }
 
-  uint8_t result = value ^ encrypter_byte_1 ^ encrypter_byte_2 ^ ENCRYPTER_SEND_SECRET_KEY[encrypter_send_key_offset++];
+  uint8_t result = value ^ encrypter_byte_1 ^ encrypter_byte_2 ^ secret[encrypter_send_key_offset++];
   encrypter_byte_1 = encrypter_byte_2;
   encrypter_byte_2 = value;
   return result;

@@ -1,7 +1,7 @@
 #define AIR_DRYER_PIN 9
 
-#define AIR_DRYER_ENABLE_HUM  (45*10)
-#define AIR_DRYER_DISABLE_HUM (40*10)
+#define AIR_DRYER_ENABLE_HUM  (50*10)
+#define AIR_DRYER_DISABLE_HUM (45*10)
 
 void air_dryer_init() {
   pinMode(AIR_DRYER_PIN,  OUTPUT);
