@@ -5,7 +5,7 @@
 Adafruit_BME280 bme280;
 
 void bme280_initialize() {
-  if (!bme280.begin(BME280_ADDRESS_ALTERNATE)) {
+  if (!bme280.begin(BME280_ADDRESS)) {
     Serial.println("BME280 INIT ERROR");
   } else {
     bme280.setSampling(Adafruit_BME280::MODE_NORMAL,

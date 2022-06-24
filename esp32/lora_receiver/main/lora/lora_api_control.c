@@ -17,11 +17,11 @@ esp_err_t lora_api_control_init(int pin_m0m1, int pin_aux) {
 	g_pin_aux  = pin_aux;
 
 	gpio_config_t config = {
-		.intr_type = GPIO_INTR_DISABLE,
+		.intr_type    = GPIO_INTR_DISABLE,
 		.pin_bit_mask = (1ULL << g_pin_aux),
-		.mode = GPIO_MODE_INPUT,
+		.mode         = GPIO_MODE_INPUT,
 		.pull_down_en = GPIO_PULLDOWN_DISABLE,
-		.pull_up_en = GPIO_PULLDOWN_DISABLE
+		.pull_up_en   = GPIO_PULLUP_ENABLE
 	};
 
 	esp_err_t res = gpio_config(&config);
@@ -31,7 +31,8 @@ esp_err_t lora_api_control_init(int pin_m0m1, int pin_aux) {
 	}
 
 	config.pin_bit_mask = (1ULL << g_pin_m0m1);
-	config.mode = GPIO_MODE_OUTPUT;
+	config.mode         = GPIO_MODE_OUTPUT;
+	config.pull_up_en   = GPIO_PULLUP_DISABLE;
 
 	res = gpio_config(&config);
 	if (res) {
@@ -52,6 +53,7 @@ void lora_api_control_go_sleep() {
 		time_t now;
 		time(&now);
 		if (now < awaitUntill) {
+			ESP_LOGW(LORA_LOG, "lora_api_control_go_sleep :: Aux await timeout");
 			break;
 		}
 	}
@@ -72,6 +74,7 @@ void lora_api_control_wakeup() {
 		time_t now;
 		time(&now);
 		if (now < awaitUntill) {
+			ESP_LOGW(LORA_LOG, "lora_api_control_wakeup :: Aux await LEVEL 1 timeout");
 			break;
 		}
 	}
@@ -81,6 +84,7 @@ void lora_api_control_wakeup() {
 		time_t now;
 		time(&now);
 		if (now < awaitUntill) {
+			ESP_LOGW(LORA_LOG, "lora_api_control_wakeup :: Aux await LEVEL 0 timeout");
 			break;
 		}
 	}

@@ -6,6 +6,7 @@
 void flooding_init() {
   pinMode(INDOOR_PIN,  INPUT);
   pinMode(OUTDOOR_PIN,  INPUT);
+  Serial.println("Flooding sensors OK");
 }
 
 boolean flooding_indoor_check_ok() {

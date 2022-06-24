@@ -41,6 +41,9 @@ void supply_api_init() {
   pinMode(SUPPLY_AVR_ENABLE_PIN, OUTPUT);  
   supply_api_off();
   supply.begin(19200);
+  supply.listen();
+
+  Serial.println("Supply API OK");
 }
 
 uint8_t supply_api_read_with_retry(ModuleData * data) {
@@ -55,7 +58,7 @@ uint8_t supply_api_read_with_retry(ModuleData * data) {
       return res;
     }
 
-#ifdef SUPPLY_AVR_PRINT_DEBUG
+#if SUPPLY_AVR_PRINT_DEBUG
     Serial.print("ERROR ");
     Serial.print(res);
     Serial.println(". Retry...");
@@ -144,12 +147,12 @@ uint8_t supply_api_read(ModuleData * data) {
     return 17;
   }
 
-#ifdef SUPPLY_AVR_PRINT_DEBUG
+#if SUPPLY_AVR_PRINT_DEBUG
   Serial.println();
 #endif
 
   if (calculated_crc != crcH * 0xFF + crcL) {
-#ifdef SUPPLY_AVR_PRINT_DEBUG
+#if SUPPLY_AVR_PRINT_DEBUG
     Serial.print("Invalid CRC. Calculated 0x");
     Serial.print(calculated_crc, HEX);
     Serial.print("; Readed 0x");
@@ -217,7 +220,7 @@ bool supply_api_read_byte(uint8_t * storeTo) {
 
   *storeTo = supply.read();
 
-#ifdef SUPPLY_AVR_PRINT_DEBUG
+#if SUPPLY_AVR_PRINT_DEBUG
   Serial.print(":");
   Serial.print(*storeTo, HEX);
 #endif

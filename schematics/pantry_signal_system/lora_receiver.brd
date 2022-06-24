@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="25" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -80,7 +80,7 @@
 <text x="81.915" y="88.265" size="1.778" layer="26" rot="MR0">+5V</text>
 <text x="82.55" y="85.09" size="1.778" layer="26" rot="MR0">GND</text>
 <hole x="56.515" y="37.465" drill="3"/>
-<hole x="70.485" y="33.655" drill="3"/>
+<hole x="70.485" y="37.465" drill="3"/>
 <hole x="54.61" y="83.185" drill="3"/>
 <hole x="71.755" y="83.185" drill="3"/>
 </plain>
@@ -412,16 +412,16 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="J1" library="my_devices" package="JST-XH254-2P" value="JST-XH254-2P" x="76.2" y="87.63" smashed="yes" rot="R90">
-<attribute name="NAME" x="80.01" y="83.82" size="1.27" layer="21" rot="R90"/>
+<attribute name="NAME" x="72.39" y="90.805" size="1.27" layer="21" rot="R180"/>
 </element>
 <element name="U1" library="my_devices" package="ESP32" value="ESP32" x="63.5" y="57.15" smashed="yes">
 <attribute name="NAME" x="62.865" y="83.82" size="1.27" layer="21"/>
 </element>
-<element name="U12" library="my_devices" package="LORA" value="E220-900T22D" x="63.5" y="55.88" smashed="yes" rot="MR0">
+<element name="U2" library="my_devices" package="LORA" value="E220-900T22D" x="63.5" y="55.88" smashed="yes" rot="MR0">
 <attribute name="NAME" x="66.04" y="58.42" size="1.27" layer="22" rot="MR0"/>
 </element>
 <element name="C1" library="my_devices" package="C-MINI-5X7" value="10 uF" x="50.165" y="87.63" smashed="yes" rot="R270">
-<attribute name="NAME" x="52.705" y="90.17" size="1.27" layer="21" rot="R270"/>
+<attribute name="NAME" x="53.975" y="89.535" size="1.27" layer="21"/>
 </element>
 </elements>
 <signals>
@@ -429,7 +429,7 @@ design rules under a new name.</description>
 <contactref element="U1" pad="GND_2"/>
 <contactref element="U1" pad="GND_1"/>
 <contactref element="U1" pad="GND"/>
-<contactref element="U12" pad="GND"/>
+<contactref element="U2" pad="GND"/>
 <wire x1="76.2" y1="80.01" x2="78.74" y2="77.47" width="1.016" layer="16"/>
 <wire x1="78.74" y1="77.47" x2="78.74" y2="67.31" width="1.016" layer="16"/>
 <wire x1="78.74" y1="67.31" x2="76.2" y2="64.77" width="1.016" layer="16"/>
@@ -452,7 +452,7 @@ design rules under a new name.</description>
 <signal name="+5V">
 <contactref element="U1" pad="+5V"/>
 <contactref element="J1" pad="PIN2"/>
-<contactref element="U12" pad="VCC"/>
+<contactref element="U2" pad="VCC"/>
 <wire x1="50.8" y1="34.29" x2="45.085" y2="40.005" width="1.016" layer="16"/>
 <contactref element="C1" pad="PLUS"/>
 <wire x1="76.2" y1="88.9" x2="50.435" y2="88.9" width="1.016" layer="16"/>
@@ -466,29 +466,30 @@ design rules under a new name.</description>
 </signal>
 <signal name="LORA_RX">
 <contactref element="U1" pad="IO26"/>
-<contactref element="U12" pad="RX"/>
+<contactref element="U2" pad="RX"/>
 <wire x1="46.99" y1="53.34" x2="50.8" y2="57.15" width="0.508" layer="16"/>
 </signal>
 <signal name="LORA_TX">
 <contactref element="U1" pad="IO27"/>
-<contactref element="U12" pad="TX"/>
+<contactref element="U2" pad="TX"/>
 <wire x1="46.99" y1="55.88" x2="49.53" y2="55.88" width="0.508" layer="1"/>
 <wire x1="49.53" y1="55.88" x2="50.8" y2="54.61" width="0.508" layer="1"/>
 </signal>
 <signal name="LORA_AUX">
 <contactref element="U1" pad="IO14"/>
-<contactref element="U12" pad="AUX"/>
-<wire x1="46.99" y1="58.42" x2="49.53" y2="60.96" width="0.508" layer="1"/>
-<wire x1="49.53" y1="60.96" x2="52.07" y2="60.96" width="0.508" layer="1"/>
-<wire x1="52.07" y1="60.96" x2="53.975" y2="59.055" width="0.508" layer="1"/>
-<wire x1="53.975" y1="53.34" x2="52.705" y2="52.07" width="0.508" layer="1"/>
-<wire x1="52.705" y1="52.07" x2="50.8" y2="52.07" width="0.508" layer="1"/>
-<wire x1="53.975" y1="59.055" x2="53.975" y2="53.34" width="0.508" layer="1"/>
+<contactref element="U2" pad="AUX"/>
+<wire x1="46.99" y1="58.42" x2="45.085" y2="56.515" width="0.508" layer="1"/>
+<wire x1="45.085" y1="46.355" x2="45.72" y2="45.72" width="0.508" layer="1"/>
+<wire x1="45.72" y1="45.72" x2="47.625" y2="45.72" width="0.508" layer="1"/>
+<wire x1="47.625" y1="45.72" x2="48.895" y2="46.99" width="0.508" layer="1"/>
+<wire x1="48.895" y1="50.165" x2="50.8" y2="52.07" width="0.508" layer="1"/>
+<wire x1="45.085" y1="56.515" x2="45.085" y2="46.355" width="0.508" layer="1"/>
+<wire x1="48.895" y1="46.99" x2="48.895" y2="50.165" width="0.508" layer="1"/>
 </signal>
 <signal name="LORA_M0M1">
 <contactref element="U1" pad="IO25"/>
-<contactref element="U12" pad="M1"/>
-<contactref element="U12" pad="M0"/>
+<contactref element="U2" pad="M1"/>
+<contactref element="U2" pad="M0"/>
 <wire x1="50.8" y1="59.69" x2="52.705" y2="57.785" width="0.508" layer="16"/>
 <wire x1="52.705" y1="57.785" x2="52.705" y2="54.61" width="0.508" layer="16"/>
 <wire x1="52.705" y1="54.61" x2="51.435" y2="53.34" width="0.508" layer="16"/>

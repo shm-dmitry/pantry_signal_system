@@ -13,11 +13,23 @@ const uint8_t LORA_MAGIC_END[3]   = { 'E', 'O', 'S' };
 #define LORA_TEMPERATURE_OFFSET   (100.0 * 10.0)
 
 esp_err_t lora_api_configure() {
+	lora_api_control_wakeup();
 	lora_api_control_go_sleep();
 
-#if LORA_ENABLE_CONFIRURE
-	lora_api_uart_configure(0x00, LORA_ADDRESS);
-	lora_api_uart_configure(0x06, LORA_SECRET);
+#if LORA_ENABLE_CONFIG_ADDR
+	if (!lora_api_uart_configure_word(0x00, LORA_ADDRESS)) {
+		return ESP_FAIL;
+	}
+#endif
+#if LORA_ENABLE_CONFIG_SECR
+	if (!lora_api_uart_configure_word(0x06, LORA_SECRET)) {
+		return ESP_FAIL;
+	}
+#endif
+#if LORA_ENABLE_CONFIG_CHNL
+	if (!lora_api_uart_configure_byte(0x04, LORA_CHANNEL)) {
+		return ESP_FAIL;
+	}
 #endif
 
 	lora_api_control_wakeup();
@@ -79,6 +91,23 @@ bool lora_api_read_decrypt(const char * msg, uint8_t * byte) {
 	return true;
 }
 
+bool lora_api_read_check_crc() {
+	uint8_t crc[2] = {0, 0};
+
+	if (lora_api_uart_read(crc, 2) != 2) {
+		ESP_LOGE(LORA_LOG, "lora_api_read_check_crc error: cant read CRC - timeout");
+		return false;
+	}
+
+	uint16_t actual_crc = decrypter_get_crc();
+	if (actual_crc != crc[0] * 256 + crc[1]) {
+		ESP_LOGE(LORA_LOG, "lora_api_read_check_crc error - bad crc. calculated %d in stream %d", actual_crc, crc[0] * 256 + crc[1]);
+		return false;
+	}
+
+	return true;
+}
+
 bool lora_api_read_uint16t_as_float(const char * msg, float * result) {
 	uint8_t buffer[2];
 
@@ -131,8 +160,6 @@ LoraData * lora_api_read() {
 
 	LoraData * data = (LoraData *) malloc(sizeof(LoraData));
 	memset(data, 0, sizeof(LoraData));
-
-	ESP_LOGI(LORA_LOG, "Flags: %02x", buffer);
 
 	data->outdoor_flooding_sensor_alarm = lora_is_bit_set(buffer, 0) ? true : false;
 	data->indoor_flooding_sensor_alarm  = lora_is_bit_set(buffer, 1) ? true : false;
@@ -204,6 +231,11 @@ LoraData * lora_api_read() {
 	}
 
 	data->humidity /= 10.0;
+
+	if (!lora_api_read_check_crc()) {
+		free(data);
+		return NULL;
+	}
 
 	if (!lora_api_check_magic(false)) {
 		free(data);

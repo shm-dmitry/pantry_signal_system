@@ -74,6 +74,7 @@
 void display_init() {
   pinMode(ENABLE_DISPLAY_PIN, OUTPUT);
   digitalWrite(ENABLE_DISPLAY_PIN, LOW);
+  Serial.println("Display OK");
 }
 
 void display_off() {

@@ -5,15 +5,15 @@
 #include "driver/uart.h"
 #include "../log.h"
 
-#define LORA_BAUD_RATE 9600
-#define LORA_UART_PORT	1
-#define LORA_BUF_SIZE 9
-#define LORA_DRIVER_BUF_SIZE 1024
-#define LORA_QUEUE_SIZE 10
+#define LORA_BAUD_RATE 							9600
+#define LORA_UART_PORT							1
+#define LORA_BUF_SIZE 							9
+#define LORA_DRIVER_BUF_SIZE 					1024
+#define LORA_QUEUE_SIZE 						10
 #define LORA_CONFIGURE_AWAIT_RESPONSE_TIMEOUT 	1000
 #define LORA_READ_DATA_TIMEOUT 					3000
 
-#define LORA_UART_DEBUG false
+#define LORA_UART_DEBUG 						true
 
 esp_err_t lora_api_uart_init(int uart_pin_tx, int uart_pin_rx) {
     uart_config_t uart_config = {
@@ -52,12 +52,15 @@ esp_err_t lora_api_uart_init(int uart_pin_tx, int uart_pin_rx) {
     return ESP_OK;
 }
 
-bool lora_api_uart_configure(uint8_t address, uint16_t value) {
-	uint8_t buffer[5] = { 0xC2, address, 0x02,  value / 256, value % 256};
+bool lora_api_uart_configure_byte(uint8_t address, uint8_t value) {
+	uint8_t buffer[4] = { 0xC2, address, 0x01,  value};
 	int bytes = sizeof(buffer);
+
+	ESP_LOGI(LORA_LOG, "Configure LoRa: address %02x data %02x ...", address, value);
 
 	while(bytes > 0) {
 		int sended = uart_write_bytes(LORA_UART_PORT, buffer, bytes);
+		ESP_LOGI(LORA_LOG, "UART configure - sended %d bytes", sended);
 		if (sended > 0) {
 			bytes -= sended;
 		}
@@ -71,13 +74,14 @@ bool lora_api_uart_configure(uint8_t address, uint16_t value) {
 		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_RATE_MS);
 		if (readed > 0) {
 			if (buf != buffer[bytes]) {
-				ESP_LOGE(LORA_LOG, "Invalid return byte %d : %d expected %d", bytes, buf, buffer[bytes]);
+				ESP_LOGE(LORA_LOG, "Configure LoRa ERROR: Invalid return byte %d : %d expected %d", bytes, buf, buffer[bytes]);
 				return false;
 			}
 
 			bytes++;
 
 			if (bytes >= sizeof(buffer)) {
+				ESP_LOGI(LORA_LOG, "Configure LoRa: Address %02x OK", address);
 				return true;
 			}
 		} else {
@@ -85,6 +89,51 @@ bool lora_api_uart_configure(uint8_t address, uint16_t value) {
 			i++;
 		}
 	}
+
+	ESP_LOGI(LORA_LOG, "Configure LoRa: Address %02x TIMEOUT", address);
+
+	return false;
+}
+
+bool lora_api_uart_configure_word(uint8_t address, uint16_t value) {
+	uint8_t buffer[5] = { 0xC2, address, 0x02,  value / 256, value % 256};
+	int bytes = sizeof(buffer);
+
+	ESP_LOGI(LORA_LOG, "Configure LoRa: address %02x data %04x ...", address, value);
+
+	while(bytes > 0) {
+		int sended = uart_write_bytes(LORA_UART_PORT, buffer, bytes);
+		ESP_LOGI(LORA_LOG, "UART configure - sended %d bytes", sended);
+		if (sended > 0) {
+			bytes -= sended;
+		}
+	}
+
+	buffer[0] = 0xC1;
+	bytes = 0;
+	uint8_t await = LORA_CONFIGURE_AWAIT_RESPONSE_TIMEOUT / 20;
+	for (uint8_t i = 0; i<=await; ) {
+		uint8_t buf = 0;
+		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_RATE_MS);
+		if (readed > 0) {
+			if (buf != buffer[bytes]) {
+				ESP_LOGE(LORA_LOG, "Configure LoRa ERROR: Invalid return byte %d : %d expected %d", bytes, buf, buffer[bytes]);
+				return false;
+			}
+
+			bytes++;
+
+			if (bytes >= sizeof(buffer)) {
+				ESP_LOGI(LORA_LOG, "Configure LoRa: Address %02x OK", address);
+				return true;
+			}
+		} else {
+			vTaskDelay(20 / portTICK_PERIOD_MS);
+			i++;
+		}
+	}
+
+	ESP_LOGI(LORA_LOG, "Configure LoRa: Address %02x TIMEOUT", address);
 
 	return false;
 }

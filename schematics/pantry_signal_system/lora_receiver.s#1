@@ -633,20 +633,13 @@
 <label x="157.48" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="3V3" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="3V3"/>
-<wire x1="2.54" y1="149.86" x2="-30.48" y2="149.86" width="0.1524" layer="91"/>
-<label x="-30.48" y="149.86" size="1.778" layer="95"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
 <approved hash="102,1,185.42,121.92,VCC,+5V,,,,"/>
 <approved hash="102,1,2.54,104.14,5V,+5V,,,,"/>
-<approved hash="106,1,2.54,149.86,3V3,,,,,"/>
+<approved hash="204,1,2.54,149.86,U1,3V3,,,,"/>
 <approved hash="108,1,185.42,132.08,LORA_M0M1,,,,,"/>
 </errors>
 </schematic>

@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,12 +53,12 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -70,6 +70,9 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="99" name="SpiceOrder" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="101" name="Hidden" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="102" name="Changes" color="12" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -358,25 +361,6 @@
 <text x="-1.778" y="-2.032" size="0.8128" layer="21">FRONT</text>
 <text x="-3.81" y="5.08" size="1.27" layer="21">&gt;NAME</text>
 </package>
-<package name="LORA">
-<pad name="TX" x="16.51" y="0" drill="0.9" shape="square"/>
-<pad name="RX" x="16.51" y="-2.54" drill="0.9" shape="square"/>
-<pad name="AUX" x="16.51" y="2.54" drill="0.9" shape="square"/>
-<pad name="M1" x="16.51" y="-5.08" drill="0.9" shape="square"/>
-<pad name="VCC" x="16.51" y="5.08" drill="0.9" shape="square"/>
-<pad name="M0" x="16.51" y="-7.62" drill="0.9" shape="square"/>
-<pad name="GND" x="16.51" y="7.62" drill="0.9" shape="square"/>
-<wire x1="19.05" y1="11.43" x2="-19.05" y2="11.43" width="0.127" layer="21"/>
-<wire x1="-19.05" y1="11.43" x2="-19.05" y2="8.89" width="0.127" layer="21"/>
-<wire x1="-19.05" y1="1.27" x2="-19.05" y2="-11.43" width="0.127" layer="21"/>
-<wire x1="-19.05" y1="-11.43" x2="19.05" y2="-11.43" width="0.127" layer="21"/>
-<wire x1="19.05" y1="-11.43" x2="19.05" y2="11.43" width="0.127" layer="21"/>
-<wire x1="-31.75" y1="8.89" x2="-31.75" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-31.75" y1="1.27" x2="-19.05" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-19.05" y1="1.27" x2="-19.05" y2="8.89" width="0.127" layer="21"/>
-<wire x1="-19.05" y1="8.89" x2="-31.75" y2="8.89" width="0.127" layer="21"/>
-<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
-</package>
 <package name="SF">
 <pad name="P$1" x="-1.27" y="0" drill="0.8" shape="square"/>
 <pad name="P$2" x="1.27" y="0" drill="0.8" shape="square"/>
@@ -564,9 +548,9 @@
 <text x="-2.54" y="6.35" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="SOT-23A">
-<smd name="P1" x="-0.95" y="-1" dx="0.9" dy="0.8" layer="1" rot="R90"/>
-<smd name="P2" x="0.95" y="-1" dx="0.9" dy="0.8" layer="1" rot="R90"/>
-<smd name="P3" x="0" y="1" dx="0.9" dy="0.8" layer="1" rot="R90"/>
+<smd name="P1" x="-0.95" y="-1.3" dx="1.4" dy="0.8" layer="1" rot="R90"/>
+<smd name="P2" x="0.95" y="-1.3" dx="1.4" dy="0.8" layer="1" rot="R90"/>
+<smd name="P3" x="0" y="1.3" dx="1.4" dy="0.8" layer="1" rot="R90"/>
 <wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
@@ -619,6 +603,63 @@
 <wire x1="-1.27" y1="3.81" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
 <wire x1="-1.27" y1="2.54" x2="0" y2="2.54" width="0.127" layer="21"/>
 <wire x1="0" y1="2.54" x2="0" y2="3.81" width="0.127" layer="21"/>
+</package>
+<package name="LORA">
+<pad name="TX" x="16.51" y="0" drill="0.9" shape="square"/>
+<pad name="RX" x="16.51" y="-2.54" drill="0.9" shape="square"/>
+<pad name="AUX" x="16.51" y="2.54" drill="0.9" shape="square"/>
+<pad name="M1" x="16.51" y="-5.08" drill="0.9" shape="square"/>
+<pad name="VCC" x="16.51" y="5.08" drill="0.9" shape="square"/>
+<pad name="M0" x="16.51" y="-7.62" drill="0.9" shape="square"/>
+<pad name="GND" x="16.51" y="7.62" drill="0.9" shape="square"/>
+<wire x1="19.05" y1="11.43" x2="-19.05" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="11.43" x2="-19.05" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="1.27" x2="-19.05" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="-11.43" x2="19.05" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="19.05" y1="-11.43" x2="19.05" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-31.75" y1="8.89" x2="-31.75" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-31.75" y1="1.27" x2="-19.05" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="1.27" x2="-19.05" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="8.89" x2="-31.75" y2="8.89" width="0.127" layer="21"/>
+<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="VSSOP-8">
+<smd name="P1" x="-1.7" y="0.65" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P2" x="-1.7" y="0.127" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P3" x="-1.7" y="-0.396" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P4" x="-1.7" y="-0.919" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P8" x="1.7" y="0.65" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P7" x="1.7" y="0.127" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P6" x="1.7" y="-0.396" dx="1.55" dy="0.25" layer="1"/>
+<smd name="P5" x="1.7" y="-0.919" dx="1.55" dy="0.25" layer="1"/>
+<wire x1="-3" y1="2" x2="-3" y2="1" width="0.127" layer="21"/>
+<wire x1="-3" y1="1" x2="-3" y2="-1.492" width="0.127" layer="21"/>
+<wire x1="-3" y1="-1.492" x2="3" y2="-1.492" width="0.127" layer="21"/>
+<wire x1="3" y1="-1.492" x2="3" y2="2" width="0.127" layer="21"/>
+<wire x1="3" y1="2" x2="-2" y2="2" width="0.127" layer="21"/>
+<wire x1="-2" y1="2" x2="-3" y2="2" width="0.127" layer="21"/>
+<wire x1="-2" y1="2" x2="-2" y2="1" width="0.127" layer="21"/>
+<wire x1="-2" y1="1" x2="-3" y2="1" width="0.127" layer="21"/>
+<text x="-3" y="-4" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="R-PDSO-G8">
+<smd name="P8" x="1.524" y="0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P7" x="1.524" y="0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P6" x="1.524" y="-0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P5" x="1.524" y="-0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P1" x="-1.651" y="0.762" dx="1" dy="0.25" layer="1"/>
+<smd name="P2" x="-1.651" y="0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P3" x="-1.651" y="-0.254" dx="1" dy="0.25" layer="1"/>
+<smd name="P4" x="-1.651" y="-0.762" dx="1" dy="0.25" layer="1"/>
+<wire x1="-2.54" y1="1.27" x2="-1.905" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.905" x2="-1.905" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="1.905" x2="-1.905" y2="1.27" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.175" size="1.27" layer="21">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -977,28 +1018,6 @@
 <text x="-5.08" y="-2.54" size="1.778" layer="94">&gt;NAME</text>
 <text x="-5.08" y="-5.08" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
-<symbol name="LORA">
-<pin name="RX" x="-17.78" y="2.54" visible="off" length="middle"/>
-<pin name="M1" x="-17.78" y="5.08" visible="off" length="middle"/>
-<pin name="TX" x="-17.78" y="0" visible="off" length="middle"/>
-<pin name="M0" x="-17.78" y="7.62" visible="off" length="middle"/>
-<pin name="VCC" x="-17.78" y="-5.08" visible="off" length="middle" direction="sup"/>
-<pin name="GND" x="-17.78" y="-7.62" visible="off" length="middle" direction="sup"/>
-<wire x1="-12.7" y1="10.16" x2="-12.7" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-10.16" x2="20.32" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-10.16" x2="20.32" y2="10.16" width="0.254" layer="94"/>
-<wire x1="20.32" y1="10.16" x2="-12.7" y2="10.16" width="0.254" layer="94"/>
-<text x="-10.16" y="7.62" size="1.27" layer="94">M0</text>
-<text x="-10.16" y="5.08" size="1.27" layer="94">M1</text>
-<text x="-10.16" y="2.54" size="1.27" layer="94">RX</text>
-<text x="-10.16" y="0" size="1.27" layer="94">TX</text>
-<pin name="AUX" x="-17.78" y="-2.54" visible="off" length="middle"/>
-<text x="-10.16" y="-2.54" size="1.27" layer="94">AUX</text>
-<text x="-10.16" y="-5.08" size="1.27" layer="94">VCC</text>
-<text x="-10.16" y="-7.62" size="1.27" layer="94">GND</text>
-<text x="2.54" y="5.08" size="1.778" layer="94">&gt;NAME</text>
-<text x="2.54" y="-2.54" size="1.778" layer="94">&gt;VALUE</text>
-</symbol>
 <symbol name="SF">
 <pin name="P$1" x="-15.24" y="0" visible="off" length="middle"/>
 <pin name="P$2" x="15.24" y="0" visible="off" length="middle" rot="R180"/>
@@ -1265,6 +1284,57 @@
 <wire x1="-1.27" y1="12.7" x2="-1.27" y2="11.938" width="0.254" layer="94"/>
 <wire x1="-1.27" y1="11.938" x2="1.524" y2="11.938" width="0.254" layer="94"/>
 <wire x1="1.524" y1="11.938" x2="1.524" y2="12.7" width="0.254" layer="94"/>
+</symbol>
+<symbol name="LORA">
+<pin name="RX" x="-17.78" y="2.54" visible="off" length="middle"/>
+<pin name="M1" x="-17.78" y="5.08" visible="off" length="middle"/>
+<pin name="TX" x="-17.78" y="0" visible="off" length="middle"/>
+<pin name="M0" x="-17.78" y="7.62" visible="off" length="middle"/>
+<pin name="VCC" x="-17.78" y="-5.08" visible="off" length="middle" direction="sup"/>
+<pin name="GND" x="-17.78" y="-7.62" visible="off" length="middle" direction="sup"/>
+<wire x1="-12.7" y1="10.16" x2="-12.7" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-10.16" x2="20.32" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-10.16" x2="20.32" y2="10.16" width="0.254" layer="94"/>
+<wire x1="20.32" y1="10.16" x2="-12.7" y2="10.16" width="0.254" layer="94"/>
+<text x="-10.16" y="7.62" size="1.27" layer="94">M0</text>
+<text x="-10.16" y="5.08" size="1.27" layer="94">M1</text>
+<text x="-10.16" y="2.54" size="1.27" layer="94">RX</text>
+<text x="-10.16" y="0" size="1.27" layer="94">TX</text>
+<pin name="AUX" x="-17.78" y="-2.54" visible="off" length="middle"/>
+<text x="-10.16" y="-2.54" size="1.27" layer="94">AUX</text>
+<text x="-10.16" y="-5.08" size="1.27" layer="94">VCC</text>
+<text x="-10.16" y="-7.62" size="1.27" layer="94">GND</text>
+<text x="2.54" y="5.08" size="1.778" layer="94">&gt;NAME</text>
+<text x="2.54" y="-2.54" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="LEVEL_CONVERTOR_2L">
+<pin name="VCCA" x="-12.7" y="5.08" visible="off" length="middle" direction="sup"/>
+<pin name="A1" x="-12.7" y="2.54" visible="off" length="middle"/>
+<pin name="A2" x="-12.7" y="0" visible="off" length="middle"/>
+<pin name="GND" x="-12.7" y="-2.54" visible="off" length="middle" direction="sup"/>
+<pin name="VCCB" x="12.7" y="5.08" visible="off" length="middle" direction="sup" rot="R180"/>
+<pin name="B1" x="12.7" y="2.54" visible="off" length="middle" rot="R180"/>
+<pin name="B2" x="12.7" y="0" visible="off" length="middle" rot="R180"/>
+<pin name="DIR" x="12.7" y="-2.54" visible="off" length="middle" rot="R180"/>
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="6.35" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="6.35" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-6.35" y2="7.62" width="0.254" layer="94"/>
+<text x="-5.08" y="5.08" size="0.6096" layer="94">Vcc A</text>
+<text x="-5.08" y="5.08" size="0.6096" layer="94">Vcc A</text>
+<text x="-5.08" y="2.54" size="0.6096" layer="94">A1</text>
+<text x="-5.08" y="0" size="0.6096" layer="94">A2</text>
+<text x="-5.08" y="-2.54" size="0.6096" layer="94">GND</text>
+<text x="2.54" y="5.08" size="0.6096" layer="94">Vcc B</text>
+<text x="2.54" y="2.54" size="0.6096" layer="94">B1</text>
+<text x="2.54" y="0" size="0.6096" layer="94">B2</text>
+<text x="2.54" y="-2.54" size="0.6096" layer="94">DIR</text>
+<wire x1="-6.35" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="6.35" x2="-6.35" y2="6.35" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="6.35" x2="-6.35" y2="7.62" width="0.254" layer="94"/>
+<text x="-5.08" y="8.89" size="1.778" layer="94">&gt;NAME</text>
+<text x="-5.334" y="-7.62" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1689,27 +1759,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LORA" prefix="U">
-<gates>
-<gate name="G$1" symbol="LORA" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="LORA">
-<connects>
-<connect gate="G$1" pin="AUX" pad="AUX"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="M0" pad="M0"/>
-<connect gate="G$1" pin="M1" pad="M1"/>
-<connect gate="G$1" pin="RX" pad="RX"/>
-<connect gate="G$1" pin="TX" pad="TX"/>
-<connect gate="G$1" pin="VCC" pad="VCC"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SF" prefix="SF">
 <gates>
 <gate name="G$1" symbol="SF" x="0" y="0"/>
@@ -1898,6 +1947,64 @@
 </device>
 </devices>
 </deviceset>
+<deviceset name="LORA" prefix="U">
+<gates>
+<gate name="G$1" symbol="LORA" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="LORA">
+<connects>
+<connect gate="G$1" pin="AUX" pad="AUX"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="M0" pad="M0"/>
+<connect gate="G$1" pin="M1" pad="M1"/>
+<connect gate="G$1" pin="RX" pad="RX"/>
+<connect gate="G$1" pin="TX" pad="TX"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LEVEL_CONVERTER_2L" prefix="U">
+<gates>
+<gate name="G$1" symbol="LEVEL_CONVERTOR_2L" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="VSSOP-8">
+<connects>
+<connect gate="G$1" pin="A1" pad="P2"/>
+<connect gate="G$1" pin="A2" pad="P3"/>
+<connect gate="G$1" pin="B1" pad="P7"/>
+<connect gate="G$1" pin="B2" pad="P6"/>
+<connect gate="G$1" pin="DIR" pad="P5"/>
+<connect gate="G$1" pin="GND" pad="P4"/>
+<connect gate="G$1" pin="VCCA" pad="P1"/>
+<connect gate="G$1" pin="VCCB" pad="P8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="R-PDSO-G8" package="R-PDSO-G8">
+<connects>
+<connect gate="G$1" pin="A1" pad="P2"/>
+<connect gate="G$1" pin="A2" pad="P3"/>
+<connect gate="G$1" pin="B1" pad="P7"/>
+<connect gate="G$1" pin="B2" pad="P6"/>
+<connect gate="G$1" pin="DIR" pad="P5"/>
+<connect gate="G$1" pin="GND" pad="P4"/>
+<connect gate="G$1" pin="VCCA" pad="P1"/>
+<connect gate="G$1" pin="VCCB" pad="P8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
@@ -1947,7 +2054,6 @@
 <schematic_group name="SUPPLY_AVR"/>
 <schematic_group name="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <schematic_group name="SUPPLY_SYSTEM_CONNECTOR"/>
-<schematic_group name="LOGIC_BLOCK_CONNECTORS"/>
 <schematic_group name="DISPLAY"/>
 <schematic_group name="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <schematic_group name="AIR_DRYER"/>
@@ -1955,10 +2061,11 @@
 <schematic_group name="INDOOR_FLOODING_SENSOR"/>
 <schematic_group name="OUTDOOR_FLOODING_SENSOR"/>
 <schematic_group name="LOGIC_AVR"/>
-<schematic_group name="LORA"/>
 <schematic_group name="OPEN_DOOR_ALARM_MODULE"/>
 <schematic_group name="FAN_SYSTEM_CONNECTOR"/>
 <schematic_group name="FAN_SYSTEM_CONTROL"/>
+<schematic_group name="LOGIC_BLOCK_CONNECTORS1"/>
+<schematic_group name="LORA1"/>
 </groups>
 <parts>
 <part name="BAT1" library="my_devices" deviceset="BATTERY" device="" value="12V ... 15V"/>
@@ -1992,9 +2099,6 @@
 <part name="J3" library="my_devices" deviceset="JST-XH254-2P" device=""/>
 <part name="GND17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U11" library="my_devices" deviceset="ATMEGA328P" device=""/>
-<part name="J6" library="my_devices" deviceset="JST-XH254-2P" device=""/>
-<part name="J5" library="my_devices" deviceset="JST-XH254-3P" device=""/>
-<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C9" library="my_devices" deviceset="C-1" device="" value="0.1 uF"/>
@@ -2002,8 +2106,6 @@
 <part name="R21" library="my_devices" deviceset="R" device="" value="10K"/>
 <part name="U14" library="my_devices" deviceset="I2C_DISPLAY" device="" value="2004A I2C"/>
 <part name="Q5" library="my_devices" deviceset="TRANSISTOR_NPN" device="" value="2N3904"/>
-<part name="C10" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
-<part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U13" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FAN1" library="my_devices" deviceset="FAN_5V" device="" value="EC6010H12S"/>
@@ -2023,8 +2125,6 @@
 <part name="SB1" library="my_devices" deviceset="SB-NO" device="EXT_CONNECTOR" value="SB-NOEXT_CONNECTOR"/>
 <part name="GND29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R20" library="my_devices" deviceset="R" device="" value="10K"/>
-<part name="U12" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
-<part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SF1" library="my_devices" deviceset="SF" device=""/>
 <part name="GND31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R25" library="my_devices" deviceset="R" device="" value="2M"/>
@@ -2104,6 +2204,25 @@
 <part name="R9" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="R8" library="my_devices" deviceset="R" device="" value="2M"/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J6" library="my_devices" deviceset="JST-XH254-2P" device=""/>
+<part name="J5" library="my_devices" deviceset="JST-XH254-3P" device=""/>
+<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C10" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
+<part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="U15" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="SOT-23A" value="MCP1703T-3302E/CB"/>
+<part name="GND49" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C12" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
+<part name="U12" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
+<part name="U16" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
+<part name="U17" library="my_devices" deviceset="LEVEL_CONVERTER_2L" device="" value="SN74LVC2T45DCUR"/>
+<part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND50" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND51" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND52" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C13" library="my_devices" deviceset="C-1" device="" value="100 nF"/>
+<part name="GND53" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J10" library="my_devices" deviceset="USBASP_PIN" device=""/>
+<part name="GND54" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2251,17 +2370,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <attribute name="NAME" x="534.67" y="73.025" size="1.778" layer="94"/>
 <attribute name="VALUE" x="530.86" y="23.495" size="1.778" layer="94"/>
 </instance>
-<instance part="J6" gate="G$1" x="482.6" y="-78.74" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS">
-<attribute name="NAME" x="469.9" y="-81.28" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="469.9" y="-76.2" size="1.778" layer="94" rot="R180"/>
-</instance>
-<instance part="J5" gate="G$1" x="482.6" y="-45.72" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS">
-<attribute name="NAME" x="469.9" y="-48.26" size="1.778" layer="94" rot="R180"/>
-<attribute name="VALUE" x="469.9" y="-43.18" size="1.778" layer="94" rot="R180"/>
-</instance>
-<instance part="GND8" gate="1" x="492.76" y="-53.34" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS">
-<attribute name="VALUE" x="490.22" y="-55.88" size="1.778" layer="96"/>
-</instance>
 <instance part="GND18" gate="1" x="575.31" y="47.625" smashed="yes" grouprefs="LOGIC_AVR">
 <attribute name="VALUE" x="572.77" y="45.085" size="1.778" layer="96"/>
 </instance>
@@ -2279,26 +2387,19 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <attribute name="NAME" x="511.81" y="66.675" size="1.778" layer="94" rot="R90"/>
 <attribute name="VALUE" x="518.16" y="66.675" size="1.778" layer="94" rot="R90"/>
 </instance>
-<instance part="U14" gate="G$1" x="637.54" y="-60.96" smashed="yes" grouprefs="DISPLAY">
-<attribute name="NAME" x="652.78" y="-60.96" size="1.778" layer="94"/>
-<attribute name="VALUE" x="652.78" y="-66.04" size="1.778" layer="94"/>
+<instance part="U14" gate="G$1" x="668.02" y="-63.5" smashed="yes" grouprefs="DISPLAY">
+<attribute name="NAME" x="683.26" y="-63.5" size="1.778" layer="94"/>
+<attribute name="VALUE" x="683.26" y="-68.58" size="1.778" layer="94"/>
 </instance>
-<instance part="Q5" gate="G$1" x="604.52" y="-60.96" smashed="yes" rot="R270" grouprefs="DISPLAY">
-<attribute name="NAME" x="605.79" y="-55.88" size="1.778" layer="94"/>
-<attribute name="VALUE" x="598.805" y="-67.945" size="1.778" layer="94"/>
+<instance part="Q5" gate="G$1" x="635" y="-63.5" smashed="yes" rot="R270" grouprefs="DISPLAY">
+<attribute name="NAME" x="636.27" y="-58.42" size="1.778" layer="94"/>
+<attribute name="VALUE" x="629.285" y="-70.485" size="1.778" layer="94"/>
 </instance>
-<instance part="C10" gate="G$1" x="510.54" y="-53.34" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS">
-<attribute name="NAME" x="515.62" y="-48.26" size="1.778" layer="94" rot="R270"/>
-<attribute name="VALUE" x="502.92" y="-48.26" size="1.778" layer="94" rot="R270"/>
+<instance part="U13" gate="G$1" x="660.4" y="-104.14" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR">
+<attribute name="NAME" x="665.48" y="-93.98" size="1.778" layer="94"/>
 </instance>
-<instance part="GND22" gate="1" x="510.54" y="-63.5" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS">
-<attribute name="VALUE" x="508" y="-66.04" size="1.778" layer="96"/>
-</instance>
-<instance part="U13" gate="G$1" x="599.44" y="-104.14" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR">
-<attribute name="NAME" x="604.52" y="-93.98" size="1.778" layer="94"/>
-</instance>
-<instance part="GND23" gate="1" x="566.42" y="-104.14" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR">
-<attribute name="VALUE" x="563.88" y="-106.68" size="1.778" layer="96"/>
+<instance part="GND23" gate="1" x="627.38" y="-104.14" smashed="yes" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR">
+<attribute name="VALUE" x="624.84" y="-106.68" size="1.778" layer="96"/>
 </instance>
 <instance part="FAN1" gate="G$1" x="632.46" y="-149.86" smashed="yes" rot="R270" grouprefs="AIR_DRYER">
 <attribute name="NAME" x="637.54" y="-144.78" size="1.778" layer="94" rot="R270"/>
@@ -2362,13 +2463,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <instance part="R20" gate="G$1" x="478.79" y="47.625" smashed="yes" rot="R90" grouprefs="LOGIC_AVR">
 <attribute name="NAME" x="476.25" y="41.275" size="1.778" layer="94" rot="R90"/>
 <attribute name="VALUE" x="482.6" y="41.275" size="1.778" layer="94" rot="R90"/>
-</instance>
-<instance part="U12" gate="G$1" x="553.72" y="-228.6" smashed="yes" grouprefs="LORA">
-<attribute name="NAME" x="556.26" y="-223.52" size="1.778" layer="94"/>
-<attribute name="VALUE" x="556.26" y="-231.14" size="1.778" layer="94"/>
-</instance>
-<instance part="GND30" gate="1" x="533.4" y="-238.76" smashed="yes" grouprefs="LORA">
-<attribute name="VALUE" x="530.86" y="-241.3" size="1.778" layer="96"/>
 </instance>
 <instance part="SF1" gate="G$1" x="673.1" y="-228.6" smashed="yes" grouprefs="OPEN_DOOR_ALARM_MODULE">
 <attribute name="NAME" x="668.655" y="-224.79" size="1.778" layer="94"/>
@@ -2522,12 +2616,12 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <instance part="GND40" gate="1" x="408.305" y="48.895" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="VALUE" x="405.765" y="46.355" size="1.778" layer="96"/>
 </instance>
-<instance part="GND21" gate="1" x="594.36" y="-63.5" smashed="yes" grouprefs="DISPLAY">
-<attribute name="VALUE" x="591.82" y="-66.04" size="1.778" layer="96"/>
+<instance part="GND21" gate="1" x="624.84" y="-66.04" smashed="yes" grouprefs="DISPLAY">
+<attribute name="VALUE" x="622.3" y="-68.58" size="1.778" layer="96"/>
 </instance>
-<instance part="R22" gate="G$1" x="591.82" y="-53.34" smashed="yes" grouprefs="DISPLAY">
-<attribute name="NAME" x="585.47" y="-50.8" size="1.778" layer="94"/>
-<attribute name="VALUE" x="585.47" y="-57.15" size="1.778" layer="94"/>
+<instance part="R22" gate="G$1" x="622.3" y="-55.88" smashed="yes" grouprefs="DISPLAY">
+<attribute name="NAME" x="615.95" y="-53.34" size="1.778" layer="94"/>
+<attribute name="VALUE" x="615.95" y="-59.69" size="1.778" layer="94"/>
 </instance>
 <instance part="J1" gate="G$1" x="377.19" y="22.86" smashed="yes" grouprefs="SUPPLY_AVR">
 <attribute name="NAME" x="375.285" y="31.115" size="0.8128" layer="94"/>
@@ -2651,6 +2745,73 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </instance>
 <instance part="GND11" gate="1" x="142.24" y="-7.62" smashed="yes" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH">
 <attribute name="VALUE" x="139.7" y="-10.16" size="1.778" layer="96"/>
+</instance>
+<instance part="J6" gate="G$1" x="464.82" y="-91.44" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="452.12" y="-93.98" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="452.12" y="-88.9" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="J5" gate="G$1" x="464.82" y="-45.72" smashed="yes" rot="R180" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="452.12" y="-48.26" size="1.778" layer="94" rot="R180"/>
+<attribute name="VALUE" x="452.12" y="-43.18" size="1.778" layer="94" rot="R180"/>
+</instance>
+<instance part="GND8" gate="1" x="474.98" y="-53.34" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="VALUE" x="472.44" y="-55.88" size="1.778" layer="96"/>
+</instance>
+<instance part="C10" gate="G$1" x="492.76" y="-53.34" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="497.84" y="-48.26" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="485.14" y="-48.26" size="1.778" layer="94" rot="R270"/>
+</instance>
+<instance part="GND22" gate="1" x="492.76" y="-63.5" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="VALUE" x="490.22" y="-66.04" size="1.778" layer="96"/>
+</instance>
+<instance part="U15" gate="G$1" x="513.08" y="-60.96" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="510.54" y="-50.8" size="1.778" layer="94"/>
+<attribute name="VALUE" x="510.54" y="-53.34" size="1.778" layer="94"/>
+</instance>
+<instance part="GND49" gate="1" x="513.08" y="-73.66" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="VALUE" x="510.54" y="-76.2" size="1.778" layer="96"/>
+</instance>
+<instance part="C12" gate="G$1" x="530.86" y="-66.04" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<attribute name="NAME" x="535.94" y="-60.96" size="1.778" layer="94" rot="R270"/>
+<attribute name="VALUE" x="523.24" y="-60.96" size="1.778" layer="94" rot="R270"/>
+</instance>
+<instance part="U12" gate="G$1" x="579.12" y="-233.68" smashed="yes" grouprefs="LORA1">
+<attribute name="NAME" x="581.66" y="-228.6" size="1.778" layer="94"/>
+<attribute name="VALUE" x="581.66" y="-236.22" size="1.778" layer="94"/>
+</instance>
+<instance part="U16" gate="G$1" x="520.7" y="-213.36" smashed="yes" grouprefs="LORA1">
+<attribute name="NAME" x="515.62" y="-204.47" size="1.778" layer="94"/>
+<attribute name="VALUE" x="515.366" y="-220.98" size="1.778" layer="94"/>
+</instance>
+<instance part="U17" gate="G$1" x="520.7" y="-236.22" smashed="yes" grouprefs="LORA1">
+<attribute name="NAME" x="515.62" y="-227.33" size="1.778" layer="94"/>
+<attribute name="VALUE" x="515.366" y="-243.84" size="1.778" layer="94"/>
+</instance>
+<instance part="GND30" gate="1" x="505.46" y="-218.44" smashed="yes" grouprefs="LORA1">
+<attribute name="VALUE" x="502.92" y="-220.98" size="1.778" layer="96"/>
+</instance>
+<instance part="GND50" gate="1" x="505.46" y="-241.3" smashed="yes" grouprefs="LORA1">
+<attribute name="VALUE" x="502.92" y="-243.84" size="1.778" layer="96"/>
+</instance>
+<instance part="GND51" gate="1" x="543.56" y="-241.3" smashed="yes" grouprefs="LORA1">
+<attribute name="VALUE" x="541.02" y="-243.84" size="1.778" layer="96"/>
+</instance>
+<instance part="GND52" gate="1" x="558.8" y="-243.84" smashed="yes" grouprefs="LORA1">
+<attribute name="VALUE" x="556.26" y="-246.38" size="1.778" layer="96"/>
+</instance>
+<instance part="C13" gate="G$1" x="574.04" y="10.16" smashed="yes" rot="R90" grouprefs="LOGIC_AVR">
+<attribute name="NAME" x="570.865" y="5.715" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="579.12" y="5.715" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="GND53" gate="1" x="574.04" y="-2.54" smashed="yes" grouprefs="LOGIC_AVR">
+<attribute name="VALUE" x="571.5" y="-5.08" size="1.778" layer="96"/>
+</instance>
+<instance part="J10" gate="G$1" x="516.89" y="3.81" smashed="yes" grouprefs="LOGIC_AVR">
+<attribute name="NAME" x="514.985" y="12.065" size="0.8128" layer="94"/>
+<attribute name="VALUE" x="514.985" y="-5.715" size="0.8128" layer="94"/>
+</instance>
+<instance part="GND54" gate="1" x="529.59" y="-3.81" smashed="yes" grouprefs="LOGIC_AVR">
+<attribute name="VALUE" x="527.05" y="-6.35" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -2791,11 +2952,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="375.92" y1="-48.26" x2="378.46" y2="-48.26" width="0.1524" layer="91" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="PIN1"/>
-<pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="487.68" y1="-50.8" x2="492.76" y2="-50.8" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-</segment>
-<segment>
 <pinref part="GND19" gate="1" pin="GND"/>
 <pinref part="U11" gate="G$1" pin="GND"/>
 <wire x1="511.81" y1="47.625" x2="519.43" y2="47.625" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
@@ -2811,13 +2967,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="491.49" y1="80.645" x2="501.65" y2="80.645" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 </segment>
 <segment>
-<pinref part="C10" gate="G$1" pin="PIN_GND"/>
-<pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="510.54" y1="-58.42" x2="510.54" y2="-60.96" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-</segment>
-<segment>
 <pinref part="U13" gate="G$1" pin="GND"/>
-<wire x1="589.28" y1="-101.6" x2="566.42" y2="-101.6" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<wire x1="650.24" y1="-101.6" x2="627.38" y2="-101.6" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -2839,11 +2990,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="GND29" gate="1" pin="GND"/>
 <pinref part="SB1" gate="G$1" pin="P$1"/>
 <wire x1="455.93" y1="57.785" x2="458.47" y2="57.785" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
-</segment>
-<segment>
-<pinref part="GND30" gate="1" pin="GND"/>
-<pinref part="U12" gate="G$1" pin="GND"/>
-<wire x1="533.4" y1="-236.22" x2="535.94" y2="-236.22" width="0.1524" layer="91" grouprefs="LORA"/>
 </segment>
 <segment>
 <pinref part="SF1" gate="G$1" pin="P$2"/>
@@ -2947,7 +3093,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <segment>
 <pinref part="Q5" gate="G$1" pin="E"/>
 <pinref part="GND21" gate="1" pin="GND"/>
-<wire x1="596.9" y1="-60.96" x2="594.36" y2="-60.96" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<wire x1="627.38" y1="-63.5" x2="624.84" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GND"/>
@@ -3017,6 +3163,57 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="GND11" gate="1" pin="GND"/>
 <pinref part="R8" gate="G$1" pin="P$2"/>
 <wire x1="142.24" y1="-5.08" x2="142.24" y2="-3.81" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+</segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="PIN1"/>
+<pinref part="GND8" gate="1" pin="GND"/>
+<wire x1="469.9" y1="-50.8" x2="474.98" y2="-50.8" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
+<segment>
+<pinref part="C10" gate="G$1" pin="PIN_GND"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="492.76" y1="-58.42" x2="492.76" y2="-60.96" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
+<segment>
+<pinref part="U15" gate="G$1" pin="GND"/>
+<pinref part="GND49" gate="1" pin="GND"/>
+<wire x1="513.08" y1="-68.58" x2="513.08" y2="-71.12" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<pinref part="C12" gate="G$1" pin="PIN_GND"/>
+<wire x1="530.86" y1="-71.12" x2="513.08" y2="-71.12" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<junction x="513.08" y="-71.12" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
+<segment>
+<pinref part="GND30" gate="1" pin="GND"/>
+<pinref part="U16" gate="G$1" pin="GND"/>
+<wire x1="505.46" y1="-215.9" x2="508" y2="-215.9" width="0.1524" layer="91" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="GND50" gate="1" pin="GND"/>
+<pinref part="U17" gate="G$1" pin="GND"/>
+<wire x1="505.46" y1="-238.76" x2="508" y2="-238.76" width="0.1524" layer="91" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="U17" gate="G$1" pin="DIR"/>
+<pinref part="GND51" gate="1" pin="GND"/>
+<wire x1="533.4" y1="-238.76" x2="543.56" y2="-238.76" width="0.1524" layer="91" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="GND52" gate="1" pin="GND"/>
+<wire x1="558.8" y1="-241.3" x2="561.34" y2="-241.3" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C13" gate="G$1" pin="P$1"/>
+<pinref part="GND53" gate="1" pin="GND"/>
+<wire x1="574.04" y1="2.54" x2="574.04" y2="0" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="GND1"/>
+<pinref part="J10" gate="G$1" pin="GND"/>
+<wire x1="527.05" y1="-1.27" x2="527.05" y2="1.27" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<pinref part="GND54" gate="1" pin="GND"/>
+<wire x1="529.59" y1="-1.27" x2="527.05" y2="-1.27" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<junction x="527.05" y="-1.27" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -3117,14 +3314,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <label x="355.6" y="-43.18" size="1.778" layer="95" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="PIN2"/>
-<wire x1="487.68" y1="-45.72" x2="510.54" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<label x="518.16" y="-45.72" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<pinref part="C10" gate="G$1" pin="PIN_PLUS"/>
-<wire x1="510.54" y1="-45.72" x2="525.78" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<junction x="510.54" y="-45.72" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-</segment>
-<segment>
 <pinref part="U11" gate="G$1" pin="VCC"/>
 <wire x1="519.43" y1="50.165" x2="511.81" y2="50.165" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="511.81" y="50.165" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
@@ -3145,8 +3334,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="VCC"/>
-<wire x1="589.28" y1="-99.06" x2="576.58" y2="-99.06" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
-<label x="576.58" y="-99.06" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<wire x1="650.24" y1="-99.06" x2="637.54" y2="-99.06" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<label x="637.54" y="-99.06" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="P$1"/>
@@ -3171,24 +3360,61 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <label x="455.93" y="40.005" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="VCC"/>
-<wire x1="535.94" y1="-233.68" x2="525.78" y2="-233.68" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="525.78" y="-233.68" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
 <pinref part="R25" gate="G$1" pin="P$2"/>
 <wire x1="655.32" y1="-212.09" x2="645.16" y2="-212.09" width="0.1524" layer="91" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
 <label x="645.16" y="-210.82" size="1.778" layer="95" grouprefs="OPEN_DOOR_ALARM_MODULE"/>
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="VCC"/>
-<wire x1="632.46" y1="-58.42" x2="612.14" y2="-58.42" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="612.14" y="-58.42" size="1.778" layer="95" grouprefs="DISPLAY"/>
+<wire x1="662.94" y1="-60.96" x2="642.62" y2="-60.96" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="642.62" y="-60.96" size="1.778" layer="95" grouprefs="DISPLAY"/>
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S1"/>
 <wire x1="43.18" y1="-185.42" x2="10.16" y2="-185.42" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <label x="10.16" y="-185.42" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+</segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="PIN2"/>
+<wire x1="469.9" y1="-45.72" x2="492.76" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="505.46" y="-45.72" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<pinref part="C10" gate="G$1" pin="PIN_PLUS"/>
+<wire x1="492.76" y1="-45.72" x2="502.92" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<junction x="492.76" y="-45.72" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<pinref part="U15" gate="G$1" pin="IN"/>
+<wire x1="502.92" y1="-45.72" x2="508" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="502.92" y1="-58.42" x2="502.92" y2="-45.72" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<junction x="502.92" y="-45.72" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
+<segment>
+<wire x1="561.34" y1="-238.76" x2="551.18" y2="-238.76" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="551.18" y="-238.76" size="1.778" layer="95" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="U17" gate="G$1" pin="VCCA"/>
+<wire x1="508" y1="-231.14" x2="497.84" y2="-231.14" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="497.84" y="-231.14" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="U16" gate="G$1" pin="VCCA"/>
+<wire x1="508" y1="-208.28" x2="497.84" y2="-208.28" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="497.84" y="-208.28" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="U16" gate="G$1" pin="DIR"/>
+<wire x1="533.4" y1="-215.9" x2="543.56" y2="-215.9" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="538.48" y="-215.9" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="C13" gate="G$1" pin="P$2"/>
+<wire x1="574.04" y1="17.78" x2="584.2" y2="17.78" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="579.12" y="17.78" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="VCC"/>
+<wire x1="527.05" y1="8.89" x2="537.21" y2="8.89" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="532.13" y="8.89" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -3294,11 +3520,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <label x="353.06" y="-68.58" size="1.778" layer="95" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
 </segment>
 <segment>
-<pinref part="J6" gate="G$1" pin="PIN2"/>
-<wire x1="487.68" y1="-76.2" x2="525.78" y2="-76.2" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<label x="502.92" y="-76.2" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-</segment>
-<segment>
 <pinref part="U11" gate="G$1" pin="PB0"/>
 <wire x1="519.43" y1="32.385" x2="488.95" y2="32.385" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="488.95" y="32.385" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
@@ -3312,6 +3533,11 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="356.87" y1="37.465" x2="356.87" y2="27.94" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <wire x1="356.87" y1="27.94" x2="367.03" y2="27.94" width="0.1524" layer="91" grouprefs="SUPPLY_AVR"/>
 <junction x="356.87" y="37.465" grouprefs="SUPPLY_AVR"/>
+</segment>
+<segment>
+<pinref part="J6" gate="G$1" pin="PIN2"/>
+<wire x1="469.9" y1="-88.9" x2="508" y2="-88.9" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="485.14" y="-88.9" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -3338,11 +3564,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <junction x="109.22" y="-144.78" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <pinref part="D7" gate="G$1" pin="ANODE"/>
 <junction x="119.38" y="-144.78" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
-</segment>
-<segment>
-<pinref part="J5" gate="G$1" pin="PIN3"/>
-<wire x1="487.68" y1="-40.64" x2="525.78" y2="-40.64" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<label x="518.16" y="-40.64" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
 </segment>
 <segment>
 <pinref part="J4" gate="G$1" pin="PIN1"/>
@@ -3379,6 +3600,11 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <wire x1="548.64" y1="-147.32" x2="505.46" y2="-147.32" width="0.1524" layer="91" grouprefs="AIR_DRYER"/>
 <label x="508" y="-147.32" size="1.778" layer="95" grouprefs="AIR_DRYER"/>
 </segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="PIN3"/>
+<wire x1="469.9" y1="-40.64" x2="508" y2="-40.64" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="505.46" y="-40.64" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
 </net>
 <net name="N$7" class="0">
 <segment>
@@ -3398,8 +3624,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="SDA"/>
-<wire x1="589.28" y1="-106.68" x2="571.5" y2="-106.68" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
-<label x="571.5" y="-106.68" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<wire x1="650.24" y1="-106.68" x2="632.46" y2="-106.68" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<label x="632.46" y="-106.68" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 </segment>
 </net>
 <net name="I2C_SCL" class="0">
@@ -3410,8 +3636,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="U13" gate="G$1" pin="SCL"/>
-<wire x1="589.28" y1="-104.14" x2="571.5" y2="-104.14" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
-<label x="571.5" y="-104.14" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<wire x1="650.24" y1="-104.14" x2="632.46" y2="-104.14" width="0.1524" layer="91" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
+<label x="632.46" y="-104.14" size="1.778" layer="95" grouprefs="TEMPERATURE_AND_HUMIDITY_SENSOR"/>
 </segment>
 </net>
 <net name="ENABLE_DISPLAY" class="0">
@@ -3422,8 +3648,8 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="P$1"/>
-<wire x1="584.2" y1="-53.34" x2="563.88" y2="-53.34" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="563.88" y="-53.34" size="1.778" layer="95" grouprefs="DISPLAY"/>
+<wire x1="614.68" y1="-55.88" x2="594.36" y2="-55.88" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="594.36" y="-55.88" size="1.778" layer="95" grouprefs="DISPLAY"/>
 </segment>
 </net>
 <net name="ENABLE_DR\YER" class="0">
@@ -3516,26 +3742,26 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </net>
 <net name="LORA_RX" class="0">
 <segment>
-<pinref part="U12" gate="G$1" pin="RX"/>
-<wire x1="535.94" y1="-226.06" x2="515.62" y2="-226.06" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="513.08" y="-226.06" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
 <pinref part="U11" gate="G$1" pin="PD4"/>
 <wire x1="519.43" y1="52.705" x2="488.95" y2="52.705" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="488.95" y="52.705" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
+<segment>
+<pinref part="U16" gate="G$1" pin="A2"/>
+<wire x1="508" y1="-213.36" x2="472.44" y2="-213.36" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="472.44" y="-213.36" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
 </net>
 <net name="LORA_TX" class="0">
-<segment>
-<pinref part="U12" gate="G$1" pin="TX"/>
-<wire x1="535.94" y1="-228.6" x2="515.62" y2="-228.6" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="513.08" y="-228.6" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
 <segment>
 <pinref part="U11" gate="G$1" pin="PD3"/>
 <wire x1="519.43" y1="55.245" x2="488.95" y2="55.245" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="488.95" y="55.245" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+<segment>
+<pinref part="U17" gate="G$1" pin="A1"/>
+<wire x1="508" y1="-233.68" x2="472.44" y2="-233.68" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="472.44" y="-233.68" size="1.778" layer="95" grouprefs="LORA1"/>
 </segment>
 </net>
 <net name="OPEN_DOOR_ALARM" class="0">
@@ -3551,6 +3777,11 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="U11" gate="G$1" pin="PB3"/>
 <wire x1="560.07" y1="37.465" x2="600.71" y2="37.465" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="575.31" y="37.465" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="MOSI"/>
+<wire x1="506.73" y1="8.89" x2="487.68" y2="8.89" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="481.33" y="8.89" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -3702,35 +3933,32 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </net>
 <net name="LORA_AUX" class="0">
 <segment>
-<pinref part="U12" gate="G$1" pin="AUX"/>
-<wire x1="535.94" y1="-231.14" x2="515.62" y2="-231.14" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="513.08" y="-231.14" size="1.778" layer="95" grouprefs="LORA"/>
-</segment>
-<segment>
 <pinref part="U11" gate="G$1" pin="PD6"/>
 <wire x1="519.43" y1="37.465" x2="488.95" y2="37.465" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="488.95" y="37.465" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
+<segment>
+<pinref part="U17" gate="G$1" pin="A2"/>
+<wire x1="508" y1="-236.22" x2="472.44" y2="-236.22" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="472.44" y="-236.22" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
 </net>
 <net name="LORA_M0M1" class="0">
-<segment>
-<pinref part="U12" gate="G$1" pin="M0"/>
-<wire x1="535.94" y1="-220.98" x2="515.62" y2="-220.98" width="0.1524" layer="91" grouprefs="LORA"/>
-<label x="513.08" y="-220.98" size="1.778" layer="95" grouprefs="LORA"/>
-<pinref part="U12" gate="G$1" pin="M1"/>
-<wire x1="535.94" y1="-220.98" x2="535.94" y2="-223.52" width="0.1524" layer="91" grouprefs="LORA"/>
-<junction x="535.94" y="-220.98" grouprefs="LORA"/>
-</segment>
 <segment>
 <pinref part="U11" gate="G$1" pin="PD7"/>
 <wire x1="519.43" y1="34.925" x2="488.95" y2="34.925" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="488.95" y="34.925" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
+<segment>
+<pinref part="U16" gate="G$1" pin="A1"/>
+<wire x1="508" y1="-210.82" x2="472.44" y2="-210.82" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="472.44" y="-210.82" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="U14" gate="G$1" pin="GND"/>
-<wire x1="612.14" y1="-60.96" x2="632.46" y2="-60.96" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<wire x1="642.62" y1="-63.5" x2="662.94" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
 <pinref part="Q5" gate="G$1" pin="C"/>
 </segment>
 </net>
@@ -3738,7 +3966,7 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <segment>
 <pinref part="Q5" gate="G$1" pin="B"/>
 <pinref part="R22" gate="G$1" pin="P$2"/>
-<wire x1="604.52" y1="-53.34" x2="600.71" y2="-53.34" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<wire x1="635" y1="-55.88" x2="631.19" y2="-55.88" width="0.1524" layer="91" grouprefs="DISPLAY"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -3841,11 +4069,6 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <label x="332.74" y="-73.66" size="1.778" layer="95" grouprefs="SUPPLY_SYSTEM_CONNECTOR"/>
 </segment>
 <segment>
-<pinref part="J6" gate="G$1" pin="PIN1"/>
-<wire x1="487.68" y1="-81.28" x2="525.78" y2="-81.28" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-<label x="495.3" y="-81.28" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS"/>
-</segment>
-<segment>
 <pinref part="U11" gate="G$1" pin="PB2"/>
 <wire x1="560.07" y1="34.925" x2="600.71" y2="34.925" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
 <label x="565.15" y="34.925" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
@@ -3854,6 +4077,11 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 <pinref part="Q2" gate="G$1" pin="G1"/>
 <wire x1="43.18" y1="-190.5" x2="10.16" y2="-190.5" width="0.1524" layer="91" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
 <label x="5.08" y="-190.5" size="1.778" layer="95" grouprefs="DISCHARGE_CONTROL_AND_POWER_SWITCH"/>
+</segment>
+<segment>
+<pinref part="J6" gate="G$1" pin="PIN1"/>
+<wire x1="469.9" y1="-93.98" x2="508" y2="-93.98" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="477.52" y="-93.98" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -3994,8 +4222,13 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="SCL"/>
-<wire x1="632.46" y1="-63.5" x2="617.22" y2="-63.5" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="617.22" y="-63.5" size="1.778" layer="95" grouprefs="DISPLAY"/>
+<wire x1="662.94" y1="-66.04" x2="647.7" y2="-66.04" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="647.7" y="-66.04" size="1.778" layer="95" grouprefs="DISPLAY"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="SCK"/>
+<wire x1="506.73" y1="1.27" x2="487.68" y2="1.27" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="487.68" y="1.27" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 <net name="I2C2_SDA" class="0">
@@ -4006,52 +4239,142 @@ Case #4 (PRIM BAD, RESERVE BAD, SUPPLY_CONTROL_+5V line OK): D+ &lt; D- [0V &lt;
 </segment>
 <segment>
 <pinref part="U14" gate="G$1" pin="SDA"/>
-<wire x1="632.46" y1="-66.04" x2="617.22" y2="-66.04" width="0.1524" layer="91" grouprefs="DISPLAY"/>
-<label x="617.22" y="-66.04" size="1.778" layer="95" grouprefs="DISPLAY"/>
+<wire x1="662.94" y1="-68.58" x2="647.7" y2="-68.58" width="0.1524" layer="91" grouprefs="DISPLAY"/>
+<label x="647.7" y="-68.58" size="1.778" layer="95" grouprefs="DISPLAY"/>
+</segment>
+<segment>
+<pinref part="J10" gate="G$1" pin="MISO"/>
+<wire x1="506.73" y1="-1.27" x2="487.68" y2="-1.27" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="487.68" y="-1.27" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="3V3" class="0">
+<segment>
+<pinref part="U15" gate="G$1" pin="OUT"/>
+<pinref part="C12" gate="G$1" pin="PIN_PLUS"/>
+<wire x1="523.24" y1="-58.42" x2="530.86" y2="-58.42" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<wire x1="530.86" y1="-58.42" x2="556.26" y2="-58.42" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<junction x="530.86" y="-58.42" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+<label x="551.18" y="-58.42" size="1.778" layer="95" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
+</segment>
+<segment>
+<pinref part="U16" gate="G$1" pin="VCCB"/>
+<wire x1="533.4" y1="-208.28" x2="543.56" y2="-208.28" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="538.48" y="-208.28" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
+<segment>
+<pinref part="U17" gate="G$1" pin="VCCB"/>
+<wire x1="533.4" y1="-231.14" x2="543.56" y2="-231.14" width="0.1524" layer="91" grouprefs="LORA1"/>
+<label x="538.48" y="-231.14" size="1.778" layer="95" grouprefs="LORA1"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="U16" gate="G$1" pin="B1"/>
+<wire x1="533.4" y1="-210.82" x2="561.34" y2="-210.82" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="M0"/>
+<wire x1="561.34" y1="-210.82" x2="561.34" y2="-226.06" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="M1"/>
+<wire x1="561.34" y1="-226.06" x2="561.34" y2="-228.6" width="0.1524" layer="91" grouprefs="LORA1"/>
+<junction x="561.34" y="-226.06" grouprefs="LORA1"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<wire x1="561.34" y1="-231.14" x2="558.8" y2="-231.14" width="0.1524" layer="91" grouprefs="LORA1"/>
+<wire x1="558.8" y1="-231.14" x2="558.8" y2="-213.36" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U16" gate="G$1" pin="B2"/>
+<wire x1="558.8" y1="-213.36" x2="533.4" y2="-213.36" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="RX"/>
+</segment>
+</net>
+<net name="N$32" class="0">
+<segment>
+<pinref part="U17" gate="G$1" pin="B1"/>
+<wire x1="533.4" y1="-233.68" x2="561.34" y2="-233.68" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="TX"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="U17" gate="G$1" pin="B2"/>
+<wire x1="533.4" y1="-236.22" x2="561.34" y2="-236.22" width="0.1524" layer="91" grouprefs="LORA1"/>
+<pinref part="U12" gate="G$1" pin="AUX"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="J10" gate="G$1" pin="RESET"/>
+<wire x1="506.73" y1="3.81" x2="487.68" y2="3.81" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="487.68" y="3.81" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="SERIAL_TX" class="0">
+<segment>
+<pinref part="J10" gate="G$1" pin="TXD"/>
+<wire x1="527.05" y1="6.35" x2="543.56" y2="6.35" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="530.86" y="6.35" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
+</segment>
+</net>
+<net name="SERIAL_RX" class="0">
+<segment>
+<pinref part="J10" gate="G$1" pin="RXD"/>
+<wire x1="527.05" y1="3.81" x2="543.56" y2="3.81" width="0.1524" layer="91" grouprefs="LOGIC_AVR"/>
+<label x="530.86" y="3.81" size="1.778" layer="95" grouprefs="LOGIC_AVR"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="102,1,-69.85,71.12,GND,MINUS,,,,"/>
-<approved hash="102,1,-26.67,71.12,GND,MINUS,,,,"/>
-<approved hash="102,1,148.59,83.82,OUT,SUPPLY_CONTROL_+5V,,,,"/>
-<approved hash="102,1,157.48,-162.56,OUT,+5V,,,,"/>
-<approved hash="102,1,589.28,-99.06,VCC,+5V,,,,"/>
-<approved hash="102,1,535.94,-233.68,VCC,+5V,,,,"/>
-<approved hash="102,1,16.51,71.12,GND,MINUS,,,,"/>
-<approved hash="201,1,16.51,71.12,GND,MINUS\, GND,,,,"/>
-<approved hash="201,1,-26.67,71.12,GND,MINUS\, GND,,,,"/>
-<approved hash="201,1,-69.85,71.12,GND,MINUS\, GND,,,,"/>
-<approved hash="201,1,157.48,-162.56,OUT,SUPPLY_CONTROL_+5V\, +5V,,,,"/>
-<approved hash="201,1,148.59,83.82,OUT,SUPPLY_CONTROL_+5V\, +5V,,,,"/>
-<approved hash="104,1,128.27,83.82,U5,IN,N$1,,,"/>
-<approved hash="104,1,137.16,-162.56,U6,IN,N$5,,,"/>
-<approved hash="104,1,76.2,7.62,U2,VCC,SUPPLY_CONTROL_+5V,,,"/>
-<approved hash="104,1,520.7,30.48,U10,VCC,+5V,,,"/>
-<approved hash="104,1,561.34,30.48,U10,GND1,GND,,,"/>
-<approved hash="104,1,561.34,25.4,U10,AVCC,+5V,,,"/>
-<approved hash="104,1,632.46,-58.42,U13,VCC,+5V,,,"/>
-<approved hash="104,1,632.46,-60.96,U13,GND,N$10,,,"/>
+<approved hash="102,1,-80.01,71.12,GND,MINUS,,,,"/>
+<approved hash="102,1,-36.83,71.12,GND,MINUS,,,,"/>
+<approved hash="102,1,115.57,99.06,OUT,SUPPLY_CONTROL_+5V,,,,"/>
+<approved hash="102,1,157.48,-160.02,OUT,+5V,,,,"/>
+<approved hash="102,1,650.24,-99.06,VCC,+5V,,,,"/>
+<approved hash="102,1,6.35,71.12,GND,MINUS,,,,"/>
+<approved hash="102,1,160.02,86.36,OUT,SUPPLY_CONTROL_3V3,,,,"/>
+<approved hash="102,1,523.24,-58.42,OUT,3V3,,,,"/>
+<approved hash="102,1,561.34,-238.76,VCC,+5V,,,,"/>
+<approved hash="102,1,508,-208.28,VCCA,+5V,,,,"/>
+<approved hash="102,1,533.4,-208.28,VCCB,3V3,,,,"/>
+<approved hash="102,1,508,-231.14,VCCA,+5V,,,,"/>
+<approved hash="102,1,533.4,-231.14,VCCB,3V3,,,,"/>
+<approved hash="201,1,6.35,71.12,GND,MINUS\, GND,,,,"/>
+<approved hash="201,1,-36.83,71.12,GND,MINUS\, GND,,,,"/>
+<approved hash="201,1,-80.01,71.12,GND,MINUS\, GND,,,,"/>
+<approved hash="201,1,523.24,-58.42,OUT,SUPPLY_CONTROL_+5V\, +5V\, SUPPLY_CONTROL_3V3\, 3V3,,,,"/>
+<approved hash="201,1,160.02,86.36,OUT,SUPPLY_CONTROL_+5V\, +5V\, SUPPLY_CONTROL_3V3\, 3V3,,,,"/>
+<approved hash="201,1,157.48,-160.02,OUT,SUPPLY_CONTROL_+5V\, +5V\, SUPPLY_CONTROL_3V3\, 3V3,,,,"/>
+<approved hash="201,1,115.57,99.06,OUT,SUPPLY_CONTROL_+5V\, +5V\, SUPPLY_CONTROL_3V3\, 3V3,,,,"/>
+<approved hash="104,1,95.25,99.06,U5,IN,N$1,,,"/>
+<approved hash="104,1,137.16,-160.02,U6,IN,N$5,,,"/>
+<approved hash="104,1,76.2,10.16,U2,VCC,SUPPLY_CONTROL_+5V,,,"/>
+<approved hash="104,1,519.43,50.165,U11,VCC,+5V,,,"/>
+<approved hash="104,1,560.07,50.165,U11,GND1,GND,,,"/>
+<approved hash="104,1,560.07,45.085,U11,AVCC,+5V,,,"/>
+<approved hash="104,1,662.94,-60.96,U14,VCC,+5V,,,"/>
+<approved hash="104,1,662.94,-63.5,U14,GND,N$10,,,"/>
 <approved hash="104,1,632.46,-142.24,FAN1,VCC,N$14,,,"/>
 <approved hash="104,1,632.46,-157.48,FAN1,GND,N$15,,,"/>
 <approved hash="104,1,937.26,22.86,FAN2,VCC,+12V,,,"/>
 <approved hash="104,1,922.02,22.86,FAN2,GND,N$22,,,"/>
-<approved hash="104,1,356.87,51.435,U8,VCC,SUPPLY_AVR_+5V,,,"/>
-<approved hash="104,1,76.2,-50.8,U3,VDD,PRIMARY_SUPPLY_12V,,,"/>
-<approved hash="104,1,96.52,-50.8,U3,VB,PRIMARY_SUPPLY_12V,,,"/>
-<approved hash="104,1,78.74,-91.44,U4,VDD,RESERVE_SUPPLY_12V,,,"/>
-<approved hash="104,1,99.06,-91.44,U4,VB,RESERVE_SUPPLY_12V,,,"/>
-<approved hash="104,1,500.38,-165.1,U9,VDD,+12V,,,"/>
-<approved hash="104,1,520.7,-165.1,U9,VB,+12V,,,"/>
+<approved hash="104,1,356.87,51.435,U9,VCC,SUPPLY_AVR_+5V,,,"/>
+<approved hash="104,1,76.2,-48.26,U3,VDD,PRIMARY_SUPPLY_12V,,,"/>
+<approved hash="104,1,96.52,-48.26,U3,VB,PRIMARY_SUPPLY_12V,,,"/>
+<approved hash="104,1,78.74,-88.9,U4,VDD,RESERVE_SUPPLY_12V,,,"/>
+<approved hash="104,1,99.06,-88.9,U4,VB,RESERVE_SUPPLY_12V,,,"/>
+<approved hash="104,1,500.38,-165.1,U10,VDD,+12V,,,"/>
+<approved hash="104,1,520.7,-165.1,U10,VB,+12V,,,"/>
 <approved hash="104,1,387.35,27.94,J1,VCC,SUPPLY_AVR_+5V,,,"/>
 <approved hash="104,1,387.35,17.78,J1,GND1,GND,,,"/>
-<approved hash="104,1,58.42,-73.66,U1,VCC,SUPPLY_CONTROL_+5V,,,"/>
-<approved hash="104,1,139.7,-71.12,U7,VDD,RESERVE_+5V_SUPPLY,,,"/>
-<approved hash="104,1,160.02,-71.12,U7,VB,RESERVE_+5V_SUPPLY,,,"/>
+<approved hash="104,1,58.42,-71.12,U1,VCC,SUPPLY_CONTROL_+5V,,,"/>
+<approved hash="104,1,139.7,-68.58,U8,VDD,RESERVE_+5V_SUPPLY,,,"/>
+<approved hash="104,1,160.02,-68.58,U8,VB,RESERVE_+5V_SUPPLY,,,"/>
+<approved hash="104,1,139.7,86.36,U7,IN,SUPPLY_CONTROL_+5V,,,"/>
+<approved hash="104,1,502.92,-58.42,U15,IN,+5V,,,"/>
 <approved hash="105,1,426.72,-62.23,N$20,,,,,"/>
-<approved hash="105,1,782.32,-64.77,N$21,,,,,"/>
+<approved hash="105,1,759.46,-71.755,N$21,,,,,"/>
 </errors>
 </schematic>
 </drawing>

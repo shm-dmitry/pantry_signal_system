@@ -480,7 +480,7 @@
 <schematic_group name="LORA"/>
 </groups>
 <parts>
-<part name="U12" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
+<part name="U2" library="my_devices" deviceset="LORA" device="" value="E220-900T22D"/>
 <part name="U1" library="my_devices" deviceset="ESP32" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -496,7 +496,7 @@
 <text x="-27.94" y="165.1" size="1.778" layer="91" grouprefs="ESP32">https://mikrokontroler.pl/wp-content/uploads/2020/07/esp32-devkit-pinout.png</text>
 </plain>
 <instances>
-<instance part="U12" gate="G$1" x="203.2" y="127" smashed="yes" grouprefs="LORA">
+<instance part="U2" gate="G$1" x="203.2" y="127" smashed="yes" grouprefs="LORA">
 <attribute name="NAME" x="205.74" y="132.08" size="1.778" layer="94"/>
 <attribute name="VALUE" x="205.74" y="124.46" size="1.778" layer="94"/>
 </instance>
@@ -549,7 +549,7 @@
 </segment>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
-<pinref part="U12" gate="G$1" pin="GND"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
 <wire x1="182.88" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91" grouprefs="LORA"/>
 </segment>
 <segment>
@@ -577,7 +577,7 @@
 <junction x="-73.66" y="137.16" grouprefs="SUPPLY"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="VCC"/>
+<pinref part="U2" gate="G$1" pin="VCC"/>
 <wire x1="185.42" y1="121.92" x2="175.26" y2="121.92" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="175.26" y="121.92" size="1.778" layer="95" grouprefs="LORA"/>
 </segment>
@@ -589,7 +589,7 @@
 <label x="-30.48" y="127" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="RX"/>
+<pinref part="U2" gate="G$1" pin="RX"/>
 <wire x1="185.42" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="157.48" y="129.54" size="1.778" layer="95"/>
 </segment>
@@ -601,7 +601,7 @@
 <label x="-30.48" y="124.46" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="TX"/>
+<pinref part="U2" gate="G$1" pin="TX"/>
 <wire x1="157.48" y1="127" x2="185.42" y2="127" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="157.48" y="127" size="1.778" layer="95"/>
 </segment>
@@ -613,7 +613,7 @@
 <label x="-30.48" y="121.92" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="AUX"/>
+<pinref part="U2" gate="G$1" pin="AUX"/>
 <wire x1="157.48" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="157.48" y="124.46" size="1.778" layer="95"/>
 </segment>
@@ -625,8 +625,8 @@
 <label x="-30.48" y="129.54" size="1.778" layer="95" grouprefs="ESP32"/>
 </segment>
 <segment>
-<pinref part="U12" gate="G$1" pin="M1"/>
-<pinref part="U12" gate="G$1" pin="M0"/>
+<pinref part="U2" gate="G$1" pin="M1"/>
+<pinref part="U2" gate="G$1" pin="M0"/>
 <wire x1="157.48" y1="132.08" x2="185.42" y2="132.08" width="0.1524" layer="91" grouprefs="LORA"/>
 <wire x1="185.42" y1="132.08" x2="185.42" y2="134.62" width="0.1524" layer="91" grouprefs="LORA"/>
 <junction x="185.42" y="134.62" grouprefs="LORA"/>

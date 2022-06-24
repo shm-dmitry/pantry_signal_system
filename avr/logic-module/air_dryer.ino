@@ -6,6 +6,7 @@
 void air_dryer_init() {
   pinMode(AIR_DRYER_PIN,  OUTPUT);
   digitalWrite(AIR_DRYER_PIN, LOW);
+  Serial.println("Air dryer OK");
 }
 
 void air_dryer_set(boolean enabled) {

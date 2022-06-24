@@ -16,9 +16,9 @@ typedef struct ModuleData {
 };
 
 #define CONTINUE_MEASUREMEAT_AFTER_WAKEUP_OFF (20 * 1000L)
-#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
-//#define REQUEST_FULL_DATA_EVERY_MS            1
-#define PRINT_DATA_OBJECT false
+//#define REQUEST_FULL_DATA_EVERY_MS            (5 * 60 * 1000L)
+#define REQUEST_FULL_DATA_EVERY_MS            1
+#define PRINT_DATA_OBJECT                     false
 
 unsigned long nextFullDataRequest = 0;
 bool isInAlarmNow = false;
@@ -27,6 +27,8 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
     Serial.println("starting");
+
+  delay(100);
 
   bme280_initialize();
   flooding_init();
