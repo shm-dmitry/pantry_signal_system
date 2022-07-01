@@ -1332,7 +1332,7 @@
 <part name="R21" library="my_devices" deviceset="R" device="" value="10K"/>
 <part name="U14" library="my_devices" deviceset="I2C_DISPLAY" device="" value="2004A I2C"/>
 <part name="Q5" library="my_devices" deviceset="TRANSISTOR_NPN" device="" value="2N3904"/>
-<part name="C10" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
+<part name="C10" library="my_devices" deviceset="C" device="MINI-5X7" value="22000 uF"/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U13" library="my_devices" deviceset="BME280" device="BME280-CONNECTOR-ONLY"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>

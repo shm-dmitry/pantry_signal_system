@@ -1371,7 +1371,7 @@
 <part name="U15" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="SOT-23A" value="MCP1703T-3302E/CB"/>
 <part name="GND48" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C12" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
-<part name="C1" library="my_devices" deviceset="C-1" device=""/>
+<part name="C1" library="my_devices" deviceset="C-1" device="" value="0.1 uF"/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>

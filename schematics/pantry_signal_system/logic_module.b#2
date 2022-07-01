@@ -622,7 +622,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="38.1" y="35.56" size="1.27" layer="21"/>
 </element>
 <element name="R20" library="my_devices" package="R" value="10K" x="31.75" y="48.26" smashed="yes" rot="R90">
-<attribute name="NAME" x="35.56" y="44.45" size="1.27" layer="21" rot="R180"/>
+<attribute name="NAME" x="35.052" y="44.196" size="1.27" layer="21" rot="R180"/>
 <attribute name="R" value="" x="123.19" y="68.58" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R21" library="my_devices" package="R" value="10K" x="31.75" y="63.5" smashed="yes" rot="R90">
@@ -630,7 +630,7 @@ design rules under a new name.</description>
 <attribute name="R" value="" x="123.19" y="99.06" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R22" library="my_devices" package="R" value="620" x="35.56" y="48.26" smashed="yes" rot="R270">
-<attribute name="NAME" x="36.83" y="43.18" size="1.27" layer="21"/>
+<attribute name="NAME" x="36.322" y="42.926" size="1.27" layer="21"/>
 <attribute name="R" value="" x="-55.88" y="-2.54" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R23" library="my_devices" package="R" value="1M" x="45.72" y="69.85" smashed="yes">
@@ -638,7 +638,7 @@ design rules under a new name.</description>
 <attribute name="R" value="" x="66.04" y="-25.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R24" library="my_devices" package="R" value="2M" x="65.024" y="44.196" smashed="yes" rot="R180">
-<attribute name="NAME" x="76.2" y="44.704" size="1.27" layer="21" rot="R180"/>
+<attribute name="NAME" x="72.898" y="46.482" size="1.27" layer="21" rot="R180"/>
 <attribute name="R" value="" x="29.464" y="139.446" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R25" library="my_devices" package="R" value="2M" x="69.85" y="35.56" smashed="yes" rot="R90">
@@ -646,7 +646,7 @@ design rules under a new name.</description>
 <attribute name="R" value="" x="165.1" y="86.36" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R26" library="my_devices" package="R" value="2M" x="65.024" y="48.006" smashed="yes">
-<attribute name="NAME" x="72.898" y="47.244" size="1.27" layer="21"/>
+<attribute name="NAME" x="69.85" y="49.022" size="1.27" layer="21"/>
 <attribute name="R" value="" x="85.344" y="-51.054" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R27" library="my_devices" package="RF" value="GL5528" x="59.182" y="67.31" smashed="yes">
@@ -665,7 +665,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="46.99" y="50.038" size="1.27" layer="21"/>
 </element>
 <element name="U12" library="my_devices" package="LORA" value="E220-900T22D" x="57.15" y="45.72" smashed="yes" rot="MR0">
-<attribute name="NAME" x="73.66" y="46.99" size="1.27" layer="22" rot="MR0"/>
+<attribute name="NAME" x="71.374" y="45.466" size="1.27" layer="22" rot="MR0"/>
 </element>
 <element name="U13" library="my_devices" package="BME280-CONNECTOR-ONLY" value="BME280BME280-CONNECTOR-ONLY" x="68.58" y="64.77" smashed="yes" rot="R270"/>
 <element name="U14" library="my_devices" package="I2C_DISPLAY" value="2004A I2C" x="62.23" y="39.37" smashed="yes" rot="R180">

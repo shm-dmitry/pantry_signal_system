@@ -1371,6 +1371,8 @@
 <part name="U15" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="SOT-23A" value="MCP1703T-3302E/CB"/>
 <part name="GND48" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C12" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
+<part name="C1" library="my_devices" deviceset="C-1" device=""/>
+<part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1556,6 +1558,13 @@
 <attribute name="NAME" x="-60.96" y="7.62" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="-73.66" y="7.62" size="1.778" layer="94" rot="R270"/>
 </instance>
+<instance part="C1" gate="G$1" x="25.4" y="106.68" smashed="yes" rot="R90">
+<attribute name="NAME" x="22.225" y="102.235" size="1.778" layer="94" rot="R90"/>
+<attribute name="VALUE" x="30.48" y="102.235" size="1.778" layer="94" rot="R90"/>
+</instance>
+<instance part="GND3" gate="1" x="25.4" y="93.98" smashed="yes">
+<attribute name="VALUE" x="22.86" y="91.44" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1672,6 +1681,11 @@
 <wire x1="-66.04" y1="-2.54" x2="-83.82" y2="-2.54" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <junction x="-83.82" y="-2.54" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="P$1"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="25.4" y1="99.06" x2="25.4" y2="96.52" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -1766,6 +1780,11 @@
 <pinref part="U16" gate="G$1" pin="DIR"/>
 <wire x1="-25.4" y1="-119.38" x2="-15.24" y2="-119.38" width="0.1524" layer="91" grouprefs="LORA"/>
 <label x="-20.32" y="-119.38" size="1.778" layer="95" grouprefs="LORA"/>
+</segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="P$2"/>
+<wire x1="25.4" y1="114.3" x2="35.56" y2="114.3" width="0.1524" layer="91"/>
+<label x="30.48" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SUPPLY_UART_TX" class="0">

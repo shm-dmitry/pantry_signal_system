@@ -1368,9 +1368,9 @@
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U7" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="SOT-23A" value="MCP1703T-3302E/CB"/>
+<part name="U15" library="my_devices" deviceset="VOLTAGE_REGULATOR" device="SOT-23A" value="MCP1703T-3302E/CB"/>
 <part name="GND48" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C6" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
+<part name="C12" library="my_devices" deviceset="C" device="MINI-5X7" value="10 uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -1545,14 +1545,14 @@
 <instance part="GND2" gate="1" x="0" y="-147.32" smashed="yes" grouprefs="LORA">
 <attribute name="VALUE" x="-2.54" y="-149.86" size="1.778" layer="96"/>
 </instance>
-<instance part="U7" gate="G$1" x="-83.82" y="7.62" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<instance part="U15" gate="G$1" x="-83.82" y="7.62" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
 <attribute name="NAME" x="-86.36" y="17.78" size="1.778" layer="94"/>
 <attribute name="VALUE" x="-86.36" y="15.24" size="1.778" layer="94"/>
 </instance>
 <instance part="GND48" gate="1" x="-83.82" y="-5.08" smashed="yes" grouprefs="LOGIC_BLOCK_CONNECTORS1">
 <attribute name="VALUE" x="-86.36" y="-7.62" size="1.778" layer="96"/>
 </instance>
-<instance part="C6" gate="G$1" x="-66.04" y="2.54" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
+<instance part="C12" gate="G$1" x="-66.04" y="2.54" smashed="yes" rot="R270" grouprefs="LOGIC_BLOCK_CONNECTORS1">
 <attribute name="NAME" x="-60.96" y="7.62" size="1.778" layer="94" rot="R270"/>
 <attribute name="VALUE" x="-73.66" y="7.62" size="1.778" layer="94" rot="R270"/>
 </instance>
@@ -1665,10 +1665,10 @@
 <pinref part="U12" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U7" gate="G$1" pin="GND"/>
+<pinref part="U15" gate="G$1" pin="GND"/>
 <pinref part="GND48" gate="1" pin="GND"/>
 <wire x1="-83.82" y1="0" x2="-83.82" y2="-2.54" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<pinref part="C6" gate="G$1" pin="PIN_GND"/>
+<pinref part="C12" gate="G$1" pin="PIN_GND"/>
 <wire x1="-66.04" y1="-2.54" x2="-83.82" y2="-2.54" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <junction x="-83.82" y="-2.54" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 </segment>
@@ -1681,7 +1681,7 @@
 <pinref part="C10" gate="G$1" pin="PIN_PLUS"/>
 <wire x1="-104.14" y1="22.86" x2="-93.98" y2="22.86" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <junction x="-104.14" y="22.86" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
-<pinref part="U7" gate="G$1" pin="IN"/>
+<pinref part="U15" gate="G$1" pin="IN"/>
 <wire x1="-93.98" y1="22.86" x2="-88.9" y2="22.86" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <wire x1="-93.98" y1="10.16" x2="-93.98" y2="22.86" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <junction x="-93.98" y="22.86" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
@@ -2102,8 +2102,8 @@
 </net>
 <net name="3V3" class="0">
 <segment>
-<pinref part="U7" gate="G$1" pin="OUT"/>
-<pinref part="C6" gate="G$1" pin="PIN_PLUS"/>
+<pinref part="U15" gate="G$1" pin="OUT"/>
+<pinref part="C12" gate="G$1" pin="PIN_PLUS"/>
 <wire x1="-73.66" y1="10.16" x2="-66.04" y2="10.16" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <wire x1="-66.04" y1="10.16" x2="-40.64" y2="10.16" width="0.1524" layer="91" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
 <junction x="-66.04" y="10.16" grouprefs="LOGIC_BLOCK_CONNECTORS1"/>
