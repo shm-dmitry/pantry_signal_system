@@ -16,7 +16,11 @@
 
 #define LORA_ADDRESS              0x1234
 #define LORA_SECRET               0x5678
-#define LORA_ENABLE_CONFIRURE     false
+#define LORA_CHANNEL              0x11
+
+#define LORA_ENABLE_CONFIG_ADDR   false
+#define LORA_ENABLE_CONFIG_SECR   false
+#define LORA_ENABLE_CONFIG_CHNL   false
 
 #endif
 

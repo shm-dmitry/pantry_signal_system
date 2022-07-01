@@ -1,13 +1,20 @@
 #include <GyverPower.h>
 
 #define DEEPSLEEP_ISR_WAKEUP_BUTTON    0
-#define DEEPSLEEP_TIMEOUT              (3 * 1000)
-#define DEEPSLEEP_ENABLED              false
+#define DEEPSLEEP_TIMEOUT              (30 * 1000)
+#define DEEPSLEEP_ENABLED              true
 
 void deepsleep_init() {
+#if DEEPSLEEP_ENABLED
   power.setSleepMode(POWERDOWN_SLEEP);
   power.autoCalibrate();
+#endif
+ 
   Serial.println("Deep sleep OK");
+}
+
+void deepsleep_reboot() {
+  asm volatile ("jmp 0");
 }
 
 void deepsleep_sleep() {
@@ -22,7 +29,7 @@ void deepsleep_sleep() {
 
   Serial.println("Controller waked up.");
 #else
-  delay(10);
+  delay(100);
 #endif
 }
 
