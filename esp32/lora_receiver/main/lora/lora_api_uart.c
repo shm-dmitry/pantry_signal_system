@@ -71,7 +71,7 @@ bool lora_api_uart_configure_byte(uint8_t address, uint8_t value) {
 	uint8_t await = LORA_CONFIGURE_AWAIT_RESPONSE_TIMEOUT / 20;
 	for (uint8_t i = 0; i<=await; ) {
 		uint8_t buf = 0;
-		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_RATE_MS);
+		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_PERIOD_MS);
 		if (readed > 0) {
 			if (buf != buffer[bytes]) {
 				ESP_LOGE(LORA_LOG, "Configure LoRa ERROR: Invalid return byte %d : %d expected %d", bytes, buf, buffer[bytes]);
@@ -114,7 +114,7 @@ bool lora_api_uart_configure_word(uint8_t address, uint16_t value) {
 	uint8_t await = LORA_CONFIGURE_AWAIT_RESPONSE_TIMEOUT / 20;
 	for (uint8_t i = 0; i<=await; ) {
 		uint8_t buf = 0;
-		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_RATE_MS);
+		int readed = uart_read_bytes(LORA_UART_PORT, &buf, 1, 1 / portTICK_PERIOD_MS);
 		if (readed > 0) {
 			if (buf != buffer[bytes]) {
 				ESP_LOGE(LORA_LOG, "Configure LoRa ERROR: Invalid return byte %d : %d expected %d", bytes, buf, buffer[bytes]);
@@ -142,7 +142,7 @@ int lora_api_uart_read(uint8_t * buffer, int size) {
 	uint8_t await = LORA_READ_DATA_TIMEOUT / 20;
 	int index = 0;
 	for (uint8_t i = 0; i<=await; ) {
-		int readed = uart_read_bytes(LORA_UART_PORT, buffer + index, size - index, 1 / portTICK_RATE_MS);
+		int readed = uart_read_bytes(LORA_UART_PORT, buffer + index, size - index, 1 / portTICK_PERIOD_MS);
 		if (readed > 0) {
 			index += readed;
 			if (index >= size) {

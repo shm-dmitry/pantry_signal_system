@@ -15,7 +15,7 @@ typedef struct mqtt_callback_mapping_t {
 
 mqtt_callback_mapping_t* callbacks = NULL;
 uint8_t callbacks_count = 0;
-esp_mqtt_client_handle_t client;
+esp_mqtt_client_handle_t client = NULL;
 
 static void mqtt_event_handler_cb(esp_mqtt_event_handle_t event) {
 	if (callbacks_count == 0 || event == NULL) {
@@ -109,17 +109,20 @@ void mqtt_subscribe(const char * topic, mqtt_topic_callback_t callback) {
 
 void mqtt_start() {
 	esp_mqtt_client_config_t mqtt_cfg = {
-		.uri = CONFIG_MQTT_BROKER_URI,
-		.username = CONFIG_MQTT_BROKER_USERNAME,
-		.password = CONFIG_MQTT_BROKER_PASSWORD,
+		.broker.address.uri = CONFIG_MQTT_BROKER_URI,
+		.credentials = {
+			.username = CONFIG_MQTT_BROKER_USERNAME,
+			.authentication.password = CONFIG_MQTT_BROKER_PASSWORD,
+		},
 	};
 
-	client = esp_mqtt_client_init(&mqtt_cfg);
-    esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
-    if (esp_mqtt_client_start(client)) {
-    	client = NULL;
+	esp_mqtt_client_handle_t temp = esp_mqtt_client_init(&mqtt_cfg);
+    esp_mqtt_client_register_event(temp, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
+    if (esp_mqtt_client_start(temp)) {
+    	esp_mqtt_client_destroy(temp);
     	ESP_LOGE(MQTT_LOG, "Cant start MQTT client!");
     } else {
+    	client = temp;
     	ESP_LOGI(MQTT_LOG, "MQTT started");
     }
 }

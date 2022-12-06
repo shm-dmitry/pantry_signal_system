@@ -1,6 +1,9 @@
 #include "cjson_helper.h"
 
 #include "stdlib.h"
+#include "stddef.h"
+#include "stdio.h"
+#include "../log.h"
 
 uint8_t get_boolean_from_json(cJSON * elem, uint8_t if_true, uint8_t if_false, uint8_t if_not_set) {
 	if (cJSON_IsBool(elem)) {

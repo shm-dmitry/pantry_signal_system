@@ -78,12 +78,16 @@ void display_init() {
 }
 
 void display_off() {
+  Serial.println("Display OFF");
+
   digitalWrite(ENABLE_DISPLAY_PIN, LOW);
 }
 
 void display_write(const ModuleData * data) {
   digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
   delay(50); // await display startup
+
+  Serial.println("Display ON");
 
   LCD_I2C2 lcd(DISPLAY_I2C_ADDRESS, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, DISPLAY_COL_COUNT, DISPLAY_ROW_COUNT); 
   lcd.begin();
@@ -102,6 +106,8 @@ void display_write(const ModuleData * data) {
 void display_write_message(const char * message) {
   digitalWrite(ENABLE_DISPLAY_PIN, HIGH);
   delay(50); // await display startup
+
+  Serial.println("Display ON");
 
   LCD_I2C2 lcd(DISPLAY_I2C_ADDRESS, DISPLAY_PIN_SCL, DISPLAY_PIN_SDA, DISPLAY_COL_COUNT, DISPLAY_ROW_COUNT); 
   lcd.begin();

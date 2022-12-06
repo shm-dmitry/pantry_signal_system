@@ -10,6 +10,7 @@ void air_dryer_init() {
 }
 
 void air_dryer_set(boolean enabled) {
+  Serial.print(enabled ? "Switch air dryer ON" : "Switch air dryer OFFel");
   digitalWrite(AIR_DRYER_PIN, enabled ? HIGH : LOW);
 }
 

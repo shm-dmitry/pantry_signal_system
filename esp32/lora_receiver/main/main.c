@@ -3,6 +3,8 @@
 #include "init/init.h"
 #include "init/mqtt.h"
 #include "lora/lora.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 void app_main(void)
 {
@@ -13,5 +15,9 @@ void app_main(void)
 	lora_init(CONFIG_LORA_STATUS_MQTT_TOPIC, CONFIG_LORA_M0M1_PIN, CONFIG_LORA_AUX_PIN, CONFIG_LORA_RX, CONFIG_LORA_TX);
 
 	mqtt_start();
+
+    while(true) {
+		vTaskDelay(100 / portTICK_PERIOD_MS);
+	}
 }
 
