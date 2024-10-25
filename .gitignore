@@ -8,3 +8,4 @@ schematics/pantry_signal_system_kicad/supply-backups/*.zip
 3d_models/*.FCStd1
 schematics/pantry_signal_system_kicad/full_schema-backups/
 schematics/pss_v2/pss_v2-backups
+schematics/pss_v2_fan_block/pss_v2_fan_block-backups/
