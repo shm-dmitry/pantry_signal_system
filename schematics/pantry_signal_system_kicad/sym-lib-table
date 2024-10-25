@@ -1,4 +1,4 @@
 (sym_lib_table
   (version 0)
-  (lib (name "supply-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/supply-eagle-import.kicad_sym")(options "")(descr ""))
+  (lib (name "full_schema-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/full_schema-eagle-import.kicad_sym")(options "")(descr ""))
 )
